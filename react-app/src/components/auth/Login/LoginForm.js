@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import { login } from '../../../store/session';
-import mypic from '../../../images/GenZlogo.png';
+import mypic from '../../../images/GenZon-logos_black.png';
 import './Loginform.css'
 
 const LoginForm = () => {
@@ -20,6 +20,12 @@ const LoginForm = () => {
     }
   };
 
+  const demoUser = async (e) =>{
+    e.preventDefault();
+
+    await dispatch(login('sifuhotman','123321'));
+  }
+
   const updateEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -35,24 +41,24 @@ const LoginForm = () => {
   return (
     <>
       <div className='login-big-div'>
-        <img width='80' src={mypic} alt='cool' ></img>
+        <img width='200' src={mypic} alt='cool' ></img>
         <div className='loginform'>
           <div className='realForm'>
 
             <h1 className='signin'>Sign-In</h1>
 
             <div>
-                <div className='signinerrors'>
-                  {errors.map((error, ind) => (
-                    <div key={ind}>{error}</div>
-                  ))}
-                </div>
+              <div className='signinerrors'>
+                {errors.map((error, ind) => (
+                  <div key={ind}>{error}</div>
+                ))}
+              </div>
               <form onSubmit={onLogin}>
                 <div className='username-thingy-signin'>
                   <label className='labelusername' htmlFor='email'>Username</label>
                   <input
                     className='input-thingy-singin'
-                    name='email'
+                    name='username'
                     type='text'
                     value={email}
                     onChange={updateEmail}
@@ -70,8 +76,16 @@ const LoginForm = () => {
                   <button className='submitsigninform' type='submit'>Sign In</button>
                 </div>
               </form>
+
             </div>
           </div>
+          <div className='somethinghahah'>
+
+            <h5 className='newToGenzon'>New to GenZon?</h5>
+          </div>
+          <button onClick={demoUser} className='createyourgenzonaccount' type='submit'>Login as Demo User</button>
+          <NavLink to={'/signup'}><button className='createyourgenzonaccount' type='submit'>Create your GenZon account</button></NavLink>
+
         </div>
       </div>
 
