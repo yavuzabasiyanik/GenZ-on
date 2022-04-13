@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField
-from wtforms.validators import DataRequired, Email, ValidationError
+from wtforms.validators import DataRequired, Email, ValidationError, URL
 from app.models import User
 
 
@@ -19,9 +19,25 @@ def username_exists(form, field):
     if user:
         raise ValidationError('Username is already in use.')
 
+def password_match(form, field):
+
+    password = field.data
+    confirmPassword = form.data['confirmPassword'];
+
+    if password !=confirmPassword:
+        raise ValidationError('Passwords do not match!')
+
+
+def img_check(form ,field):
+    url = field.data
+
+    if not (url[-3:] in 'png pd jpg jpeg gif' ):
+        raise ValidationError('Images Only!')
+
 
 class SignUpForm(FlaskForm):
     username = StringField(
         'username', validators=[DataRequired(), username_exists])
-    profilePic = StringField('profilePic', validators=[DataRequired()])
-    password = StringField('password', validators=[DataRequired()])
+    profilePic = StringField('profilePic', validators=[DataRequired(),img_check,URL()])
+    password = StringField('password', validators=[DataRequired(),password_match])
+    confirmPassword = StringField('confirm password', validators=[])

@@ -17,12 +17,12 @@ const SignUpForm = () => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
-    if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, profilePic, password));
+    // if (password === repeatPassword) {
+      const data = await dispatch(signUp(username, profilePic, password,repeatPassword));
       if (data) {
         setErrors(data)
       }
-    }
+    // }
   };
 
   const demoUser = async (e) =>{
