@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import LoginForm from './components/auth/LoginForm';
-import SignUpForm from './components/auth/SignUpForm';
+import { useDispatch, useSelector } from 'react-redux';
+import LoginForm from './components/auth/Login/LoginForm';
+import SignUpForm from './components/auth/Signup/SignUpForm';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
@@ -12,6 +12,8 @@ import { authenticate } from './store/session';
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
+
+  const user = useSelector(state => state.session.user);
 
   useEffect(() => {
     (async() => {
@@ -24,14 +26,19 @@ function App() {
     return null;
   }
 
+
+
   return (
     <BrowserRouter>
+    {
+      user &&
       <NavBar />
+    }
       <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
-        <Route path='/sign-up' exact={true}>
+        <Route path='/signup' exact={true}>
           <SignUpForm />
         </Route>
         <ProtectedRoute path='/users' exact={true} >

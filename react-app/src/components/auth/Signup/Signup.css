@@ -1,0 +1,12 @@
+.login-big-div-signup {
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.createyourgenzonaccount{
+    margin-top: 20px;
+}
