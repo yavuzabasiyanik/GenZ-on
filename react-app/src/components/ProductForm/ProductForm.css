@@ -2,7 +2,20 @@
 .form-main-div-product-sell{
     display: flex;
     width: 100%;
-    height: 100vh;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    top: 18%;
+}
+
+.ana-form{
+    width: 950px;
+    height: 600px;
+    background-color: white;
+    border: 1px #ddd solid;
+    /* box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px; */
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }

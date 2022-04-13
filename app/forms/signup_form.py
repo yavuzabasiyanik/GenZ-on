@@ -31,13 +31,13 @@ def password_match(form, field):
 def img_check(form ,field):
     url = field.data
 
-    if not (url[-3:] in 'png pd jpg jpeg gif' ):
+    if not (url[-3:] in 'png jpg jpeg gif' ):
         raise ValidationError('Images Only!')
 
 
 class SignUpForm(FlaskForm):
     username = StringField(
         'username', validators=[DataRequired(), username_exists])
-    profilePic = StringField('profilePic', validators=[DataRequired(),img_check,URL()])
+    profilePic = StringField('profilePic', validators=[DataRequired(),img_check ,URL()])
     password = StringField('password', validators=[DataRequired(),password_match])
     confirmPassword = StringField('confirm password', validators=[])
