@@ -10,7 +10,8 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import ProductForm from './components/ProductForm/ProductForm';
 import { productLoad } from './store/product';
-
+import Home from './components/Home/Home';
+import UpdateForm from './components/ProductForm/UpdateForm';
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -53,12 +54,15 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
-        </ProtectedRoute>
         <ProtectedRoute path='/product/sell'>
           <ProductForm />
         </ProtectedRoute>
+        <ProtectedRoute path='/product/update/:product_id' >
+          <UpdateForm />
+        </ProtectedRoute>
+        <Route path='/' exact={true} >
+          <Home />
+        </Route>
       </Switch>
     </BrowserRouter>
   );

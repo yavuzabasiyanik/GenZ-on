@@ -55,7 +55,7 @@ def deleteProduct(product_id):
 
     db.session.delete(product)
     db.session.commit()
-    return {"product_id": product_id}
+    return {"id": product_id}
 
 
 @product_routes.route('/update/<product_id>', methods=['PUT'])

@@ -7,7 +7,7 @@ from app.models import User
 def img_check(form ,field):
     url = field.data
 
-    if not (url[-3:] in 'png pd jpg jpeg gif' ):
+    if not ('png' in url or 'pd' in url or 'jpg' in url or 'jpeg' in url or 'gif' in url):
         raise ValidationError('Images Only!')
 
 def price_check(form,field):

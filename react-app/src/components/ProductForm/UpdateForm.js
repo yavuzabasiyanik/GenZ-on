@@ -1,25 +1,44 @@
 import { useEffect, useState } from "react"
-import { useDispatch } from "react-redux";
-import "./ProductForm.css"
+import { useDispatch, useSelector } from "react-redux";
 import { createProduct } from "../../store/product";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
+import { updateProduct } from "../../store/product";
 
-const ProductForm = () => {
-    const [name, setName] = useState('');
-    const [description, setDescription] = useState('');
-    const [price, setPrice] = useState(0);
-    const [img, setImg] = useState('');
-    const [quantity, setQuantity] = useState(0);
-    const [category, setCategory] = useState('');
-    const [errors, setErrors] = useState([]);
+const UpdateForm = () => {
     const dispatch = useDispatch();
-
     const history = useHistory();
 
+    const products = useSelector(state => Object.values(state.products));
+    const {product_id} = useParams();
+    const theProduct = products.filter(el => {
+        return el?.id === +product_id
+    })[0]
 
-    const submitProductForm = async (e) => {
+    const [name, setName] = useState(theProduct?.name);
+    const [description, setDescription] = useState(theProduct?.description);
+    const [price, setPrice] = useState(theProduct?.price);
+    const [img, setImg] = useState(theProduct?.image_url);
+    const [quantity, setQuantity] = useState(theProduct?.quantity);
+    const [category, setCategory] = useState(theProduct?.category);
+    const [errors, setErrors] = useState([]);
+
+
+    // useEffect(()=>{
+
+    //     setName(theProduct?.name);
+    //     setDescription(theProduct?.description);
+    //     setPrice(theProduct?.price);
+    //     setImg(theProduct?.image_url);
+    //     setQuantity(theProduct?.quantity);
+    //     setCategory(theProduct?.category);
+
+
+    // },[theProduct])
+
+
+    const submitUpdateForm = async (e) => {
         e.preventDefault();
-        const data = await dispatch(createProduct(name,description,price,img,quantity,category));
+        const data = await dispatch(updateProduct(name,description,price,img,quantity,category,theProduct?.id));
 
         if (data) {
             setErrors(data);
@@ -33,7 +52,7 @@ const ProductForm = () => {
         <div className="form-main-div-product-sell">
             <div>
 
-                <form className="ana-form" onSubmit={submitProductForm}>
+                <form className="ana-form" onSubmit={submitUpdateForm}>
                     <div>
 
                         <label>Name</label>
@@ -81,7 +100,7 @@ const ProductForm = () => {
                     <div>
 
                         <label>Category</label>
-                        <select onChange={(e) => setCategory(e.target.value)} value={category}>
+                        <select onChange={(e) => setCategory(e.target.value)} value={category?.toLowerCase()}>
                             <option value=''>--Please choose a category--</option>
                             <option value='electronics'>Electronics</option>
                             <option value='fashion'>Fashion</option>
@@ -103,5 +122,4 @@ const ProductForm = () => {
     )
 }
 
-
-export default ProductForm
+export default UpdateForm

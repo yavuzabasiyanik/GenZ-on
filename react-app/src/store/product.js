@@ -1,5 +1,7 @@
 const LOAD_PRODUCTS = 'products/LOAD';
 const CREATE_PRODUCT = 'products/CREATE';
+const DELETE_PRODUCT = 'products/DELETE';
+const UPDATE_PRODUCT = 'products/UPDATE';
 
 
 const loadProduct = (products) => ({
@@ -11,6 +13,30 @@ const createProducAction = (product) => ({
     type: CREATE_PRODUCT,
     product
 })
+
+const deleteProductAction = (id) => ({
+    type: DELETE_PRODUCT,
+    id
+})
+
+const updateProductAction = (product) => ({
+    type: UPDATE_PRODUCT,
+    product
+})
+
+export const deleteProduct = (id) => async (dispatch) => {
+    const response = await fetch(`/api/products/delete/${id}`,{
+        method:"DELETE"
+    });
+
+
+    if (response.ok) {
+        const data = await response.json();
+
+        dispatch(deleteProductAction(data.id));
+    }
+    return response
+}
 
 
 export const productLoad = () => async (dispatch) => {
@@ -54,6 +80,37 @@ export const createProduct = (name, description, price, image_url, quantity, cat
     }
 }
 
+export const updateProduct = (name, description, price, image_url, quantity, category,product_id) => async (dispatch) => {
+    const response = await fetch(`/api/products/update/${product_id}`, {
+        method: 'PUT',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            name,
+            description,
+            image_url,
+            price,
+            quantity,
+            category
+        })
+    })
+
+    if (response.ok) {
+        const data = await response.json();
+
+        dispatch(updateProductAction(data));
+    } else {
+        const data = await response.json();
+        if (data.errors) {
+            return data.errors;
+        }
+
+    }
+}
+
+
+
+
+
 
 const initialState = {};
 
@@ -68,12 +125,12 @@ const productReducer = (state = initialState, action) => {
         case CREATE_PRODUCT:
             newState[action.product.id] = action.product;
             return newState;
-        // case UPDATE_product:
-        //     newState[action.product.id] = action.product;
-        //     return newState;
-        // case DELETE_product:
-        //     delete newState[action.id];
-        //     return newState;
+        case UPDATE_PRODUCT:
+            newState[action.product.id] = action.product;
+            return newState;
+        case DELETE_PRODUCT:
+            delete newState[action.id];
+            return newState;
         default:
             return state;
     }
