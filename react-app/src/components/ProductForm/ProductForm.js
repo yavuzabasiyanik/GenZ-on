@@ -1,6 +1,7 @@
 import { useState } from "react"
+import { useDispatch } from "react-redux";
 import "./ProductForm.css"
-
+import { createProduct } from "../../store/product";
 const ProductForm = () => {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
@@ -8,15 +9,23 @@ const ProductForm = () => {
     const [img, setImg] = useState('');
     const [quantity, setQuantity] = useState(0);
     const [category, setCategory] = useState('');
+    const [errors, setErrors] = useState([]);
+    const dispatch = useDispatch();
 
+    const submitProductForm = async (e) => {
+        e.preventDefault();
+        const data = await dispatch(createProduct(name,description,price,img,quantity,category));
 
-
-    
+        if (data) {
+            setErrors(data);
+        }
+    }
 
     return (
         <div className="form-main-div-product-sell">
             <div>
-                <form className="ana-form">
+
+                <form className="ana-form" onSubmit={submitProductForm}>
                     <div>
 
                         <label>Name</label>
@@ -29,7 +38,7 @@ const ProductForm = () => {
                     <div>
                         <label>Description</label>
                         <textarea
-                        value={description}
+                            value={description}
                             onChange={(e) => setDescription(e.target.value)}
                         />
 
@@ -74,7 +83,13 @@ const ProductForm = () => {
                         </select>
                     </div>
                     <button>Submit</button>
+                <div className='signinerrors'>
+                {errors.map((error, ind) => (
+                  <div key={ind}>{error}</div>
+                ))}
+              </div>
                 </form>
+
             </div>
         </div>
     )

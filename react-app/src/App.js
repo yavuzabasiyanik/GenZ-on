@@ -9,6 +9,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import ProductForm from './components/ProductForm/ProductForm';
+import { productLoad } from './store/product';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -17,10 +18,14 @@ function App() {
   const user = useSelector(state => state.session.user);
 
   useEffect(() => {
-    (async() => {
+    (async () => {
       await dispatch(authenticate());
+
       setLoaded(true);
     })();
+
+    dispatch(productLoad());
+
   }, [dispatch]);
 
   if (!loaded) {
@@ -31,10 +36,10 @@ function App() {
 
   return (
     <BrowserRouter>
-    {
-      user &&
-      <NavBar />
-    }
+      {
+        user &&
+        <NavBar />
+      }
       <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />
@@ -43,7 +48,7 @@ function App() {
           <SignUpForm />
         </Route>
         <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
+          <UsersList />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />

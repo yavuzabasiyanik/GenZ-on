@@ -25,3 +25,57 @@ def getAllProducts():
 
     return {'allProducts': [product.to_dict() for product in allProducts]}
 
+
+@product_routes.route('/', methods=['POST'])
+def createProduct():
+
+    form = ProductForm()
+
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        product = Product(
+            user_id = current_user.id,
+            name = form.data['name'],
+            description = form.data['description'],
+            image_url = form.data['image_url'],
+            price = form.data['price'],
+            quantity = form.data['quantity'],
+            category = form.data['category']
+        )
+        db.session.add(product)
+        db.session.commit()
+        return product.to_dict()
+    return {'errors': error_thingy(form.errors)}, 401
+
+
+@product_routes.route('/delete/<product_id>', methods=['DELETE'])
+def deleteProduct(product_id):
+
+    product = Product.query.get(product_id)
+
+    db.session.delete(product)
+    db.session.commit()
+    return {"product_id": product_id}
+
+
+@product_routes.route('/update/<product_id>', methods=['PUT'])
+def updateProduct(product_id):
+
+    form = ProductForm()
+
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+
+        product = Product.query.get(product_id)
+
+        product.name = form.data['name']
+        product.description = form.data['description']
+        product.image_url = form.data['image_url']
+        product.price = form.data['price']
+        product.quantity = form.data['quantity']
+        product.category = form.data['category']
+
+        db.session.commit()
+        return product.to_dict()
+    return {'errors': error_thingy(form.errors)}, 401

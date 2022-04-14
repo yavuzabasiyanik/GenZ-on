@@ -23,4 +23,4 @@ class ProductForm(FlaskForm):
     image_url = StringField('Imageurl', validators=[img_check, DataRequired(), URL()])
     price = IntegerField('Price', validators=[DataRequired(),price_check ])
     quantity = IntegerField('Quantity', validators=[DataRequired()])
-    category = SelectField('Category',  choices=["Electronics", "Fashion", "Furniture", "Food", "Hobby"],validators=[DataRequired()])
+    category = StringField('Category',  validators=[DataRequired()])
