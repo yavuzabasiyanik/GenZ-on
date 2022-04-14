@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import './Navbar.css';
@@ -10,20 +11,52 @@ const NavBar = () => {
   const [showProfile, setShowProfile] = useState(false);
 
 
+  const user = useSelector(state => state.session.user);
 
+  console.log(user);
   return (
 
     <nav>
       <div className='uppernav'>
-        <NavLink to={'/'}><p className='genzonnavbar'>GenZon</p></NavLink>
+        <div className='navbar-left-part'>
 
-        <div className='searchCreate'>
+          <NavLink to={'/'}><p className='genzonnavbar'>GenZon</p></NavLink>
+        </div>
+        <div className='delivertodiv'>
 
-          <div className='search'>
-            <input className='searchinput' type='text'></input>
+          <p className='deliverto'>Deliver to {user?.username}</p>
+        </div>
+
+        <div className='search'>
+          <div className='left-all'>
+            All
+            <i class="fa-solid fa-sort-down colorchangecarretdown"></i>
+          </div>
+
+          <input className='searchinput' type='text'></input>
+          <div className='right-search-thingy'>
+            <i class="fa-solid fa-magnifying-glass search-logo-thingy"></i>
 
           </div>
-          <NavLink to={'/product/sell'}><button>Create Product</button></NavLink>
+        </div>
+
+        <div className='div-nav-right-ana'>
+
+          <div className='right-most-left-part-navbar'>
+            <span className='hello-someone'>Hello, {user?.username}</span>
+            <span className='listings-onthenavbar'>Account & Lists</span>
+          </div>
+
+          <div className='right-mid-part-navbar'>
+
+          </div>
+
+          <div className='shopping-cart-thingy'>
+
+          </div>
+        </div>
+
+        {/* <NavLink to={'/product/sell'}><button>Create Product</button></NavLink>
           <button onClick={(e) => setShowProfile((d) => !d)}>Profile</button>
           {showProfile &&
             <div className='dropdownProfile'>
@@ -53,9 +86,8 @@ const NavBar = () => {
                 </li>
               </ul>
             </div>
-          }
+          } */}
 
-        </div>
       </div>
 
       <div className='lowernav'>

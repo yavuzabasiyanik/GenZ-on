@@ -6,13 +6,11 @@ nav {
 
 .uppernav {
     width: 100%;
-
     height: 60px;
     background-color: #131921;
     z-index: 1;
     display: flex;
     align-items: center;
-    gap: 13%;
 }
 
 .lowernav {
@@ -30,29 +28,127 @@ nav {
     z-index: 5;
     color: white;
     margin-left: 15px;
-    left: 0;
 
 }
 
-.searchinput{
-    width: 765px;
+.delivertodiv {
+    width: 123.5px;
+    height: auto;
+    margin-left: 2%;
+}
+
+.colorchangecarretdown {
+    margin-top: -6px;
+    font-size: 11px;
+    color: #0F1111;
+}
+
+.searchinput {
+    width: 90%;
     height: 40px;
     border-radius: 4px 4px 4px 4px;
-    outline:none;
+    outline: none;
     border: none;
+    margin-left: 47px;
+    padding-left: 13px;
 }
 
-.searchCreate{
+.search {
+    width: 57%;
+    margin-left: 20%;
+    position: absolute;
+}
+
+.searchCreate {
     display: flex;
 
 }
 
-.dropdownProfile{
+.dropdownProfile {
     width: 100px;
     height: 120px;
     position: absolute;
     background-color: whitesmoke;
     top: 50px;
     z-index: 6;
-    right:290px;
+    right: 290px;
+}
+
+.deliverto {
+    color: white;
+    margin: 0;
+
+}
+
+.navbar-left-part {
+    display: flex;
+    gap: 25px;
+}
+
+.left-all {
+    width: 52px;
+    height: 40px;
+    position: absolute;
+    background-color: #f3f3f3;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border: 1px solid #cdcdcd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    color: #555;
+    font-size: 12px;
+}
+
+.right-search-thingy {
+    width: 45px;
+    height: 40px;
+    background-color: #febd69;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-logo-thingy {
+    font-size: 21px;
+
+}
+
+.div-nav-right-ana {
+    display: flex;
+    position: absolute;
+    right: 15px;
+    gap: 3px;
+}
+
+.right-most-left-part-navbar {
+    height: 50px;
+    width: 131.53px;
+    background-color: aquamarine;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-left: 7px;
+    padding-bottom: 2px;
+}
+
+
+.right-mid-part-navbar {
+    height: 50px;
+    width: 77px;
+    background-color: salmon;
+}
+
+
+.shopping-cart-thingy {
+    height: 50px;
+    width: 84px;
+    background-color: seagreen;
 }
