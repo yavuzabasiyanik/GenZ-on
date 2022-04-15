@@ -52,8 +52,8 @@ const SignUpForm = () => {
   return (
     <>
       <div className='login-big-div-signup'>
-        <img width='200' src={mypic} alt='cool' ></img>
-        <div className='loginform'>
+        <img style={{marginTop:"3.3%"}} width='200' src={mypic} alt='cool' ></img>
+        <div  className='loginform'>
           <div className='realForm'>
 
             <h1 className='signin'>Sign-Up</h1>
