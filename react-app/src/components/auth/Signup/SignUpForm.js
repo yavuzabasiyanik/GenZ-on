@@ -17,12 +17,10 @@ const SignUpForm = () => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
-    if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, profilePic, password));
+      const data = await dispatch(signUp(username, profilePic, password,repeatPassword));
       if (data) {
         setErrors(data)
       }
-    }
   };
 
   const demoUser = async (e) =>{
@@ -54,8 +52,8 @@ const SignUpForm = () => {
   return (
     <>
       <div className='login-big-div-signup'>
-        <img width='200' src={mypic} alt='cool' ></img>
-        <div className='loginform'>
+        <img style={{marginTop:"3.3%"}} width='200' src={mypic} alt='cool' ></img>
+        <div  className='loginform'>
           <div className='realForm'>
 
             <h1 className='signin'>Sign-Up</h1>
