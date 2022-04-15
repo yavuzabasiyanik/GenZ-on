@@ -13,6 +13,7 @@ import { productLoad } from './store/product';
 import Home from './components/Home/Home';
 import UpdateForm from './components/ProductForm/UpdateForm';
 import UserProducts from './components/UserProducts';
+import AllProductsPage from './components/AllProducts/AllProducts';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -62,6 +63,9 @@ function App() {
         <ProtectedRoute path='/user/products'>
           <UserProducts />
         </ProtectedRoute>
+        <Route exact path={'/allproducts/:tagNumber'}>
+          <AllProductsPage />
+        </Route>
         <Route path='/' exact={true} >
           <Home />
         </Route>

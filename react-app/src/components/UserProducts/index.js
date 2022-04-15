@@ -14,7 +14,7 @@ const UserProducts = () => {
     const allProducts = useSelector(state => Object.values(state.products))
     const userProducts = allProducts.filter(ele => {
         return ele.user_id === user.id;
-    })
+    }).reverse()
 
     const deleteProductFunc = (e, id) => {
         e.preventDefault();

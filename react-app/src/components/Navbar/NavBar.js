@@ -87,30 +87,30 @@ const NavBar = () => {
                   </NavLink>
                   <NavLink exact to={'/profile'} onClick={() => setShowProfile(false)}>
 
-                  <div className='accounts-listings'>
+                    <div className='accounts-listings'>
 
-                    <p className='bold notsobold'>Go to your profile</p>
+                      <p className='bold notsobold'>Go to your profile</p>
 
-                  </div>
+                    </div>
                   </NavLink>
 
                   <NavLink exact to={'/user/products'} onClick={() => setShowProfile(false)}>
-                  <div className='accounts-listings'>
+                    <div className='accounts-listings'>
 
-                    <p className='bold notsobold'>Your products</p>
+                      <p className='bold notsobold'>Your products</p>
 
-                  </div>
+                    </div>
                   </NavLink>
 
                   <NavLink exact to={'/product/sell'} onClick={() => setShowProfile(false)}>
-                  <div className='accounts-listings'>
+                    <div className='accounts-listings'>
 
-                    <p className='bold notsobold'>Sell an Item</p>
+                      <p className='bold notsobold'>Sell an Item</p>
 
-                  </div>
+                    </div>
                   </NavLink>
 
-                  <div onClick={onLogout}  className='accounts-listings noborder'>
+                  <div onClick={onLogout} className='accounts-listings noborder'>
 
                     <p className='bold'>Logout</p>
 
@@ -137,26 +137,43 @@ const NavBar = () => {
 
         <div className='lowernav'>
           <div className='dana-lowernavpart'>
-            <div className='lowernav-allpart'>
+            <NavLink exact to={`/allproducts/${0}`}>
+              <div className='lowernav-allpart'>
 
-              <i className="fa-solid fa-bars habmurgerall"></i>
-              <p>All</p>
-            </div>
-            <div className='lowernav-allpart'>
-              <p>Electronics</p>
-            </div>
-            <div className='lowernav-allpart'>
-              <p>Fashion</p>
-            </div>
-            <div className='lowernav-allpart'>
-              <p>Furniture</p>
-            </div>
-            <div className='lowernav-allpart'>
-              <p>Food</p>
-            </div>
-            <div className='lowernav-allpart'>
-              <p>Hobby</p>
-            </div>
+                <i className="fa-solid fa-bars habmurgerall"></i>
+                <p>All</p>
+              </div>
+            </NavLink>
+            <NavLink exact to={`/allproducts/${1}`}>
+
+              <div className='lowernav-allpart'>
+                <p>Electronics</p>
+              </div>
+            </NavLink>
+            <NavLink exact to={`/allproducts/${2}`}>
+
+              <div className='lowernav-allpart'>
+                <p>Fashion</p>
+              </div>
+            </NavLink>
+            <NavLink exact to={`/allproducts/${3}`}>
+
+              <div className='lowernav-allpart'>
+                <p>Furniture</p>
+              </div>
+            </NavLink>
+            <NavLink exact to={`/allproducts/${4}`}>
+
+              <div className='lowernav-allpart'>
+                <p>Food</p>
+              </div>
+            </NavLink>
+            <NavLink exact to={`/allproducts/${5}`}>
+
+              <div className='lowernav-allpart'>
+                <p>Hobby</p>
+              </div>
+            </NavLink>
             <div className='rightpartlinkedingithub'>
               <a href="https://github.com/yavuzabasiyanik" target="_blank"><i className="githublinked fa-brands fa-github"></i></a>
               <a href="https://www.linkedin.com/in/yavuz-abasiyanik-a4a86720a/" target="_blank"><i className="githublinked fa-brands fa-linkedin"></i></a>
