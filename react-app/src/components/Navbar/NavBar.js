@@ -93,7 +93,7 @@ const NavBar = () => {
                   </div>
                   </NavLink>
 
-                  <NavLink exact to={'/something'} onClick={() => setShowProfile(false)}>
+                  <NavLink exact to={'/user/products'} onClick={() => setShowProfile(false)}>
                   <div className='accounts-listings'>
 
                     <p className='bold notsobold'>Your products</p>

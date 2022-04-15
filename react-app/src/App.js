@@ -12,6 +12,8 @@ import ProductForm from './components/ProductForm/ProductForm';
 import { productLoad } from './store/product';
 import Home from './components/Home/Home';
 import UpdateForm from './components/ProductForm/UpdateForm';
+import UserProducts from './components/UserProducts';
+
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -59,6 +61,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/product/update/:product_id' >
           <UpdateForm />
+        </ProtectedRoute>
+        <ProtectedRoute path='/user/products'>
+          <UserProducts />
         </ProtectedRoute>
         <Route path='/' exact={true} >
           <Home />
