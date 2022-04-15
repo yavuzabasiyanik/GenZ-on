@@ -6,6 +6,7 @@
     align-items: center;
     position: absolute;
     top: 18%;
+    z-index: -1;
 }
 
 .ana-form{

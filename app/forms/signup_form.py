@@ -34,10 +34,15 @@ def img_check(form ,field):
     if not (url[-3:] in 'png jpg jpeg gif' ):
         raise ValidationError('Images Only!')
 
+def usernamepls(form,field):
+    username = field.data
+
+    if len(username) >13:
+        raise ValidationError('Username character limit is 13!!!')
 
 class SignUpForm(FlaskForm):
     username = StringField(
-        'username', validators=[DataRequired(), username_exists])
+        'username', validators=[DataRequired(), username_exists, usernamepls])
     profilePic = StringField('profilePic', validators=[DataRequired(),img_check ,URL()])
     password = StringField('password', validators=[DataRequired(),password_match])
     confirmPassword = StringField('confirm password', validators=[])
