@@ -2,6 +2,7 @@ nav {
     width: 100%;
     height: 99px;
     position: fixed;
+    z-index: -1;
 }
 
 .uppernav {
@@ -308,13 +309,14 @@ nav {
 .dropdownprofile {
     width: 200px;
     height: 250px;
-    background-color: white;
     position: absolute;
+    background-color: #232f3e;
+
     z-index: 10;
     top: -350px;
     right: 55.5%;
     border-radius: 3px;
-    animation: drop 1.3s ease forwards;
+    animation: drop .7s ease forwards;
     display: grid;
     grid-template-rows: repeat(5, 50px);
 }
@@ -324,17 +326,13 @@ nav {
         opacity: 0;
     }
 
-    /* 70% {
-        transform: translateY(1200px);
-    } */
-
     20% {
-        transform: translateY(403px);
+        transform: translateY(405px);
         opacity: 1;
     }
 
     100% {
-        transform: translateY(403px);
+        transform: translateY(405px);
         opacity: 1;
     }
 }
@@ -347,6 +345,11 @@ nav {
     transition: all .3s ease-out;
 }
 
+.noborder{
+    border-bottom: none;
+
+}
+
 .accounts-listings:hover {
     background-color: #febd69;
 
@@ -354,9 +357,7 @@ nav {
 
 .bold {
     font-family: 'Merienda';
-    color: black;
+    color: white;
     font-weight: 500;
 
 }
-
-

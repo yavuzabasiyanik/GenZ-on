@@ -109,7 +109,7 @@ const NavBar = () => {
                   </div>
                   </NavLink>
 
-                  <div onClick={onLogout} className='accounts-listings'>
+                  <div onClick={onLogout} className='accounts-listings noborder'>
 
                     <p className='bold'>Logout</p>
 
