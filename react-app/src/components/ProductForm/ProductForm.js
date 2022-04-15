@@ -31,85 +31,83 @@ const ProductForm = () => {
     }
 
     return (
-        <div className="form-main-div-product-sell">
-            <div>
+        <>
+            <div className="form-main-div-product-sell">
+                <div>
 
-                <form className="ana-form" onSubmit={submitProductForm}>
-                    <div className="product-form-create">
-                        <label>Name</label>
-                        <input
-                            type='text'
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            className='inputss'
-                        />
-                    </div>
+                    <form className="ana-form" onSubmit={submitProductForm}>
+                        <div className="product-form-create">
+                            <label>Name</label>
+                            <input
+                                type='text'
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                className='inputss'
+                            />
+                        </div>
 
-                    <div className="product-form-create">
+                        <div className="product-form-create">
 
-                        <label>Price</label>
-                        <input
-                            type='number'
-                            value={price}
-                            onChange={(e) => setPrice(e.target.value)}
-                            className='inputss'
-                        />
-                    </div>
-                    <div className="product-form-create image-thingiyhahaha">
+                            <label>Price</label>
+                            <input
+                                type='number'
+                                value={price}
+                                onChange={(e) => setPrice(e.target.value)}
+                                className='inputss'
+                            />
+                        </div>
+                        <div className="product-form-create image-thingiyhahaha">
 
-                        <label>Product Image</label>
-                        <input
-                            type='text'
-                            value={img}
-                            onChange={(e) => setImg(e.target.value)}
-                            className='inputss'
-                        />
-                    </div>
-                    <div className="product-form-create">
+                            <label>Product Image</label>
+                            <input
+                                type='text'
+                                value={img}
+                                onChange={(e) => setImg(e.target.value)}
+                                className='inputss'
+                            />
+                        </div>
+                        <div className="product-form-create">
 
-                        <label>Quantity</label>
-                        <input
-                            type='text'
-                            value={quantity}
-                            onChange={(e) => setQuantity(e.target.value)}
-                            className='inputss'
-                        />
-                    </div>
-                    <div className="product-form-create">
+                            <label>Quantity</label>
+                            <input
+                                type='text'
+                                value={quantity}
+                                onChange={(e) => setQuantity(e.target.value)}
+                                className='inputss'
+                            />
+                        </div>
+                        <div className="product-form-create">
 
-                        <label>Category</label>
-                        <select className='inputss' onChange={(e) => setCategory(e.target.value)} value={category}>
-                            <option value=''>--Please choose a category--</option>
-                            <option value='electronics'>Electronics</option>
-                            <option value='fashion'>Fashion</option>
-                            <option value='furniture'>Furniture</option>
-                            <option value='food'>Food</option>
-                            <option value='toys'>Toys, Hobby & DIY</option>
-                        </select>
-                    </div>
-                    <div className="product-form-create">
-                        <label>Description</label>
-                        <textarea
-                            value={description}
-                            onChange={(e) => setDescription(e.target.value)}
-                            className='inputss'
-                        />
+                            <label>Category</label>
+                            <select className='inputss' onChange={(e) => setCategory(e.target.value)} value={category}>
+                                <option value=''>--Please choose a category--</option>
+                                <option value='electronics'>Electronics</option>
+                                <option value='fashion'>Fashion</option>
+                                <option value='furniture'>Furniture</option>
+                                <option value='food'>Food</option>
+                                <option value='toys'>Toys, Hobby & DIY</option>
+                            </select>
+                        </div>
+                        <div className="product-form-create">
+                            <label>Description</label>
+                            <textarea
+                                value={description}
+                                onChange={(e) => setDescription(e.target.value)}
+                                className='inputss'
+                            />
 
-                    </div>
-                    <button>Submit</button>
-                    <div className='signinerrors'>
-                        {errors.map((error, ind) => (
-                            <div key={ind}>{error}</div>
-                        ))}
-                    </div>
-                </form>
+                        </div>
+                        <button>Submit</button>
 
+                    </form>
+
+                </div>
             </div>
             {errors?.length ?
-                <ErrorsModal />: null
+                <ErrorsModal errors={errors} setErrors={setErrors} /> : null
 
             }
-        </div>
+        </>
     )
 }
 

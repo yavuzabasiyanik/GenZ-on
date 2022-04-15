@@ -316,12 +316,12 @@ nav {
     top: -350px;
     right: 55.5%;
     border-radius: 3px;
-    animation: drop .7s ease forwards;
+    animation: drop2 .7s ease forwards;
     display: grid;
     grid-template-rows: repeat(5, 50px);
 }
 
-@keyframes drop {
+@keyframes drop2 {
     0% {
         opacity: 0;
     }

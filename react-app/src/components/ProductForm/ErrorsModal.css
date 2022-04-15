@@ -12,5 +12,62 @@
 }
 
 .modal-container{
-    
+    width: 250px;
+    height: 300px;
+    background-color: white;
+    border-radius: 4px;
+    display: flex;
+    top: -1000px;
+    flex-direction: column;
+    align-items: center;
+    padding: 14px;
+    position: relative;
+    animation: drop .3s ease forwards;
+
+}
+
+.signinerrors{
+    gap: 7px;
+    font-weight: bold;
+
+}
+
+.signinerrors div{
+    font-family: 'Merienda';
+}
+
+.tryagain{
+    width: 100%;
+    position: absolute;
+    bottom:0px;
+    border-bottom-left-radius: 4px;
+    border: none;
+    font-family: 'Merienda';
+    border-bottom-right-radius: 4px;
+    height: 40px;
+    background-color: rgba(255, 0, 0, .7);
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+
+}
+
+.tryagain:hover{
+    background-color: rgba(255, 0, 0, 1);
+
+}
+
+
+@keyframes drop {
+    0% {
+        opacity: 0;
+    }
+
+    70% {
+        transform: translateY(1150px);
+    }
+
+    100% {
+        transform: translateY(1050px);
+        opacity: 1;
+    }
 }
