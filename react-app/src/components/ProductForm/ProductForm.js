@@ -36,6 +36,9 @@ const ProductForm = () => {
                 <div>
 
                     <form className="ana-form" onSubmit={submitProductForm}>
+                        <div className="selam">
+                            <p>Sell Your Item</p>
+                        </div>
                         <div className="product-form-create">
                             <label>Name</label>
                             <input

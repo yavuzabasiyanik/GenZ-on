@@ -11,6 +11,12 @@
     z-index: 100;
 }
 
+.andotherstuff{
+    background-color: rgba(0, 0, 0, .4);
+
+
+}
+
 .modal-container{
     width: 250px;
     height: 300px;
@@ -69,5 +75,6 @@
     100% {
         transform: translateY(1050px);
         opacity: 1;
+
     }
 }

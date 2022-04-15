@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import './ErrorsModal.css';
 
-const ErrorsModal = ({ errors, setErrors }) => {
+const ErrorsModal = ({ errors, setErrors ,update}) => {
 
     let menuRef = useRef()
 
@@ -27,7 +27,7 @@ const ErrorsModal = ({ errors, setErrors }) => {
 
 
     return (
-        <div className="background-modal">
+        <div className={update ? 'background-modal andotherstuff' :"background-modal"}>
             <div ref={menuRef} className="modal-container">
                 <div className='signinerrors'>
                     {errors.map((error, ind) => (

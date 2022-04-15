@@ -19,6 +19,7 @@ const NavBar = () => {
   const onLogout = async (e) => {
     await dispatch(logout());
     history.push('/login');
+    setShowProfile(false)
   };
 
 
@@ -109,7 +110,7 @@ const NavBar = () => {
                   </div>
                   </NavLink>
 
-                  <div onClick={onLogout} className='accounts-listings noborder'>
+                  <div onClick={onLogout}  className='accounts-listings noborder'>
 
                     <p className='bold'>Logout</p>
 
@@ -131,38 +132,6 @@ const NavBar = () => {
               <p className='numbershoppingcart'>2</p>
             </div>
           </div>
-
-          {/* <NavLink to={'/product/sell'}><button>Create Product</button></NavLink>
-          <button onClick={(e) => setShowProfile((d) => !d)}>Profile</button>
-          {showProfile &&
-            <div className='dropdownProfile'>
-              <ul>
-                <li>
-                  <NavLink to='/' exact={true} activeClassName='active'>
-                    Home
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to='/login' exact={true} activeClassName='active'>
-                    Login
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to='/signup' exact={true} activeClassName='active'>
-                    Sign Up
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to='/users' exact={true} activeClassName='active'>
-                    Users
-                  </NavLink>
-                </li>
-                <li>
-                  <LogoutButton />
-                </li>
-              </ul>
-            </div>
-          } */}
 
         </div>
 

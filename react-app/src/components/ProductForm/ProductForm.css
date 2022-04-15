@@ -9,10 +9,31 @@
     z-index: -2;
 }
 
+.selam{
+    width: 100%;
+    height: 30px;
+    margin-bottom: 10px;
+    position: absolute;
+    left: 0;
+    top:0;
+    background-color: #232f3e;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.selam p{
+    color: #ffffff;
+    font-family: 'Merienda';
+    font-size: 14px;
+    line-height: 15px;
+    font-weight: 700;
+}
 .ana-form{
     width: 230px;
-    height:470px;
+    height:500px;
     background-color: white;
     border: 1px #ddd solid;
     /* box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px; */
@@ -20,8 +41,10 @@
     display: flex;
     flex-direction: column;
     padding: 15px;
+    justify-content: flex-end;
     position: relative;
     margin: 50px auto;
+    border-radius: 3px;
 }
 
 .product-form-create{
@@ -40,4 +63,28 @@
 
 .inputss:focus{
     outline: 1px solid rgba(0,0,0,.7);
+}
+
+
+.animationFortheform{
+    right: -1000px;
+    animation: editForm .5s ease forwards;
+
+}
+
+
+
+@keyframes editForm {
+    0% {
+        opacity: 0;
+    }
+
+    70% {
+        transform: translateX(-1150px);
+    }
+
+    100% {
+        transform: translateX(-1000px);
+        opacity: 1;
+    }
 }
