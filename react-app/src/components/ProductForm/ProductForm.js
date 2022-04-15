@@ -27,7 +27,7 @@ const ProductForm = () => {
             return
         }
 
-        history.push('/')
+        history.push('/user/products')
     }
 
     return (

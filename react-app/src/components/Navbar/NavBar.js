@@ -58,12 +58,12 @@ const NavBar = () => {
           <div className='search'>
             <div className='left-all'>
               All
-              <i class="fa-solid fa-sort-down colorchangecarretdown"></i>
+              <i className="fa-solid fa-sort-down colorchangecarretdown"></i>
             </div>
 
             <input className='searchinput' type='text'></input>
             <div className='right-search-thingy'>
-              <i class="fa-solid fa-magnifying-glass search-logo-thingy"></i>
+              <i className="fa-solid fa-magnifying-glass search-logo-thingy"></i>
 
             </div>
           </div>
@@ -73,7 +73,7 @@ const NavBar = () => {
 
               <div onClick={() => setShowProfile(e => !e)} className='right-most-left-part-navbar'>
                 <p className='hello-someone'>Hello, {user?.username}</p>
-                <span className='listings-onthenavbar'>Account & Lists<i class="fa-solid fa-sort-down accountlistdropdownicon"></i></span>
+                <span className='listings-onthenavbar'>Account & Lists<i className="fa-solid fa-sort-down accountlistdropdownicon"></i></span>
               </div>
               {showProfile &&
                 <div className='dropdownprofile'>
@@ -127,7 +127,7 @@ const NavBar = () => {
             <div className='shopping-cart-thingy'>
 
 
-              <i class="fa-solid fa-cart-shopping shoppingcartthing"></i>
+              <i className="fa-solid fa-cart-shopping shoppingcartthing"></i>
               <p className='numbershoppingcart'>2</p>
             </div>
           </div>
@@ -170,7 +170,7 @@ const NavBar = () => {
           <div className='dana-lowernavpart'>
             <div className='lowernav-allpart'>
 
-              <i class="fa-solid fa-bars habmurgerall"></i>
+              <i className="fa-solid fa-bars habmurgerall"></i>
               <p>All</p>
             </div>
             <div className='lowernav-allpart'>
@@ -189,8 +189,8 @@ const NavBar = () => {
               <p>Hobby</p>
             </div>
             <div className='rightpartlinkedingithub'>
-              <a href="https://github.com/yavuzabasiyanik" target="_blank"><i class="githublinked fa-brands fa-github"></i></a>
-              <a href="https://www.linkedin.com/in/yavuz-abasiyanik-a4a86720a/" target="_blank"><i class="githublinked fa-brands fa-linkedin"></i></a>
+              <a href="https://github.com/yavuzabasiyanik" target="_blank"><i className="githublinked fa-brands fa-github"></i></a>
+              <a href="https://www.linkedin.com/in/yavuz-abasiyanik-a4a86720a/" target="_blank"><i className="githublinked fa-brands fa-linkedin"></i></a>
             </div>
           </div>
         </div>

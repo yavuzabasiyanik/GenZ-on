@@ -4,12 +4,13 @@ import { createProduct } from "../../store/product";
 import { useHistory, useParams } from "react-router-dom";
 import { updateProduct } from "../../store/product";
 
-const UpdateForm = () => {
+const UpdateForm = ({ update, setUpdate,id }) => {
+
     const dispatch = useDispatch();
     const history = useHistory();
 
     const products = useSelector(state => Object.values(state.products));
-    const {product_id} = useParams();
+    const  product_id  = id;
     const theProduct = products.filter(el => {
         return el?.id === +product_id
     })[0]
@@ -38,7 +39,7 @@ const UpdateForm = () => {
 
     const submitUpdateForm = async (e) => {
         e.preventDefault();
-        const data = await dispatch(updateProduct(name,description,price,img,quantity,category,theProduct?.id));
+        const data = await dispatch(updateProduct(name, description, price, img, quantity, category, theProduct?.id));
 
         if (data) {
             setErrors(data);
@@ -49,74 +50,78 @@ const UpdateForm = () => {
     }
 
     return (
-        <div className="form-main-div-product-sell">
-            <div>
+        <div className="background-modal">
 
-                <form className="ana-form" onSubmit={submitUpdateForm}>
-                    <div>
+            <div className="form-main-div-product-sell">
+                <div>
 
-                        <label>Name</label>
-                        <input
-                            type='text'
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                        />
-                    </div>
-                    <div>
-                        <label>Description</label>
-                        <textarea
-                            value={description}
-                            onChange={(e) => setDescription(e.target.value)}
-                        />
+                    <form className="ana-form" onSubmit={submitUpdateForm}>
+                        <div className="product-form-create">
 
-                    </div>
-                    <div>
+                            <label>Name</label>
+                            <input
+                                type='text'
+                                value={name}
+                                onChange={(e) => setName(e.target.value)} className='inputss'
+                            />
+                        </div>
 
-                        <label>Price</label>
-                        <input
-                            type='number'
-                            value={price}
-                            onChange={(e) => setPrice(e.target.value)}
-                        />
-                    </div>
-                    <div>
+                        <div className="product-form-create">
 
-                        <label>Img</label>
-                        <input
-                            type='text'
-                            value={img}
-                            onChange={(e) => setImg(e.target.value)}
-                        />
-                    </div>
-                    <div>
+                            <label>Price</label>
+                            <input
+                                type='number'
+                                value={price}
+                                onChange={(e) => setPrice(e.target.value)} className='inputss'
+                            />
+                        </div>
+                        <div className="product-form-create">
 
-                        <label>Quantity</label>
-                        <input
-                            type='text'
-                            value={quantity}
-                            onChange={(e) => setQuantity(e.target.value)}
-                        />
-                    </div>
-                    <div>
+                            <label>Img</label>
+                            <input
+                                type='text'
+                                value={img}
+                                onChange={(e) => setImg(e.target.value)} className='inputss'
+                            />
+                        </div>
+                        <div className="product-form-create">
 
-                        <label>Category</label>
-                        <select onChange={(e) => setCategory(e.target.value)} value={category?.toLowerCase()}>
-                            <option value=''>--Please choose a category--</option>
-                            <option value='electronics'>Electronics</option>
-                            <option value='fashion'>Fashion</option>
-                            <option value='furniture'>Furniture</option>
-                            <option value='food'>Food</option>
-                            <option value='toys'>Toys, Hobby & DIY</option>
-                        </select>
-                    </div>
-                    <button>Submit</button>
-                <div className='signinerrors'>
-                {errors.map((error, ind) => (
-                  <div key={ind}>{error}</div>
-                ))}
-              </div>
-                </form>
+                            <label>Quantity</label>
+                            <input
+                                type='text'
+                                value={quantity}
+                                onChange={(e) => setQuantity(e.target.value)} className='inputss'
+                            />
+                        </div>
+                        <div className="product-form-create">
 
+                            <label>Category</label>
+                            <select onChange={(e) => setCategory(e.target.value)} className='inputss' value={category?.toLowerCase()}>
+                                <option value=''>--Please choose a category--</option>
+                                <option value='electronics'>Electronics</option>
+                                <option value='fashion'>Fashion</option>
+                                <option value='furniture'>Furniture</option>
+                                <option value='food'>Food</option>
+                                <option value='toys'>Toys, Hobby & DIY</option>
+                            </select>
+                        </div>
+                        <div className="product-form-create">
+                            <label>Description</label>
+                            <textarea
+                                value={description}
+                                onChange={(e) => setDescription(e.target.value)} className='inputss'
+                            />
+
+                        </div>
+                        <button>Submit</button>
+                        <div className='signinerrors'>
+                            {errors.map((error, ind) => (
+                                <div key={ind}>{error}</div>
+                            ))}
+                        </div>
+                    </form>
+
+                </div>
             </div>
         </div>
     )
