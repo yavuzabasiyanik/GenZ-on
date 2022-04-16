@@ -26,11 +26,14 @@ const AllProductsPage = () => {
 
     const mappedProducts = allProducts.map(ele => (
         <div key={ele?.id} className="selam23">
-            <NavLink exact to={`/productpage/${ele?.id}`}><img style={{cursor:"pointer"}} className="imgcokzor" src={ele?.image_url}></img></NavLink>
+            <div style={{width:"271px", height:"271px", backgroundColor:"white"}}>
+
+                <NavLink exact to={`/productpage/${ele?.id}`}><img style={{ cursor: "pointer" }} className="imgcokzor" src={ele?.image_url}></img></NavLink>
+            </div>
             <div className="name-price-description">
-               <NavLink exact to={`/productpage/${ele?.id}`}><p style={{cursor:"pointer",fontSize:"16px", fontWeight:"bold", maxWidth:"215px", color:"#007185"}}>{ele?.name}</p></NavLink>
-                <p className="dolarthingy">$<span style={{fontWeight:"bold", fontSize:"14px"}}>{ele?.price}</span></p>
-                <p className="getitassonsas">Get it as soon as <span style={{fontWeight:"bold"}}>Tomorrow</span><br></br>FREE Shipping by GenZon</p>
+                <NavLink exact to={`/productpage/${ele?.id}`}><p style={{ cursor: "pointer", fontSize: "16px", fontWeight: "bold", maxWidth: "215px", color: "#007185" }}>{ele?.name}</p></NavLink>
+                <p className="dolarthingy">$<span style={{ fontWeight: "bold", fontSize: "14px" }}>{ele?.price}</span></p>
+                <p className="getitassonsas">Get it as soon as <span style={{ fontWeight: "bold" }}>Tomorrow</span><br></br>FREE Shipping by GenZon</p>
                 <p className="description-product-page">{ele?.description}</p>
 
             </div>
@@ -45,7 +48,7 @@ const AllProductsPage = () => {
 
                 </div>
                 <div className="main-product-smallgrid">
-                    <h1 style={{marginRight:"auto",fontSize:"20px", color:"#0F1111", fontFamily:"Merienda", marginLeft:"5px"}} >Results</h1>
+                    <h1 style={{ marginRight: "auto", fontSize: "20px", color: "#0F1111", fontFamily: "Merienda", marginLeft: "5px" }} >Results</h1>
                     <div className="asildiv">
                         {mappedProducts}
                     </div>
