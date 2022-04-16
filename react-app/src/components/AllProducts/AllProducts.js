@@ -28,7 +28,7 @@ const AllProductsPage = () => {
         <div key={ele?.id} className="selam23">
             <NavLink exact to={`/productpage/${ele?.id}`}><img style={{cursor:"pointer"}} className="imgcokzor" src={ele?.image_url}></img></NavLink>
             <div className="name-price-description">
-               <NavLink exact to={`/productpage/${ele?.id}`}><p style={{cursor:"pointer",fontSize:"16px", fontWeight:"bold", maxWidth:"225px", color:"#007185"}}>{ele?.name}</p></NavLink>
+               <NavLink exact to={`/productpage/${ele?.id}`}><p style={{cursor:"pointer",fontSize:"16px", fontWeight:"bold", maxWidth:"215px", color:"#007185"}}>{ele?.name}</p></NavLink>
                 <p className="dolarthingy">$<span style={{fontWeight:"bold", fontSize:"14px"}}>{ele?.price}</span></p>
                 <p className="getitassonsas">Get it as soon as <span style={{fontWeight:"bold"}}>Tomorrow</span><br></br>FREE Shipping by GenZon</p>
                 <p className="description-product-page">{ele?.description}</p>

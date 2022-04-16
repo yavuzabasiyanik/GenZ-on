@@ -6,11 +6,11 @@
 }
 
 .middle-div-hehe{
-    width: 92%;
+    width: 100%;
     height: 100%;
     padding: 5px;
     display: grid;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 0fr 6fr;
 }
 
 .left-navbarthingy{
