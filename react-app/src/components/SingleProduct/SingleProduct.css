@@ -43,6 +43,7 @@
 .theimageintheindiv {
     width: 390px;
     height: 303px;
+    object-fit: contain;
     image-rendering: auto;
     image-rendering: crisp-edges;
     image-rendering: pixelated;

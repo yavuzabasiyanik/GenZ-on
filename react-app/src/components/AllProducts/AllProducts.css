@@ -47,10 +47,12 @@
 .imgcokzor{
     width: 271px;
     height: 271px;
+    object-fit: contain;
     image-rendering: auto;
     image-rendering: crisp-edges;
     image-rendering: pixelated;
     image-rendering: -webkit-optimize-contrast;
+
 }
 
 .name-price-description p{
