@@ -1,0 +1,119 @@
+.indivproduct-main-div {
+    width: 100%;
+    height: 100%;
+    top: 99px;
+    position: absolute;
+    background-color: white;
+}
+
+.middivallthestuff {
+    width: 1483px;
+    height: 698.6px;
+    margin: 0 auto;
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.imgdivibu {
+    width: 390px;
+    height: 303px;
+    margin: 20px;
+}
+
+.infordivibu {
+    width: 445px;
+    height: 600px;
+    margin: 20px 80px 0px 15px;
+    position: relative;
+    word-break: break-all;
+}
+
+.addtocartbuynowdivibu {
+    width: 235px;
+    height: 302px;
+    border-radius: 8px;
+    display: block;
+    border: 1px solid #d5d9d9;
+    padding: 14px 18px;
+    margin: 20px;
+
+}
+
+.theimageintheindiv {
+    width: 390px;
+    height: 303px;
+    object-fit: contain;
+    image-rendering: auto;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: -webkit-optimize-contrast;
+}
+
+.productnameh1 {
+    font-size: 24px;
+    color: #0F1111;
+    font-family: 'Merienda';
+}
+
+.pricethingyhehe {
+    border-top: 1px solid #d5d9d9;
+    border-bottom: 1px solid #d5d9d9;
+    padding: 10px 0px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    margin-top: 20px;
+
+}
+
+.descriptionindivpageinside {
+    margin-top: 20px;
+}
+
+.asildescription {
+    margin-left: 12px;
+    margin-top: 9px;
+    font-family: 'Merienda';
+
+}
+
+.onlarbizler {
+    font-family: 'Merienda';
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.muhtesem-uclu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.somebuttonadd {
+    width: 204px;
+    height: 29px;
+    cursor: pointer;
+    background-color: #FFD814;
+    border: none;
+    border-radius: 20px;
+}
+
+.somebuttonadd:hover {
+    background-color: #f2cb09;
+}
+
+.somebuttonbuy {
+    width: 204px;
+    height: 29px;
+    cursor: pointer;
+    background-color: #FFA41C;
+    border: none;
+    border-radius: 20px;
+}
+
+.somebuttonbuy:hover {
+
+    background-color: #ff8f00;
+}
