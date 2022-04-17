@@ -15,6 +15,7 @@ class Product(db.Model, UserMixin):
     quantity = db.Column(db.Integer, nullable=False)
 
     user = relationship("User", back_populates="products")
+    shoppingcart = relationship('ShoppingCart', back_populates='product', cascade = "all, delete")
 
     def to_dict(self):
         return {

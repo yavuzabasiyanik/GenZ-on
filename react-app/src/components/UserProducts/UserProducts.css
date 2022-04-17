@@ -52,6 +52,13 @@
     color: #0F1111;
 }
 
+.nameusernamepricedescription{
+    overflow: scroll;
+}
+
+.nameusernamepricedescription::-webkit-scrollbar {
+    display: none;
+}
 
 .yellowupdatethingy {
     background-color: #ffd814;

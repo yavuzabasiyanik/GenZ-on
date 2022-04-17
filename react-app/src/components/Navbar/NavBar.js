@@ -22,6 +22,8 @@ const NavBar = () => {
     setShowProfile(false)
   };
 
+  const cartLength = useSelector(state => Object.values(state.shoppingcart)).length;
+
 
 
   let menuRef = useRef();
@@ -129,7 +131,7 @@ const NavBar = () => {
 
 
               <i className="fa-solid fa-cart-shopping shoppingcartthing"></i>
-              <p className='numbershoppingcart'>2</p>
+              <NavLink exact to={`/user/cart`}><p className='numbershoppingcart'>{cartLength}</p></NavLink>
             </div>
           </div>
 

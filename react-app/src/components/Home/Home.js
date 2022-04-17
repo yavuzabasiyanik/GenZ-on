@@ -67,7 +67,7 @@ const Home = () => {
                     </div>
                     <div className='categories-home-page'>
                         <NavLink exact to={'/allproducts/2'}><p style={{ fontSize: "21px", fontWeight: "bold" }}>New clothing deals!</p></NavLink>
-                        <NavLink exact to={'/productpage/5'}><img className='womanclothing' src='https://m.media-amazon.com/images/I/315aUsDYSbL._SY500__AC_SY200_.jpg'></img></NavLink>
+                        <NavLink exact to={'/productpage/5'}><img className='womanclothing' src='https://cdn.pixabay.com/photo/2013/07/13/14/08/apparel-162192_1280.png'></img></NavLink>
                         <NavLink exact to={'/productpage/7'}><img className='womanclothing' src='https://m.media-amazon.com/images/I/818Tnima1yL._AC_UL480_FMwebp_QL65_.jpg'></img></NavLink>
                         <NavLink exact to={'/productpage/8'}><img className='womanclothing' src='https://m.media-amazon.com/images/I/71G4kkPdU-L._AC_UL480_FMwebp_QL65_.jpg'></img></NavLink>
                         <NavLink exact to={'/productpage/9'}><img className='womanclothing' src='https://m.media-amazon.com/images/I/515d7N7uQWS._AC_UL480_FMwebp_QL65_.jpg'></img></NavLink>

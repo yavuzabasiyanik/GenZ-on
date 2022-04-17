@@ -27,11 +27,11 @@ const UserProducts = () => {
     const allProductsUserDiv = userProducts.map(ele => {
         return (<div className='productsinuserpage' key={ele?.id}>
             <div className='pallikiskeye'>
-                <img className='imageinthe' src={ele?.image_url}></img>
+                <NavLink exact to={`/productpage/${ele?.id}`}><img className='imageinthe' src={ele?.image_url}></img></NavLink>
 
                 <div className='nameusernamepricedescription'>
 
-                    <p style={{ color: "#007185", cursor: "pointer", fontSize: "14px", fontWeight: "700", display:"inline" }}>{ele?.name}</p>
+                <NavLink exact to={`/productpage/${ele?.id}`}><p style={{ color: "#007185", cursor: "pointer", fontSize: "14px", fontWeight: "700", display:"inline" }}>{ele?.name}</p></NavLink>
                     <p style={{ lineHeight: "20px" }}><span style={{ fontSize: "10.5px" }}>by</span> <span style={{ fontWeight: "700" }}>{ele?.user.username}</span></p>
                     <p style={{ marginTop: "20px", fontSize: "14px", width: "500px", wordBreak: "break-word" }}>{ele?.description}</p>
                 </div>

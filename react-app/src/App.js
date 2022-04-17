@@ -15,7 +15,7 @@ import UpdateForm from './components/ProductForm/UpdateForm';
 import UserProducts from './components/UserProducts';
 import AllProductsPage from './components/AllProducts/AllProducts';
 import SingleProduct from './components/SingleProduct';
-
+import { shoppingcartLoad } from './store/shoppingcart';
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -30,6 +30,7 @@ function App() {
     })();
 
     dispatch(productLoad());
+    dispatch(shoppingcartLoad());
 
   }, [dispatch]);
 
