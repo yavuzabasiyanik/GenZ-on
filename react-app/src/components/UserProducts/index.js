@@ -39,7 +39,7 @@ const UserProducts = () => {
             <div className='herosoftonight'>
                 <div className='sky'>
 
-                    <p>Price: ${ele?.price}</p>
+                    <p>Price: ${ele?.price}.00</p>
                     <p>Category: {ele?.category[0].toUpperCase() + ele?.category.slice(1)}</p>
                 </div>
                 <button className='yellowupdatethingy' onClick={(e) => setUpdateProduct([true, ele?.id])} >Update</button>

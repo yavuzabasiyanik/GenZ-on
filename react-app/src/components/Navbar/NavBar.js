@@ -127,12 +127,12 @@ const NavBar = () => {
               <span className='orders-be-specificlol'>& Orders</span>
             </div>
 
-            <div className='shopping-cart-thingy'>
+            <NavLink exact to={`/user/cart`}><div className='shopping-cart-thingy'>
 
 
               <i className="fa-solid fa-cart-shopping shoppingcartthing"></i>
-              <NavLink exact to={`/user/cart`}><p className='numbershoppingcart'>{cartLength}</p></NavLink>
-            </div>
+              <p className='numbershoppingcart'>{cartLength}</p>
+            </div></NavLink>
           </div>
 
         </div>

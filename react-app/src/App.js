@@ -16,6 +16,9 @@ import UserProducts from './components/UserProducts';
 import AllProductsPage from './components/AllProducts/AllProducts';
 import SingleProduct from './components/SingleProduct';
 import { shoppingcartLoad } from './store/shoppingcart';
+import ShoppingCart from './components/ShoppingCart';
+
+
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -65,12 +68,16 @@ function App() {
         <ProtectedRoute path='/user/products'>
           <UserProducts />
         </ProtectedRoute>
+        <ProtectedRoute path='/user/cart' exact={true}>
+          <ShoppingCart />
+        </ProtectedRoute>
         <Route exact path={'/allproducts/:tagNumber'}>
           <AllProductsPage />
         </Route>
         <Route exact path={'/productpage/:productId'}>
           <SingleProduct />
         </Route>
+
         <Route path='/' exact={true} >
           <Home />
         </Route>
