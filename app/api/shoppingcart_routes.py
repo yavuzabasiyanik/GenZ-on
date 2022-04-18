@@ -40,7 +40,7 @@ def createShoppingCart():
         shoppingcartProductDeneme = ShoppingCart.query.filter(ShoppingCart.product_id == form.data['product_id']).first()
 
         if(shoppingcartProductDeneme):
-            shoppingcartProductDeneme.quantity = shoppingcartProductDeneme.quantity+1
+            shoppingcartProductDeneme.quantity = shoppingcartProductDeneme.quantity+form.data['quantity']
             db.session.add(shoppingcartProductDeneme)
             db.session.commit()
             return shoppingcartProductDeneme.to_dict()

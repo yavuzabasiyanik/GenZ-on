@@ -33,7 +33,7 @@ const SingleProduct = () => {
                 <div className='infordivibu'>
                     <h1 className='productnameh1'>{product?.name}</h1>
                     <div className='pricethingyhehe'>
-                        <p style={{ fontFamily: "Merienda", fontSize: "17px" }} ><span style={{ fontSize: "14px", fontFamily: "Merienda" }}>Price:</span> ${product?.price}</p>
+                        <p style={{ fontFamily: "Merienda", fontSize: "17px" }} ><span style={{ fontSize: "14px", fontFamily: "Merienda" }}>Price:</span> ${product?.price}.00</p>
                     </div>
                     <div className='descriptionindivpageinside'>
                         <p className='onlarbizler'>About this item:</p>
@@ -46,7 +46,7 @@ const SingleProduct = () => {
                 </div>
                 <div className='addtocartbuynowdivibu'>
                     <div className='pricethingyhehe2'>
-                        <p style={{ fontFamily: "Merienda", fontSize: "17px" }} >${product?.price}</p>
+                        <p style={{ fontFamily: "Merienda", fontSize: "17px" }} >${product?.price}.00</p>
                     </div>
                     <p style={{ margin: "10px 0", color: "#007185" }}>& FREE Returns</p>
                     <p style={{ marginTop: "50px", color: "#007185" }}>Deliver to {product?.user?.username}</p>

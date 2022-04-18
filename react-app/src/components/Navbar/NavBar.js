@@ -22,9 +22,11 @@ const NavBar = () => {
     setShowProfile(false)
   };
 
-  const cartLength = useSelector(state => Object.values(state.shoppingcart)).length;
+  let shoppingcart = useSelector(state => Object.values(state.shoppingcart));
 
+  shoppingcart = shoppingcart.filter(ele => ele?.user_id === user?.id);
 
+  const cartLength = shoppingcart.length
 
   let menuRef = useRef();
 
@@ -112,7 +114,7 @@ const NavBar = () => {
                     </div>
                   </NavLink>
 
-                  <div onClick={onLogout} className='accounts-listings noborder'>
+                  <div style={{ cursor: "pointer" }} onClick={onLogout} className='accounts-listings noborder'>
 
                     <p className='bold'>Logout</p>
 
@@ -131,7 +133,7 @@ const NavBar = () => {
 
 
               <i className="fa-solid fa-cart-shopping shoppingcartthing"></i>
-              <p className='numbershoppingcart'>{cartLength}</p>
+              <p className='numbershoppingcart'>{user ? cartLength : 0}</p>
             </div></NavLink>
           </div>
 
