@@ -4,6 +4,6 @@ from wtforms.validators import DataRequired, ValidationError, Length, URL
 
 
 class ShoppingCartForm(FlaskForm):
-    user_id = IntegerField('UserId', validators=[DataRequired()])
+    # user_id = IntegerField('UserId', validators=[DataRequired()])
     product_id = IntegerField('ProductId', validators=[DataRequired()])
     quantity = IntegerField('Quantity', validators=[DataRequired()])

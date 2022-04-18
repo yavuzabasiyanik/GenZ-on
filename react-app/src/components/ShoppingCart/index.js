@@ -1,13 +1,26 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import './ShoppingCart.css';
-
+import { shoppingcartDeleteone } from '../../store/shoppingcart';
+import { shoppingcartdeleteall } from '../../store/shoppingcart';
+import { useHistory } from 'react-router-dom';
 
 const ShoppingCart = () => {
 
 
     const shoppingcart = useSelector(state => Object.values(state.shoppingcart));
 
-    // console.log(shoppingcart);
+    const dispatch = useDispatch();
+    const history = useHistory();
+    let subtotal = 0;
+
+    shoppingcart.forEach(ele => {
+        subtotal += ele?.product?.price;
+    })
+
+    const handleDeleteOne = (id) => {
+        dispatch(shoppingcartDeleteone(id));
+    }
+
 
     const allCart = shoppingcart.map(ele => {
         return (
@@ -16,28 +29,39 @@ const ShoppingCart = () => {
 
                     <img className='imginthecart' src={ele?.product?.image_url}></img>
                     <div className='somedivdd'>
-                        <p style={{color:"#0F1111", fontSize:"17px",cursor:"pointer",wordWrap:"break-word", marginTop:"8px", fontWeight:"700"}}>{ele?.product?.name}</p>
+                        <p style={{ color: "#0F1111", fontSize: "17px", cursor: "pointer", wordWrap: "break-word", marginTop: "8px", fontWeight: "700" }}>{ele?.product?.name}</p>
                         <p style={{ color: "#007185" }}>In Stock</p>
-                        <p style={{color:"#565959", fontSize:"12px", lineHeight:"16px"}}>Eligible for FREE Shipping & <p style={{fontWeight:"700", fontSize:"12px", color: "#007185" }}>FREE Returns</p></p>
+                        <p style={{ color: "#565959", fontSize: "12px", lineHeight: "16px" }}>Eligible for FREE Shipping & <span style={{ fontWeight: "700", fontSize: "12px", color: "#007185" }}>FREE Returns</span></p>
                         <div className='qtydelete'>
-                            <p style={{paddingRight:"8px",fontWeight:"700", borderRight:"1px #D5D9D9 solid"}}>Qty: {ele?.quantity}</p>
-                            <p>Delete</p>
+                            <p style={{ paddingRight: "8px", fontWeight: "700", borderRight: "1px #D5D9D9 solid" }}>Qty: {ele?.quantity}</p>
+                            <p onClick={() => handleDeleteOne(ele?.id)} className='dontholdme'>Delete</p>
                         </div>
                     </div>
                 </div>
-                <p style={{fontSize:"18px",lineHeight:"24px", fontWeight:"700", color:"#0F1111"}}>${ele?.product?.price}.00</p>
+                <p style={{ fontSize: "18px", lineHeight: "24px", fontWeight: "700", color: "#0F1111" }}>${ele?.product?.price}.00</p>
             </div>
         )
-    })
+    }).reverse()
 
+    const handleDeleteAll = () => {
+        dispatch(shoppingcartdeleteall());
+    }
+
+    const handleCheckout = (e) => {
+        e.preventDefault();
+
+        dispatch(shoppingcartdeleteall());
+        history.push('/checkout')
+
+    }
     return (
-        <div className='user-products-main-div'>
+        <div className='user-products-main-divCart'>
             <div className='productsGridCart'>
                 <div className='somethingheree3'>
                     <div className='h1veh6ikilisi'>
 
                         <h1 style={{ fontSize: "28px" }}>Shopping Cart</h1>
-                        <h6 style={{ color: "#007185" }}>Delete all items</h6>
+                        <h6 onClick={handleDeleteAll} className='h6deleteallitems' style={{ width: "fit-content", cursor: "pointer", color: "#007185" }}>Delete all items</h6>
                     </div>
                     <div className='someguy'>
 
@@ -45,7 +69,20 @@ const ShoppingCart = () => {
                     </div>
                 </div>
                 {allCart}
+                <div className='somethingheree4'>
+                    <p style={{ fontSize: "18px", marginTop: "10px" }} >
 
+                        Subtotal ({shoppingcart.length} {shoppingcart.length === 1 ? "item" : "items"}): <span style={{ fontSize: "18px", fontWeight: "700" }}>${subtotal}.00</span>
+                    </p>
+                </div>
+
+            </div>
+            <div className='ikincicheckout'>
+                <p style={{ fontSize: "18px", marginTop: "10px" }} >
+
+                    Subtotal ({shoppingcart.length} {shoppingcart.length === 1 ? "item" : "items"}): <span style={{ fontSize: "18px", fontWeight: "700" }}>${subtotal}.00</span>
+                </p>
+                <button onClick={handleCheckout} className='proceedtocheckout'>Proceed to checkout </button>
             </div>
         </div>
     )
