@@ -33,7 +33,7 @@
     height: 100%;
     display: grid;
     grid-template-columns: repeat(5, 279px);
-    gap: 7px;
+    gap: 20px;
     margin-top: 20px;
 }
 

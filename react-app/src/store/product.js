@@ -25,8 +25,8 @@ const updateProductAction = (product) => ({
 })
 
 export const deleteProduct = (id) => async (dispatch) => {
-    const response = await fetch(`/api/products/delete/${id}`,{
-        method:"DELETE"
+    const response = await fetch(`/api/products/delete/${id}`, {
+        method: "DELETE"
     });
 
 
@@ -80,7 +80,7 @@ export const createProduct = (name, description, price, image_url, quantity, cat
     }
 }
 
-export const updateProduct = (name, description, price, image_url, quantity, category,product_id) => async (dispatch) => {
+export const updateProduct = (name, description, price, image_url, quantity, category, product_id) => async (dispatch) => {
     const response = await fetch(`/api/products/update/${product_id}`, {
         method: 'PUT',
         headers: { "Content-Type": "application/json" },
@@ -124,13 +124,19 @@ const productReducer = (state = initialState, action) => {
             return { ...newState };
         case CREATE_PRODUCT:
             newState[action.product.id] = action.product;
-            return newState;
+            // return newState;
+            return { ...newState }
+
         case UPDATE_PRODUCT:
             newState[action.product.id] = action.product;
-            return newState;
+            // return newState;
+            return { ...newState }
+
         case DELETE_PRODUCT:
             delete newState[action.id];
-            return newState;
+            // return newState;
+            return { ...newState }
+
         default:
             return state;
     }

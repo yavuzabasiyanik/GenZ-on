@@ -48,7 +48,7 @@ const AllProductsPage = () => {
 
                 </div>
                 <div className="main-product-smallgrid">
-                    <h1 style={{ marginRight: "auto", fontSize: "20px", color: "#0F1111", fontFamily: "Merienda", marginLeft: "5px" }} >Results</h1>
+                    <h1 style={{ marginBottom:"30px",fontSize: "20px", color: "#0F1111", fontFamily: "Merienda" }} >Results</h1>
                     <div className="asildiv">
                         {mappedProducts}
                     </div>

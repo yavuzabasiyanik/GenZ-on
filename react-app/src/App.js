@@ -18,6 +18,7 @@ import SingleProduct from './components/SingleProduct';
 import { shoppingcartLoad } from './store/shoppingcart';
 import ShoppingCart from './components/ShoppingCart';
 import Checkout from './components/ShoppingCart/checkout';
+import { getAllReviews } from './store/review';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -34,7 +35,7 @@ function App() {
 
     dispatch(productLoad());
     dispatch(shoppingcartLoad());
-
+    dispatch(getAllReviews());
   }, [dispatch]);
 
   if (!loaded) {
