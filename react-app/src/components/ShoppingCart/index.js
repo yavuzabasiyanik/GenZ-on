@@ -12,7 +12,6 @@ const ShoppingCart = () => {
 
     const user = useSelector(state => state.session.user);
 
-    const [optionArr2, setOptionArr2] = useState([]);
 
 
     shoppingcart = shoppingcart.filter(ele => ele?.user_id === user?.id);
@@ -58,13 +57,11 @@ const ShoppingCart = () => {
                         <p style={{ color: "#007185" }}>In Stock</p>
                         <p style={{ color: "#565959", fontSize: "12px", lineHeight: "16px" }}>Eligible for FREE Shipping & <span style={{ fontWeight: "700", fontSize: "12px", color: "#007185" }}>FREE Returns</span></p>
                         <div className='qtydelete'>
-                            {/* <p style={{ paddingRight: "8px", fontWeight: "700", borderRight: "1px #D5D9D9 solid" }}>Qty: {ele?.quantity}</p> */}
                             <select onChange={(e) => updateQuantity(ele?.id,ele?.product?.id ,e.target.value)} value={ele?.quantity} style={{ width: "60px", paddingRight: "8px", fontWeight: "700", }}>
 
                                 {
                                     pleasework(ele?.product?.quantity)
                                 }
-                                {/* {optionArr2} */}
 
                             </select>
                             <p onClick={() => handleDeleteOne(ele?.id)} className='dontholdme'>Delete</p>
