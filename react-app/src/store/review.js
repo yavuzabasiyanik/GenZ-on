@@ -11,17 +11,17 @@ const getAlreviewsAction = (reviews) => ({
 })
 
 const createOneReview = (review) => ({
-    type: LOAD_REVIEWS,
+    type: CREATE_REVIEW,
     review
 })
 
 const updateOneReview = (review) => ({
-    type: LOAD_REVIEWS,
+    type: UPDATE_REVIEW,
     review
 })
 
 const deleteOneReview = (reviewId) => ({
-    type: LOAD_REVIEWS,
+    type: DELETE_REVIEW,
     reviewId
 })
 

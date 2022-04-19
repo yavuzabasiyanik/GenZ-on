@@ -28,6 +28,7 @@ class Reviews(db.Model,UserMixin):
             'product_id': self.product_id,
             'title': self.title,
             'body': self.body,
+            'rating':self.rating,
             'user':self.user.to_dict(),
             'product': self.product.to_dict()
         }
