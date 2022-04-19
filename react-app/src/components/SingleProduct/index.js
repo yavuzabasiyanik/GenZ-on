@@ -7,6 +7,7 @@ import { useState } from 'react';
 const SingleProduct = () => {
 
     const [quantity, setQuantity] = useState(1)
+    const [reviewDropdown, setReviewDropdown] = useState(false);
     let { productId } = useParams();
     productId = +productId;
     const dispatch = useDispatch();
@@ -18,7 +19,7 @@ const SingleProduct = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        dispatch(createshoppingcart(productId,quantity));
+        dispatch(createshoppingcart(productId, quantity));
         history.push('/user/cart')
 
     }
@@ -66,6 +67,56 @@ const SingleProduct = () => {
 
                     </div>
 
+                </div>
+            </div>
+            <div className='reviewsmain-div'>
+                <div className='middlediv-forreviews'>
+                    <div className='reviewthisproductdiv'>
+                        <h2 className='h2reviewtrhisproduct'>Review this product</h2>
+                        <p className='pshareyourthought'>Share your thoughts with other customers</p>
+                        <button onClick={(e) => setReviewDropdown(true)} className='writecustomerreviewbutton'>Write a customer review</button>
+                        {reviewDropdown &&
+                            <div className='sennediyorsun'>
+                                <h2 style={{ textDecoration: "underline" }} className='h2reviewtrhisproduct'>Add a review for:</h2>
+                                <div style={{ display: "flex", gap: "10px", paddingBottom: "20px"}}>
+                                    <img className='imgreviewind' src={product?.image_url}></img>
+                                    <h2 style={{ marginTop: "22px" }}>{product?.name}</h2>
+                                </div>
+                                <div className='formreviewthingy'>
+
+                                    <h4 style={{ textDecoration: "underline", fontSize: "15.6px" }} className='h2reviewtrhisproduct'>Add a rating</h4>
+                                    <div className='star-widget'>
+                                        <input type='radio' className='rate' id='rate-5'></input>
+                                        <label for='rate-5' className='fas fa-star'></label>
+                                        <input type='radio' className='rate' id='rate-4'></input>
+                                        <label for='rate-4' className='fas fa-star'></label>
+                                        <input type='radio' className='rate' id='rate-3'></input>
+                                        <label for='rate-3' className='fas fa-star'></label>
+                                        <input type='radio' className='rate' id='rate-2'></input>
+                                        <label for='rate-2' className='fas fa-star'></label>
+                                        <input type='radio' className='rate' id='rate-1'></input>
+                                        <label for='rate-1' className='fas fa-star'></label>
+
+                                    </div>
+                                    <h2 style={{ textDecoration: "underline", fontSize: "15.6px" }} className='h2reviewtrhisproduct'>Add a title</h2>
+                                    <input></input>
+                                    <h2 style={{ textDecoration: "underline", fontSize: "15.6px" }} className='h2reviewtrhisproduct'>Add a written review</h2>
+                                    <textarea></textarea>
+                                    <div>
+                                        <button>Cancel</button>
+                                        <button>Submit</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        }
+                    </div>
+                    <div>
+                        <h2 className='h2reviewtrhisproduct'>Top reviews</h2>
+                        <div>
+                            <h3>asdas</h3>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
