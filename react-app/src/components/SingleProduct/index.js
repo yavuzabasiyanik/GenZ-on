@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import './SingleProduct.css';
 import { createshoppingcart } from '../../store/shoppingcart';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { createReview } from '../../store/review';
 import { deleteReview } from '../../store/review';
 import { updateReview } from '../../store/review';
@@ -14,11 +14,8 @@ const SingleProduct = () => {
     const [selected, setSelected] = useState(1);
     const [title, setTitlte] = useState('');
     const [comment, setComment] = useState('');
-
-    const [updateTitle,setUpdateTitle] = useState('')
-    const [updateBody,setUpdateBody] = useState('')
-    const [updateSelected,setUpdateSelected] = useState(0)
-
+    const [averageRating, setAveraegeRating] = useState(0);
+    const [optionArr, setOptionArr] = useState([]);
 
     let { productId } = useParams();
     const [updateState, setUpdateState] = useState([false, 0, 0, '', ''])
@@ -30,20 +27,51 @@ const SingleProduct = () => {
     const user = useSelector(state => state.session.user);
 
     const reviews = useSelector(state => Object.values(state.reviews)).filter(el => el?.product_id === productId).reverse();
+    const shoppingcart = useSelector(state => Object.values(state.shoppingcart)).filter(el => el?.product_id === productId)[0];
 
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+
+        if((shoppingcart?.quantity+quantity)>product?.quantity){
+            alert('You cannot buy more than provided quantity!!! (You already have this product in your shopping cart...) ')
+            return
+        }
+
 
         dispatch(createshoppingcart(productId, quantity));
         history.push('/user/cart')
 
     }
 
-    const handleSubmitComment = (e) => {
+    const handleSubmitComment = async (e) => {
         e.preventDefault();
 
-        dispatch(createReview(product?.id, selected, title, comment));
+
+
+        if (title.length > 80) {
+            alert('Title length cannot be more than 80!!!')
+            setReviewDropdown(false);
+
+            setSelected(1);
+            setComment('')
+            setTitlte('');
+            return
+        }
+
+        if (comment.length > 1000) {
+            alert('Written review cannot be more than 1000!!!')
+
+            setReviewDropdown(false);
+
+            setSelected(1);
+            setComment('')
+            setTitlte('');
+            return
+        }
+
+        await dispatch(createReview(product?.id, selected, title, comment));
 
         const anchor = document.querySelector('.writecustomerreviewbutton')
         anchor.scrollIntoView({ behavior: 'smooth', block: 'center' })
@@ -54,10 +82,28 @@ const SingleProduct = () => {
         setTitlte('');
     }
 
-    const hadnleUpdate =  async (e) => {
+    const hadnleUpdate = async (e) => {
         e.preventDefault();
 
-        await dispatch(updateReview(product?.id,updateState[2],updateState[3],updateState[4],updateState[1]));
+
+        if (updateState[3].length > 80) {
+            alert('Title length cannot be more than 80!!!')
+
+            setUpdateState([false, 0, 0, '', '']);
+
+            return
+        }
+
+        if (updateState[4].length > 1000) {
+            alert('Written review cannot be more than 1000!!!')
+
+            setUpdateState([false, 0, 0, '', '']);
+
+            return
+        }
+
+
+        await dispatch(updateReview(product?.id, updateState[2], updateState[3], updateState[4], updateState[1]));
 
         setUpdateState([false, 0, 0, '', '']);
 
@@ -102,6 +148,30 @@ const SingleProduct = () => {
         setTitlte('');
     }
 
+    useEffect(() => {
+
+
+
+        let toplam = 0
+        for (let i = 0; i < reviews.length; i++) {
+            toplam += reviews[i].rating;
+        }
+
+        setAveraegeRating(Math.round(toplam / reviews.length))
+    }, [reviews])
+
+
+
+    useEffect(() => {
+        let arr = []
+        for (let i = 1; i <= product?.quantity; i++) {
+            arr.push((<option key={i} value={`${i}`}>{i}</option>))
+        }
+
+        setOptionArr(arr);
+
+    }, [product?.quantity])
+
     return (
         <div className='indivproduct-main-div'>
             <div className='middivallthestuff'>
@@ -110,6 +180,16 @@ const SingleProduct = () => {
                 </div>
                 <div className='infordivibu'>
                     <h1 className='productnameh1' style={{ fontFamily: "Arial, sans-serif" }}>{product?.name}</h1>
+                    <div className='imgandusername' style={{ marginTop: "10px" }}>
+                        <div className='oneswehurt' >
+                            <i style={averageRating >= 1 ? { color: "#fd4" } : { color: "#444" }} className='fas fa-star'></i>
+                            <i style={averageRating >= 2 ? { color: "#fd4" } : { color: "#444" }} className='fas fa-star'></i>
+                            <i style={averageRating >= 3 ? { color: "#fd4" } : { color: "#444" }} className='fas fa-star'></i>
+                            <i style={averageRating >= 4 ? { color: "#fd4" } : { color: "#444" }} className='fas fa-star'></i>
+                            <i style={averageRating === 5 ? { color: "#fd4" } : { color: "#444" }} className='fas fa-star'></i>
+                        </div>
+                        <h2 style={{ wordBreak: "break-all" }} >{reviews.length} {reviews.length >1 ?"reviews":"review"}</h2>
+                    </div>
                     <div className='pricethingyhehe'>
                         <p style={{ fontFamily: "Merienda", fontSize: "17px" }} ><span style={{ fontSize: "14px", fontFamily: "Merienda" }}>Price:</span> ${product?.price}.00</p>
                     </div>
@@ -132,11 +212,9 @@ const SingleProduct = () => {
                     <div className='muhtesem-uclu'>
 
                         <select onChange={(e) => setQuantity(e.target.value)} style={{ width: "60px", margin: "15px 0 20px" }}>
-                            <option value='1'>1</option>
-                            <option value='2'>2</option>
-                            <option value='3'>3</option>
-                            <option value='4'>4</option>
-                            <option value='5'>5</option>
+
+                            {optionArr}
+
                         </select>
 
                         <button onClick={handleSubmit} className='somebuttonadd'>Add to Cart</button>
@@ -175,10 +253,15 @@ const SingleProduct = () => {
                                         <label htmlFor='rate-1' className='fas fa-star'></label>
 
                                     </div>
-                                    <h2 style={{ textDecoration: "underline", fontSize: "15.6px" }} className='h2reviewtrhisproduct'>Add a title</h2>
-                                    <input value={title} onChange={(e) => setTitlte(e.target.value)} type='text' style={{ outline: "none" }}></input>
-                                    <h2 style={{ textDecoration: "underline", fontSize: "15.6px" }} className='h2reviewtrhisproduct'>Add a written review</h2>
-                                    <textarea value={comment} onChange={(e) => setComment(e.target.value)} style={{ outline: "none" }}></textarea>
+                                    <div style={{ marginTop: "10px" }}>
+
+                                        <h2 style={{ textDecoration: "underline", fontSize: "15.6px" }} className='h2reviewtrhisproduct'>Add a title</h2>
+                                        <input value={title} onChange={(e) => setTitlte(e.target.value)} type='text' style={{ outline: "none" }}></input>
+                                    </div>
+                                    <div style={{ marginTop: "10px" }}>
+                                        <h2 style={{ textDecoration: "underline", fontSize: "15.6px" }} className='h2reviewtrhisproduct'>Add a written review</h2>
+                                        <textarea value={comment} onChange={(e) => setComment(e.target.value)} style={{ outline: "none" }}></textarea>
+                                    </div>
                                     <div className='cancelsubmit'>
                                         <button onClick={selectedthingyhandle} className='buttoncancel'>Cancel</button>
                                         <button onClick={handleSubmitComment} className='submitbutton'>Submit</button>
@@ -198,22 +281,28 @@ const SingleProduct = () => {
 
                                     <h4 style={{ textDecoration: "underline", fontSize: "15.6px" }} className='h2reviewtrhisproduct'>Edit your rating</h4>
                                     <div className='star-widget'>
-                                        <input type='radio' value={updateState[2]} className="same" checked={updateState[2] === 5} onChange={(e) => setUpdateState(ele=> [ele[0],ele[1],5,ele[3],ele[4]])} id='rate-25'></input>
+                                        <input type='radio' value={updateState[2]} className="same" checked={updateState[2] === 5} onChange={(e) => setUpdateState(ele => [ele[0], ele[1], 5, ele[3], ele[4]])} id='rate-25'></input>
                                         <label htmlFor='rate-25' className='fas fa-star'></label>
-                                        <input type='radio' value={updateState[2]} className="same" checked={updateState[2] === 4} onChange={(e) => setUpdateState(ele=> [ele[0],ele[1],4,ele[3],ele[4]])} id='rate-24'></input>
+                                        <input type='radio' value={updateState[2]} className="same" checked={updateState[2] === 4} onChange={(e) => setUpdateState(ele => [ele[0], ele[1], 4, ele[3], ele[4]])} id='rate-24'></input>
                                         <label htmlFor='rate-24' className='fas fa-star'></label>
-                                        <input type='radio' value={updateState[2]} className="same" checked={updateState[2] === 3} onChange={(e) => setUpdateState(ele=> [ele[0],ele[1],3,ele[3],ele[4]])} id='rate-23'></input>
+                                        <input type='radio' value={updateState[2]} className="same" checked={updateState[2] === 3} onChange={(e) => setUpdateState(ele => [ele[0], ele[1], 3, ele[3], ele[4]])} id='rate-23'></input>
                                         <label htmlFor='rate-23' className='fas fa-star'></label>
-                                        <input type='radio' value={updateState[2]} className="same" checked={updateState[2] === 2} onChange={(e) => setUpdateState(ele=> [ele[0],ele[1],2,ele[3],ele[4]])} id='rate-22'></input>
+                                        <input type='radio' value={updateState[2]} className="same" checked={updateState[2] === 2} onChange={(e) => setUpdateState(ele => [ele[0], ele[1], 2, ele[3], ele[4]])} id='rate-22'></input>
                                         <label htmlFor='rate-22' className='fas fa-star'></label>
-                                        <input type='radio' value={updateState[2]} className="same" checked={updateState[2] === 1} onChange={(e) => setUpdateState(ele=> [ele[0],ele[1],1,ele[3],ele[4]])} id='rate-21'></input>
+                                        <input type='radio' value={updateState[2]} className="same" checked={updateState[2] === 1} onChange={(e) => setUpdateState(ele => [ele[0], ele[1], 1, ele[3], ele[4]])} id='rate-21'></input>
                                         <label htmlFor='rate-21' className='fas fa-star'></label>
 
                                     </div>
-                                    <h2 style={{ textDecoration: "underline", fontSize: "15.6px" }} className='h2reviewtrhisproduct'>Edit your title</h2>
-                                    <input value={updateState[3]} onChange={(e) => setUpdateState(ele=> [ele[0],ele[1],ele[2],e.target.value,ele[4]])} type='text' style={{ outline: "none" }}></input>
-                                    <h2 style={{ textDecoration: "underline", fontSize: "15.6px" }} className='h2reviewtrhisproduct'>Edit your written review</h2>
-                                    <textarea value={updateState[4]} onChange={(e) => setUpdateState(ele=> [ele[0],ele[1],ele[2],ele[3],e.target.value])} style={{ outline: "none" }}></textarea>
+                                    <div style={{ marginTop: "10px" }}>
+
+                                        <h2 style={{ textDecoration: "underline", fontSize: "15.6px" }} className='h2reviewtrhisproduct'>Edit your title</h2>
+                                        <input value={updateState[3]} onChange={(e) => setUpdateState(ele => [ele[0], ele[1], ele[2], e.target.value, ele[4]])} type='text' style={{ outline: "none" }}></input>
+                                    </div>
+                                    <div style={{ marginTop: "10px" }}>
+
+                                        <h2 style={{ textDecoration: "underline", fontSize: "15.6px" }} className='h2reviewtrhisproduct'>Edit your written review</h2>
+                                        <textarea value={updateState[4]} onChange={(e) => setUpdateState(ele => [ele[0], ele[1], ele[2], ele[3], e.target.value])} style={{ outline: "none" }}></textarea>
+                                    </div>
                                     <div className='cancelsubmit'>
                                         <button onClick={selectedthingyhandle} className='buttoncancel'>Cancel</button>
                                         <button onClick={hadnleUpdate} className='submitbutton'>Update</button>
@@ -227,7 +316,6 @@ const SingleProduct = () => {
                         <h2 className='h2reviewtrhisproduct'>Top reviews</h2>
                         <div className='reviewgrid'>
                             {reviews.map(ele => {
-                                console.log(ele);
                                 return (
                                     <div key={ele?.id} className='indvreviews'>
                                         <div className='imgandusername'>
@@ -237,12 +325,12 @@ const SingleProduct = () => {
                                         <div className='imgandusername'>
                                             <div className='oneswehurt'>
                                                 <i style={{ color: "#fd4" }} className='fas fa-star'></i>
-                                                <i style={ele?.rating >= 2 ? { color: "#fd4" } : { color: "444" }} className='fas fa-star'></i>
-                                                <i style={ele?.rating >= 3 ? { color: "#fd4" } : { color: "444" }} className='fas fa-star'></i>
-                                                <i style={ele?.rating >= 4 ? { color: "#fd4" } : { color: "444" }} className='fas fa-star'></i>
-                                                <i style={ele?.rating === 5 ? { color: "#fd4" } : { color: "444" }} className='fas fa-star'></i>
+                                                <i style={ele?.rating >= 2 ? { color: "#fd4" } : { color: "#444" }} className='fas fa-star'></i>
+                                                <i style={ele?.rating >= 3 ? { color: "#fd4" } : { color: "#444" }} className='fas fa-star'></i>
+                                                <i style={ele?.rating >= 4 ? { color: "#fd4" } : { color: "#444" }} className='fas fa-star'></i>
+                                                <i style={ele?.rating === 5 ? { color: "#fd4" } : { color: "#444" }} className='fas fa-star'></i>
                                             </div>
-                                            <h2>{ele?.title}</h2>
+                                            <h2 style={{ wordBreak: "break-all" }} >{ele?.title}</h2>
                                         </div>
                                         <h6 style={{ marginBottom: "10px" }} className='verifiedpurchase'>Verified Purchase</h6>
                                         <p style={{ wordBreak: "break-all" }}>{ele?.body}</p>

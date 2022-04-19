@@ -132,7 +132,7 @@
 
 .reviewsmain-div {
     width: 100%;
-    height: 100%;
+    height: auto;
     background-color: white;
 }
 
@@ -231,7 +231,7 @@ input#rate-5:checked~label {
 .sennediyorsun {
     width: 100%;
     border-radius: 8px;
-    height: 512px;
+    height: auto;
     border: 1px solid #D5D9D9;
     box-shadow: 0 2px 5px #d6d6d6;
 
@@ -239,6 +239,9 @@ input#rate-5:checked~label {
     padding: 20px;
 }
 
+textarea{
+    resize: none;
+}
 .imgreviewind {
     width: 65px;
     margin-top: 20px;
@@ -324,7 +327,7 @@ input#rate-5:checked~label {
 }
 
 .reviewgrid {
-    width: 680px;
+    width: 700px;
     height: auto;
     margin-top: 20px;
     display: flex;
@@ -340,7 +343,9 @@ input#rate-5:checked~label {
 }
 
 
-
+.oneswehurt{
+    width: 73.18px;
+}
 .oneswehurt i {
     font-size: 13px;
     color: #444;

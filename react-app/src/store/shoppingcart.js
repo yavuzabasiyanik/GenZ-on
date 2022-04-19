@@ -2,7 +2,7 @@ const LOAD_SHOPPINGCART = 'shoppingcart/LOAD';
 const DELETE_ONE_SHOPPINGCART = 'shoppingcart/DELETEONE';
 const DELETE_ALL_SHOPPINGCART = 'shoppingcart/DELETEALL';
 const CREATE_SHOPPINGCART = 'shoppingcart/CREATEONE';
-// const DELETE_ALL_SHOPPINGCART = 'shoppingcart/DELETEALL';
+const UPDATE_SHOPPINGCART ='shoppingcart/UPDATEONE';
 
 
 const loadShoppingcart = (shoppingcartproducts) => ({
@@ -23,6 +23,11 @@ const deleteallshoppingcartaction = (arrayIds) => ({
 const createoneshoppingcaraction = (shoppingcartproduct) => ({
     type: CREATE_SHOPPINGCART,
     shoppingcartproduct
+})
+
+const updateQuantityShoppingCart = (thing) => ({
+    type: UPDATE_SHOPPINGCART,
+    thing
 })
 
 
@@ -77,6 +82,21 @@ export const createshoppingcart = (product_id,quantity) => async (dispatch) => {
     }
 }
 
+export const updateShoppingcart = (id,product_id,quantity) => async (dispatch) => {
+    const response = await fetch(`/api/shoppingcart/update/${id}`,{
+        method:"PUT",
+        headers:{"Content-Type":"application/json"},
+        body: JSON.stringify({
+            product_id,
+            quantity
+        })
+    });
+
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(updateQuantityShoppingCart(data))
+    }
+}
 
 
 const shoppingcartreducer = (state = {}, action) => {
@@ -98,6 +118,9 @@ const shoppingcartreducer = (state = {}, action) => {
             return newState
         case CREATE_SHOPPINGCART:
             newState[action.shoppingcartproduct.id] = action.shoppingcartproduct;
+            return newState
+        case UPDATE_SHOPPINGCART:
+            newState[action.thing.id] = action.thing;
             return newState
         default:
             return state

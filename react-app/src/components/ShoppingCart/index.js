@@ -1,8 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import './ShoppingCart.css';
-import { shoppingcartDeleteone } from '../../store/shoppingcart';
+import { shoppingcartDeleteone, updateShoppingcart } from '../../store/shoppingcart';
 import { shoppingcartdeleteall } from '../../store/shoppingcart';
 import { NavLink, useHistory } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 const ShoppingCart = () => {
 
@@ -10,6 +11,8 @@ const ShoppingCart = () => {
     let shoppingcart = useSelector(state => Object.values(state.shoppingcart));
 
     const user = useSelector(state => state.session.user);
+
+    const [optionArr2, setOptionArr2] = useState([]);
 
 
     shoppingcart = shoppingcart.filter(ele => ele?.user_id === user?.id);
@@ -27,6 +30,23 @@ const ShoppingCart = () => {
     }
 
 
+    const pleasework = (num) => {
+        let arr = []
+
+        for (let i = 1; i <= num; i++) {
+            arr.push((<option key={i} value={`${i}`}>{i}</option>))
+        }
+        return arr
+
+    }
+
+
+    const updateQuantity = (id,product_id,quantity) => {
+
+        dispatch(updateShoppingcart(id,product_id,quantity));
+        return
+    }
+
     const allCart = shoppingcart.map(ele => {
         return (
             <div className='productsinuserpageCart' key={ele?.id}>
@@ -38,12 +58,20 @@ const ShoppingCart = () => {
                         <p style={{ color: "#007185" }}>In Stock</p>
                         <p style={{ color: "#565959", fontSize: "12px", lineHeight: "16px" }}>Eligible for FREE Shipping & <span style={{ fontWeight: "700", fontSize: "12px", color: "#007185" }}>FREE Returns</span></p>
                         <div className='qtydelete'>
-                            <p style={{ paddingRight: "8px", fontWeight: "700", borderRight: "1px #D5D9D9 solid" }}>Qty: {ele?.quantity}</p>
+                            {/* <p style={{ paddingRight: "8px", fontWeight: "700", borderRight: "1px #D5D9D9 solid" }}>Qty: {ele?.quantity}</p> */}
+                            <select onChange={(e) => updateQuantity(ele?.id,ele?.product?.id ,e.target.value)} value={ele?.quantity} style={{ width: "60px", paddingRight: "8px", fontWeight: "700", }}>
+
+                                {
+                                    pleasework(ele?.product?.quantity)
+                                }
+                                {/* {optionArr2} */}
+
+                            </select>
                             <p onClick={() => handleDeleteOne(ele?.id)} className='dontholdme'>Delete</p>
                         </div>
                     </div>
                 </div>
-                <p style={{ fontSize: "18px", lineHeight: "24px", fontWeight: "700", color: "#0F1111" }}>${ele?.product?.price}.00</p>
+                <p style={{ fontSize: "18px", lineHeight: "24px", fontWeight: "700", color: "#0F1111" }}>${ele?.product?.price * ele?.quantity}.00</p>
             </div>
         )
     }).reverse()
@@ -55,11 +83,11 @@ const ShoppingCart = () => {
                 <div className='somethingheree3'>
                     <div className='h1veh6ikilisi'>
 
-                        <h1 style={{ marginLeft:"10px",fontSize: "28px" }}>Your GenZon Cart is empty.</h1>
+                        <h1 style={{ marginLeft: "10px", fontSize: "28px" }}>Your GenZon Cart is empty.</h1>
                     </div>
 
                 </div>
-                    <img className='legendimg' src='https://images.contentstack.io/v3/assets/blt187521ff0727be24/blt3d038a51072c6d5a/614cc18164c8007a9bdec0e2/zaun_splash.jpeg'></img>
+                <img className='legendimg' src='https://images.contentstack.io/v3/assets/blt187521ff0727be24/blt3d038a51072c6d5a/614cc18164c8007a9bdec0e2/zaun_splash.jpeg'></img>
             </div>
         </div>
     )
