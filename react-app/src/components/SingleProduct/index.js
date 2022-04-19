@@ -5,6 +5,7 @@ import { createshoppingcart } from '../../store/shoppingcart';
 import { useState } from 'react';
 import { createReview } from '../../store/review';
 import { deleteReview } from '../../store/review';
+import { updateReview } from '../../store/review';
 
 const SingleProduct = () => {
 
@@ -13,8 +14,14 @@ const SingleProduct = () => {
     const [selected, setSelected] = useState(1);
     const [title, setTitlte] = useState('');
     const [comment, setComment] = useState('');
-    let { productId } = useParams();
 
+    const [updateTitle,setUpdateTitle] = useState('')
+    const [updateBody,setUpdateBody] = useState('')
+    const [updateSelected,setUpdateSelected] = useState(0)
+
+
+    let { productId } = useParams();
+    const [updateState, setUpdateState] = useState([false, 0, 0, '', ''])
     productId = +productId;
 
     const dispatch = useDispatch();
@@ -47,20 +54,54 @@ const SingleProduct = () => {
         setTitlte('');
     }
 
+    const hadnleUpdate =  async (e) => {
+        e.preventDefault();
+
+        await dispatch(updateReview(product?.id,updateState[2],updateState[3],updateState[4],updateState[1]));
+
+        setUpdateState([false, 0, 0, '', '']);
+
+    }
+
     const selectedthingyhandle = (e) => {
         e.preventDefault();
-        setReviewDropdown(ele => !ele)
+
+        if (!user) {
+            history.push('/login')
+        }
+
+        setReviewDropdown(ele => {
+            if (updateState[0] === false) {
+                return !ele
+            } else {
+                return false
+            }
+        });
+
+        setSelected(1);
+        setComment('')
+        setTitlte('');
+        setUpdateState([false, 0, 0, '', '']);
+
+    }
+
+    const deleteHandle = (e, id) => {
+        e.preventDefault();
+
+        dispatch(deleteReview(id));
+
+    }
+
+    const editHandle = (e, id, rating, title, body) => {
+        e.preventDefault();
+
+        setUpdateState([true, id, rating, title, body]);
+        setReviewDropdown(false);
         setSelected(1);
         setComment('')
         setTitlte('');
     }
 
-    const deleteHandle = (e,id) => {
-        e.preventDefault(0);
-
-        dispatch(deleteReview(id));
-
-    }
     return (
         <div className='indivproduct-main-div'>
             <div className='middivallthestuff'>
@@ -123,15 +164,15 @@ const SingleProduct = () => {
                                     <h4 style={{ textDecoration: "underline", fontSize: "15.6px" }} className='h2reviewtrhisproduct'>Add a rating</h4>
                                     <div className='star-widget'>
                                         <input type='radio' value={selected} className="same" checked={selected === 5} onChange={(e) => setSelected(5)} id='rate-5'></input>
-                                        <label for='rate-5' className='fas fa-star'></label>
+                                        <label htmlFor='rate-5' className='fas fa-star'></label>
                                         <input type='radio' value={selected} className="same" checked={selected === 4} onChange={(e) => setSelected(4)} id='rate-4'></input>
-                                        <label for='rate-4' className='fas fa-star'></label>
+                                        <label htmlFor='rate-4' className='fas fa-star'></label>
                                         <input type='radio' value={selected} className="same" checked={selected === 3} onChange={(e) => setSelected(3)} id='rate-3'></input>
-                                        <label for='rate-3' className='fas fa-star'></label>
+                                        <label htmlFor='rate-3' className='fas fa-star'></label>
                                         <input type='radio' value={selected} className="same" checked={selected === 2} onChange={(e) => setSelected(2)} id='rate-2'></input>
-                                        <label for='rate-2' className='fas fa-star'></label>
+                                        <label htmlFor='rate-2' className='fas fa-star'></label>
                                         <input type='radio' value={selected} className="same" checked={selected === 1} onChange={(e) => setSelected(1)} id='rate-1'></input>
-                                        <label for='rate-1' className='fas fa-star'></label>
+                                        <label htmlFor='rate-1' className='fas fa-star'></label>
 
                                     </div>
                                     <h2 style={{ textDecoration: "underline", fontSize: "15.6px" }} className='h2reviewtrhisproduct'>Add a title</h2>
@@ -146,11 +187,47 @@ const SingleProduct = () => {
 
                             </div>
                         }
+                        {updateState[0] ?
+                            <div className='sennediyorsun'>
+                                <h2 style={{ textDecoration: "underline" }} className='h2reviewtrhisproduct'>Update your review:</h2>
+                                <div style={{ display: "flex", gap: "10px", paddingBottom: "20px" }}>
+                                    <img className='imgreviewind' src={product?.image_url}></img>
+                                    <h2 style={{ marginTop: "22px" }}>{product?.name}</h2>
+                                </div>
+                                <div className='formreviewthingy'>
+
+                                    <h4 style={{ textDecoration: "underline", fontSize: "15.6px" }} className='h2reviewtrhisproduct'>Edit your rating</h4>
+                                    <div className='star-widget'>
+                                        <input type='radio' value={updateState[2]} className="same" checked={updateState[2] === 5} onChange={(e) => setUpdateState(ele=> [ele[0],ele[1],5,ele[3],ele[4]])} id='rate-25'></input>
+                                        <label htmlFor='rate-25' className='fas fa-star'></label>
+                                        <input type='radio' value={updateState[2]} className="same" checked={updateState[2] === 4} onChange={(e) => setUpdateState(ele=> [ele[0],ele[1],4,ele[3],ele[4]])} id='rate-24'></input>
+                                        <label htmlFor='rate-24' className='fas fa-star'></label>
+                                        <input type='radio' value={updateState[2]} className="same" checked={updateState[2] === 3} onChange={(e) => setUpdateState(ele=> [ele[0],ele[1],3,ele[3],ele[4]])} id='rate-23'></input>
+                                        <label htmlFor='rate-23' className='fas fa-star'></label>
+                                        <input type='radio' value={updateState[2]} className="same" checked={updateState[2] === 2} onChange={(e) => setUpdateState(ele=> [ele[0],ele[1],2,ele[3],ele[4]])} id='rate-22'></input>
+                                        <label htmlFor='rate-22' className='fas fa-star'></label>
+                                        <input type='radio' value={updateState[2]} className="same" checked={updateState[2] === 1} onChange={(e) => setUpdateState(ele=> [ele[0],ele[1],1,ele[3],ele[4]])} id='rate-21'></input>
+                                        <label htmlFor='rate-21' className='fas fa-star'></label>
+
+                                    </div>
+                                    <h2 style={{ textDecoration: "underline", fontSize: "15.6px" }} className='h2reviewtrhisproduct'>Edit your title</h2>
+                                    <input value={updateState[3]} onChange={(e) => setUpdateState(ele=> [ele[0],ele[1],ele[2],e.target.value,ele[4]])} type='text' style={{ outline: "none" }}></input>
+                                    <h2 style={{ textDecoration: "underline", fontSize: "15.6px" }} className='h2reviewtrhisproduct'>Edit your written review</h2>
+                                    <textarea value={updateState[4]} onChange={(e) => setUpdateState(ele=> [ele[0],ele[1],ele[2],ele[3],e.target.value])} style={{ outline: "none" }}></textarea>
+                                    <div className='cancelsubmit'>
+                                        <button onClick={selectedthingyhandle} className='buttoncancel'>Cancel</button>
+                                        <button onClick={hadnleUpdate} className='submitbutton'>Update</button>
+                                    </div>
+                                </div>
+
+                            </div> : ""
+                        }
                     </div>
                     <div>
                         <h2 className='h2reviewtrhisproduct'>Top reviews</h2>
                         <div className='reviewgrid'>
                             {reviews.map(ele => {
+                                console.log(ele);
                                 return (
                                     <div key={ele?.id} className='indvreviews'>
                                         <div className='imgandusername'>
@@ -164,14 +241,13 @@ const SingleProduct = () => {
                                                 <i style={ele?.rating >= 3 ? { color: "#fd4" } : { color: "444" }} className='fas fa-star'></i>
                                                 <i style={ele?.rating >= 4 ? { color: "#fd4" } : { color: "444" }} className='fas fa-star'></i>
                                                 <i style={ele?.rating === 5 ? { color: "#fd4" } : { color: "444" }} className='fas fa-star'></i>
-
                                             </div>
                                             <h2>{ele?.title}</h2>
                                         </div>
                                         <h6 style={{ marginBottom: "10px" }} className='verifiedpurchase'>Verified Purchase</h6>
                                         <p style={{ wordBreak: "break-all" }}>{ele?.body}</p>
-                                        {user?.id === ele?.user?.id && <button className='buttoncancelthing'>Edit</button>}
-                                        {user?.id === ele?.user?.id && <button onClick={(e) => deleteHandle(e,ele?.id)} className='buttoncancelthing'>Delete</button>}
+                                        {user?.id === ele?.user?.id && <button onClick={(e) => editHandle(e, ele?.id, ele?.rating, ele?.title, ele?.body)} className='buttoncancelthing'>Edit</button>}
+                                        {user?.id === ele?.user?.id && <button onClick={(e) => deleteHandle(e, ele?.id)} className='buttoncancelthing'>Delete</button>}
                                     </div>
                                 )
                             })}

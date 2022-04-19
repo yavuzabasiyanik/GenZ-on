@@ -72,7 +72,7 @@ def reviewUpdate(review_id):
         review.body = form.data['body']
         review.rating = form.data['rating']
 
-
+        db.session.add(review)
         db.session.commit()
         return review.to_dict()
     return {'errors': error_thingy(form.errors)}, 401
