@@ -3,7 +3,6 @@ import './ShoppingCart.css';
 import { shoppingcartDeleteone, updateShoppingcart } from '../../store/shoppingcart';
 import { shoppingcartdeleteall } from '../../store/shoppingcart';
 import { NavLink, useHistory } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 
 const ShoppingCart = () => {
 
@@ -51,7 +50,7 @@ const ShoppingCart = () => {
             <div className='productsinuserpageCart' key={ele?.id}>
                 <div className='imgnamepricedeletethingies'>
 
-                    <NavLink exact to={`/productpage/${ele?.product?.id}`}><img className='imginthecart' src={ele?.product?.image_url}></img></NavLink>
+                    <NavLink exact to={`/productpage/${ele?.product?.id}`}><img alt='something' className='imginthecart' src={ele?.product?.image_url}></img></NavLink>
                     <div className='somedivdd'>
                         <NavLink exact to={`/productpage/${ele?.product?.id}`}><p style={{ color: "#0F1111", fontSize: "17px", cursor: "pointer", wordWrap: "break-word", marginTop: "8px", fontWeight: "700" }}>{ele?.product?.name}</p></NavLink>
                         <p style={{ color: "#007185" }}>In Stock</p>
@@ -84,7 +83,7 @@ const ShoppingCart = () => {
                     </div>
 
                 </div>
-                <img className='legendimg' src='https://images.contentstack.io/v3/assets/blt187521ff0727be24/blt3d038a51072c6d5a/614cc18164c8007a9bdec0e2/zaun_splash.jpeg'></img>
+                <img alt='something' className='legendimg' src='https://images.contentstack.io/v3/assets/blt187521ff0727be24/blt3d038a51072c6d5a/614cc18164c8007a9bdec0e2/zaun_splash.jpeg'></img>
             </div>
         </div>
     )

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useHistory } from 'react-router-dom';
-import LogoutButton from '../auth/LogoutButton';
+// import LogoutButton from '../auth/LogoutButton';
 import './Navbar.css';
 import { logout } from '../../store/session';
 // import mypic from '../../images/GenZon-logos_black.png';
@@ -114,7 +114,7 @@ const NavBar = () => {
             </div>
 
             <input className='searchinput' type='search' onChange={handleFilter} value={search} onClick={(e) => setSearch('')}></input>
-            <div ref={searcRef} className={filterData?.length == 0 ? 'search-name-container' : 'search-name-container-clickled'}>
+            <div ref={searcRef} className={filterData?.length === 0 ? 'search-name-container' : 'search-name-container-clickled'}>
               {filterData?.slice(0, 10).map((value, index) => {
                 return <NavLink key={index} exact to={`/productpage/${value?.id}`}>
                   <div className='dataItem' onClick={(e) => handleClickSearch(value?.name)} key={index}><p>{value?.name}</p></div>
@@ -234,8 +234,8 @@ const NavBar = () => {
               </div>
             </NavLink>
             <div className='rightpartlinkedingithub'>
-              <a href="https://github.com/yavuzabasiyanik" target="_blank"><i className="githublinked fa-brands fa-github"></i></a>
-              <a href="https://www.linkedin.com/in/yavuz-abasiyanik-a4a86720a/" target="_blank"><i className="githublinked fa-brands fa-linkedin"></i></a>
+              <a rel="noreferrer" href="https://github.com/yavuzabasiyanik" target="_blank"><i className="githublinked fa-brands fa-github"></i></a>
+              <a rel="noreferrer" href="https://www.linkedin.com/in/yavuz-abasiyanik-a4a86720a/" target="_blank"><i className="githublinked fa-brands fa-linkedin"></i></a>
             </div>
           </div>
         </div>

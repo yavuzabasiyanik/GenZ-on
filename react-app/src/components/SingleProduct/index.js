@@ -209,7 +209,7 @@ const SingleProduct = () => {
             <div className='indivproduct-main-div'>
                 <div className='middivallthestuff'>
                     <div className='imgdivibu'>
-                        <img className='theimageintheindiv' src={product?.image_url}></img>
+                        <img alt='something' className='theimageintheindiv' src={product?.image_url}></img>
                     </div>
                     <div className='infordivibu'>
                         <h1 className='productnameh1' style={{ fontFamily: "Arial, sans-serif" }}>{product?.name}</h1>
@@ -267,7 +267,7 @@ const SingleProduct = () => {
                                 <div className='sennediyorsun'>
                                     <h2 style={{ textDecoration: "underline" }} className='h2reviewtrhisproduct'>Add a review for:</h2>
                                     <div style={{ display: "flex", gap: "10px", paddingBottom: "20px" }}>
-                                        <img className='imgreviewind' src={product?.image_url}></img>
+                                        <img alt='something' className='imgreviewind' src={product?.image_url}></img>
                                         <h2 style={{ marginTop: "22px" }}>{product?.name}</h2>
                                     </div>
                                     <div className='formreviewthingy'>
@@ -307,7 +307,7 @@ const SingleProduct = () => {
                                 <div className='sennediyorsun'>
                                     <h2 style={{ textDecoration: "underline" }} className='h2reviewtrhisproduct'>Update your review:</h2>
                                     <div style={{ display: "flex", gap: "10px", paddingBottom: "20px" }}>
-                                        <img className='imgreviewind' src={product?.image_url}></img>
+                                        <img alt='something' className='imgreviewind' src={product?.image_url}></img>
                                         <h2 style={{ marginTop: "22px" }}>{product?.name}</h2>
                                     </div>
                                     <div className='formreviewthingy'>
@@ -352,7 +352,7 @@ const SingleProduct = () => {
                                     return (
                                         <div key={ele?.id} className='indvreviews'>
                                             <div className='imgandusername'>
-                                                <img style={{ width: "34px" }} src='https://images-na.ssl-images-amazon.com/images/S/amazon-avatars/default._CR0,0,1024,1024_SX48_.png'></img>
+                                                <img alt='something' style={{ width: "34px" }} src='https://images-na.ssl-images-amazon.com/images/S/amazon-avatars/default._CR0,0,1024,1024_SX48_.png'></img>
                                                 <h4 style={{ wordBreak: "break-all", fontSize: "12.4px", lineHeihgt: "19px", color: "#0f1111", fontWeight: "300" }}>{ele?.user?.username}</h4>
                                             </div>
                                             <div className='imgandusername'>

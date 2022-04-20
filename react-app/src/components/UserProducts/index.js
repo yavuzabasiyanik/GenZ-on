@@ -27,7 +27,7 @@ const UserProducts = () => {
     const allProductsUserDiv = userProducts.map(ele => {
         return (<div className='productsinuserpage' key={ele?.id}>
             <div className='pallikiskeye'>
-                <NavLink exact to={`/productpage/${ele?.id}`}><img className='imageinthe' src={ele?.image_url}></img></NavLink>
+                <NavLink exact to={`/productpage/${ele?.id}`}><img alt='something' className='imageinthe' src={ele?.image_url}></img></NavLink>
 
                 <div className='nameusernamepricedescription'>
 
@@ -64,7 +64,7 @@ const UserProducts = () => {
                     </div>
 
                 </div>
-                <img className='legendimg' src='https://external-preview.redd.it/GLem0FFrjGGfKF8ruVScaYqNmB0CbKde8gFD82Ov-cw.jpg?auto=webp&s=c925bc146f8b8b0bad10909fe40470b96eaa4c7b'></img>
+                <img alt='something' className='legendimg' src='https://external-preview.redd.it/GLem0FFrjGGfKF8ruVScaYqNmB0CbKde8gFD82Ov-cw.jpg?auto=webp&s=c925bc146f8b8b0bad10909fe40470b96eaa4c7b'></img>
             </div>
         </div>
     )
