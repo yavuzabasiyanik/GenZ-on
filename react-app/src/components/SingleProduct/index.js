@@ -34,7 +34,8 @@ const SingleProduct = () => {
         e.preventDefault();
 
 
-        if((shoppingcart?.quantity+quantity)>product?.quantity){
+
+        if((shoppingcart?.quantity+ (+quantity))>product?.quantity){
             alert('You cannot buy more than provided quantity!!! (You already have this product in your shopping cart...) ')
             return
         }

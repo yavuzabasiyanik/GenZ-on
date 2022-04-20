@@ -8,9 +8,12 @@ import { logout } from '../../store/session';
 // import ProductForm from '../ProductForm/ProductForm';
 
 const NavBar = () => {
+
   const [showProfile, setShowProfile] = useState(false);
   const user = useSelector(state => state.session.user);
 
+  const [filterData, setFilter] = useState([]);
+  const [search, setSearch] = useState('');
 
 
   const dispatch = useDispatch();
@@ -27,6 +30,8 @@ const NavBar = () => {
   shoppingcart = shoppingcart.filter(ele => ele?.user_id === user?.id);
 
   const cartLength = shoppingcart.length
+
+  const products = useSelector(state => Object.values(state.products));
 
   let menuRef = useRef();
 
@@ -47,6 +52,47 @@ const NavBar = () => {
     }
 
   })
+  let searcRef = useRef();
+
+  useEffect(() => {
+
+    const handler = (event) => {
+
+      if (!searcRef.current.contains(event.target)) {
+
+        setFilter([]);
+      }
+    }
+
+    document.addEventListener('mousedown', handler);
+
+    return () => {
+      document.removeEventListener('mousedown', handler)
+    }
+
+  })
+  const handleFilter = (e) => {
+    const search = e.target.value
+
+    const newFilter = products?.filter(val => {
+
+      return val?.name.toLowerCase().includes(search.toLowerCase());
+    });
+
+    setSearch(search);
+
+    if (search === '') {
+      setFilter([])
+    } else {
+      setFilter(newFilter)
+    }
+  }
+
+  const handleClickSearch = (e) => {
+    setSearch(e)
+    setFilter([])
+  }
+
 
   return (
     <>
@@ -62,14 +108,23 @@ const NavBar = () => {
 
           <div className='search'>
             <div className='left-all'>
+
               All
-              <i className="fa-solid fa-sort-down colorchangecarretdown"></i>
+              {/* <i className="fa-solid fa-sort-down colorchangecarretdown"></i> */}
             </div>
 
-            <input className='searchinput' type='text'></input>
+            <input className='searchinput' type='search' onChange={handleFilter} value={search} onClick={(e) => setSearch('')}></input>
+            <div ref={searcRef} className={filterData?.length == 0 ? 'search-name-container' : 'search-name-container-clickled'}>
+              {filterData?.slice(0,10).map((value,index) => {
+                return <NavLink key={index} exact to={`/productpage/${value?.id}`}>
+                  <div className='dataItem' onClick={(e)=> handleClickSearch(value?.name)} key={index}>{value?.name}</div>
+                </NavLink>
+              })
+
+              }
+            </div>
             <div className='right-search-thingy'>
               <i className="fa-solid fa-magnifying-glass search-logo-thingy"></i>
-
             </div>
           </div>
 
