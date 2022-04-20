@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, useParams } from 'react-router-dom';
+import { NavLink, useHistory, useParams } from 'react-router-dom';
 import './SingleProduct.css';
 import { createshoppingcart } from '../../store/shoppingcart';
 import { useEffect, useState } from 'react';
@@ -251,7 +251,7 @@ const SingleProduct = () => {
                             </select>
 
                             <button onClick={handleSubmit} className='somebuttonadd'>Add to Cart</button>
-                            <button className='somebuttonbuy'>Buy Now</button>
+                            <NavLink exact to={'/checkout'}><button className='somebuttonbuy'>Buy Now</button></NavLink>
 
                         </div>
 

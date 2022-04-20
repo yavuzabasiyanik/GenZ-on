@@ -163,14 +163,14 @@ nav {
     justify-content: center;
     padding-left: 7px;
     padding-bottom: 2px;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
-.right-mid-part-navbar:hover {
+/* .right-mid-part-navbar:hover {
     border: 1px solid #fff;
     border-radius: 2px;
     padding: 0 0px 0 8px;
-}
+} */
 
 
 .shopping-cart-thingy {

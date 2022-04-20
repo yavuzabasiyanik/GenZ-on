@@ -135,7 +135,7 @@ const NavBar = () => {
                 <p className='hello-someone'>Hello, {user?.username}</p>
                 <span className='listings-onthenavbar'>Account & Lists<i className="fa-solid fa-sort-down accountlistdropdownicon"></i></span>
               </div>
-              {showProfile &&
+              {showProfile && user &&
                 <div className='dropdownprofile'>
                   <NavLink exact to={'/'} onClick={() => setShowProfile(false)}>
                     <div className='accounts-listings'>
@@ -177,11 +177,39 @@ const NavBar = () => {
 
                 </div>
               }
+              {showProfile && !user &&
+                <div className='dropdownprofile' style={{height:"150px"}}>
+                  <NavLink exact to={'/'} onClick={() => setShowProfile(false)}>
+                    <div className='accounts-listings'>
+
+                      <p className='bold'>Home</p>
+
+                    </div>
+                  </NavLink>
+                  <NavLink exact to={'/login'} onClick={() => setShowProfile(false)}>
+
+                    <div className='accounts-listings'>
+
+                      <p className='bold notsobold'>Login</p>
+
+                    </div>
+                  </NavLink>
+
+                  <NavLink exact to={'/signup'} onClick={() => setShowProfile(false)}>
+                    <div className='accounts-listings' style={{border:"none"}}>
+
+                      <p className='bold notsobold'>Signup</p>
+
+                    </div>
+                  </NavLink>
+
+                </div>
+              }
             </div>
 
             <div className='right-mid-part-navbar'>
-              <span className='returns-be-specificlol'>Returns</span>
-              <span className='orders-be-specificlol'>& Orders</span>
+              <span className='returns-be-specificlol'>GenZon</span>
+              <span className='orders-be-specificlol'>& prime</span>
             </div>
 
             <NavLink exact to={`/user/cart`}><div className='shopping-cart-thingy'>
