@@ -80,7 +80,7 @@ const ShoppingCart = () => {
                 <div className='somethingheree3'>
                     <div className='h1veh6ikilisi'>
 
-                        <h1 style={{ marginLeft: "10px", fontSize: "28px" }}>Your GenZon Cart is empty.</h1>
+                        <h1 style={{ marginLeft: "10px", fontSize: "28px" }}>Your GenZon Cart is empty...</h1>
                     </div>
 
                 </div>

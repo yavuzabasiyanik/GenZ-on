@@ -31,7 +31,7 @@ const UserProducts = () => {
 
                 <div className='nameusernamepricedescription'>
 
-                <NavLink exact to={`/productpage/${ele?.id}`}><p style={{ color: "#007185", cursor: "pointer", fontSize: "14px", fontWeight: "700", display:"inline" }}>{ele?.name}</p></NavLink>
+                    <NavLink exact to={`/productpage/${ele?.id}`}><p style={{ color: "#007185", cursor: "pointer", fontSize: "14px", fontWeight: "700", display: "inline" }}>{ele?.name}</p></NavLink>
                     <p style={{ lineHeight: "20px" }}><span style={{ fontSize: "10.5px" }}>by</span> <span style={{ fontWeight: "700" }}>{ele?.user.username}</span></p>
                     <p style={{ marginTop: "20px", fontSize: "14px", width: "500px", wordBreak: "break-word" }}>{ele?.description}</p>
                 </div>
@@ -52,17 +52,43 @@ const UserProducts = () => {
     // background-color: #ffd814;
     // border-color: #FCD200;
 
-    return (
-        <>
-            <div className='user-products-main-div'>
-                <div className='productsGrid'>
-                    {allProductsUserDiv}
+    const legendaryLeagueEmptyImage = (
+        <div className='legendmain-div'>
+            <div className='asilllegendary-div-empty'>
+                <div className='somethingheree3'>
+                    <div className='h1veh6ikilisi'>
+
+                        <h1 style={{ marginLeft: "10px", fontSize: "28px" }}>Wanna sell your item on GenZon? Click
+                         <NavLink  exact to={`/product/sell`}><span style={{margin: "0px 10px", fontSize: "28px", color: "#F08804", textDecoration:"underline" }}>here</span></NavLink>
+                        to learn more.</h1>
+                    </div>
+
                 </div>
+                <img className='legendimg' src='https://external-preview.redd.it/GLem0FFrjGGfKF8ruVScaYqNmB0CbKde8gFD82Ov-cw.jpg?auto=webp&s=c925bc146f8b8b0bad10909fe40470b96eaa4c7b'></img>
             </div>
+        </div>
+    )
+
+    return (
+
+        <>
+            {userProducts?.length ?
+
+                (<div className='user-products-main-div'>
+                    <div className='productsGrid'>
+                        {allProductsUserDiv}
+                    </div>
+                </div>)
+                : (
+                    legendaryLeagueEmptyImage
+                )
+
+            }
             {updateProduct[0] &&
                 <UpdateForm id={updateProduct[1]} update={updateProduct} setUpdate={setUpdateProduct} />
             }
         </>
+
     )
 }
 

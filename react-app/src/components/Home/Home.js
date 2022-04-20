@@ -1,21 +1,21 @@
 import './Home.css';
-import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteProduct } from '../../store/product'
 import { NavLink } from 'react-router-dom';
 
 const Home = () => {
 
-    const products = useSelector(state => Object.values(state.products));
+    // const products = useSelector(state => Object.values(state.products));
+    
     const dispatch = useDispatch();
 
-    const deleteProductFunc = (e, id) => {
-        e.preventDefault();
+    // const deleteProductFunc = (e, id) => {
+    //     e.preventDefault();
 
-        dispatch(deleteProduct(id));
+    //     dispatch(deleteProduct(id));
 
 
-    }
+    // }
 
 
 

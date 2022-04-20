@@ -28,7 +28,7 @@ const AllProductsPage = () => {
         <div key={ele?.id} className="selam23">
             <div style={{width:"271px", height:"271px", backgroundColor:"white"}}>
 
-                <NavLink exact to={`/productpage/${ele?.id}`}><img style={{ cursor: "pointer" }} className="imgcokzor" src={ele?.image_url}></img></NavLink>
+                <NavLink exact to={`/productpage/${ele?.id}`}><img alt="" style={{ cursor: "pointer" }} className="imgcokzor" src={ele?.image_url}></img></NavLink>
             </div>
             <div className="name-price-description">
                 <NavLink exact to={`/productpage/${ele?.id}`}><p style={{ cursor: "pointer", fontSize: "16px", fontWeight: "bold", maxWidth: "215px", color: "#007185" }}>{ele?.name}</p></NavLink>

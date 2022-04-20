@@ -115,9 +115,9 @@ const NavBar = () => {
 
             <input className='searchinput' type='search' onChange={handleFilter} value={search} onClick={(e) => setSearch('')}></input>
             <div ref={searcRef} className={filterData?.length == 0 ? 'search-name-container' : 'search-name-container-clickled'}>
-              {filterData?.slice(0,10).map((value,index) => {
+              {filterData?.slice(0, 10).map((value, index) => {
                 return <NavLink key={index} exact to={`/productpage/${value?.id}`}>
-                  <div className='dataItem' onClick={(e)=> handleClickSearch(value?.name)} key={index}>{value?.name}</div>
+                  <div className='dataItem' onClick={(e) => handleClickSearch(value?.name)} key={index}><p>{value?.name}</p></div>
                 </NavLink>
               })
 
@@ -144,11 +144,11 @@ const NavBar = () => {
 
                     </div>
                   </NavLink>
-                  <NavLink exact to={'/profile'} onClick={() => setShowProfile(false)}>
+                  <NavLink exact to={'/user/cart'} onClick={() => setShowProfile(false)}>
 
                     <div className='accounts-listings'>
 
-                      <p className='bold notsobold'>Go to your profile</p>
+                      <p className='bold notsobold'>Shopping Cart</p>
 
                     </div>
                   </NavLink>
