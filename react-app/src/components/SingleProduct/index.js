@@ -37,8 +37,8 @@ const SingleProduct = () => {
 
 
 
-        if ((shoppingcart?.quantity + (+quantity)) > product?.quantity) {
-            alert('You cannot buy more than provided quantity!!! (You already have this product in your shopping cart...) ')
+        if ((shoppingcart?.user_id=== user?.id )&&(shoppingcart?.quantity + (+quantity)) > product?.quantity) {
+            setErrors(['You cannot buy more than provided quantity!!! (You already have this product in your shopping cart...) '])
             return
         }
 
@@ -54,25 +54,25 @@ const SingleProduct = () => {
 
 
         if (title.length > 80) {
-            setErrors(["Title length should be between 0-80!!!"])
+            setErrors(["Title length should be between 1-80!!!"])
 
             return
         }
 
         if (title.length === 0) {
-            setErrors(["Title length should be between 0-80!!!"])
+            setErrors(["Title length should be between 1-80!!!"])
 
             return
         }
 
         if (comment.length > 1000) {
-            setErrors(["Review length should be between 0-1000!!!"])
+            setErrors(["Review length should be between 1-1000!!!"])
 
             return
         }
 
         if (comment.length === 0) {
-            setErrors(["Review length should be between 0-1000!!!"])
+            setErrors(["Review length should be between 1-1000!!!"])
 
             return
         }

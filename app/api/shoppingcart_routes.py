@@ -37,7 +37,7 @@ def createShoppingCart():
 
     if form.validate_on_submit():
 
-        shoppingcartProductDeneme = ShoppingCart.query.filter(ShoppingCart.product_id == form.data['product_id']).first()
+        shoppingcartProductDeneme = ShoppingCart.query.filter(ShoppingCart.product_id == form.data['product_id'], ShoppingCart.user_id == current_user.id ).first()
 
         if(shoppingcartProductDeneme):
             shoppingcartProductDeneme.quantity = shoppingcartProductDeneme.quantity+form.data['quantity']
@@ -74,8 +74,9 @@ def deleteShoppingCartAll():
     array = []
 
     for cart in shoppingcart:
-        array.append(cart.id)
-        db.session.delete(cart)
+        if cart.user_id == current_user.id:
+            array.append(cart.id)
+            db.session.delete(cart)
 
 
     db.session.commit()

@@ -14,13 +14,20 @@ def price_check(form,field):
     price = field.data
 
     if price <1 or price > 10000:
-        raise ValidationError('Price should be between 1-10000')
+        raise ValidationError('Price must be between 1-10000')
+
+def quantity(form,field):
+    quantity = field.data
+
+    if quantity <1 or quantity > 10:
+        raise ValidationError('Quantity must be between 1-10')
+
 
 
 class ProductForm(FlaskForm):
-    name = StringField('Name', validators=[DataRequired(), Length(min=0, max=500)])
-    description = TextAreaField('Description', validators=[DataRequired()])
+    name = StringField('Name', validators=[DataRequired(), Length(min=1, max=80)])
+    description = TextAreaField('Description', validators=[DataRequired(), Length(min=1, max=1001)])
     image_url = StringField('Imageurl', validators=[img_check, DataRequired(), URL()])
     price = IntegerField('Price', validators=[DataRequired(),price_check ])
-    quantity = IntegerField('Quantity', validators=[DataRequired()])
+    quantity = IntegerField('Quantity', validators=[DataRequired(),quantity])
     category = StringField('Category',  validators=[DataRequired()])

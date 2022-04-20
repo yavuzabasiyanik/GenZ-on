@@ -32,7 +32,7 @@ const AllProductsPage = () => {
             </div>
             <div className="name-price-description">
                 <NavLink exact to={`/productpage/${ele?.id}`}><p style={{ cursor: "pointer", fontSize: "16px", fontWeight: "bold", maxWidth: "215px", color: "#007185" }}>{ele?.name}</p></NavLink>
-                <p className="dolarthingy">$<span style={{ fontWeight: "bold", fontSize: "14px" }}>{ele?.price}</span></p>
+                <p className="dolarthingy">$<span style={{ fontWeight: "bold", fontSize: "14px" }}>{ele?.price}.00</span></p>
                 <p className="getitassonsas">Get it as soon as <span style={{ fontWeight: "bold" }}>Tomorrow</span><br></br>FREE Shipping by GenZon</p>
                 <p className="description-product-page">{ele?.description}</p>
 
