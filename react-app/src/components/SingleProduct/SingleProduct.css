@@ -19,11 +19,13 @@
     width: 390px;
     height: 303px;
     margin: 20px;
+    position: sticky;
+    top: 139px
 }
 
 .infordivibu {
     width: 445px;
-    height: 600px;
+    height: 500px;
     margin: 20px 80px 0px 15px;
     position: relative;
     word-break: break-all;
@@ -37,6 +39,8 @@
     border: 1px solid #d5d9d9;
     padding: 14px 18px;
     margin: 20px;
+    position: sticky;
+    top: 139px;
 
 }
 
@@ -48,12 +52,14 @@
     image-rendering: crisp-edges;
     image-rendering: pixelated;
     image-rendering: -webkit-optimize-contrast;
+
 }
 
 .productnameh1 {
     font-size: 24px;
     color: #0F1111;
     font-family: 'Merienda';
+    line-height: 37px;
 }
 
 .pricethingyhehe {
@@ -66,6 +72,12 @@
     height: 40px;
     margin-top: 20px;
 
+}
+
+
+.middivallthestuff {
+    border-bottom: 1px solid #d5d9d9;
+    height: auto;
 }
 
 .descriptionindivpageinside {
@@ -116,4 +128,232 @@
 .somebuttonbuy:hover {
 
     background-color: #ff8f00;
+}
+
+.reviewsmain-div {
+    width: 100%;
+    height: auto;
+    background-color: white;
+}
+
+.middlediv-forreviews {
+    width: 1020px;
+    height: auto;
+    margin: 0 auto;
+    display: flex;
+
+    padding: 20px;
+    padding-top: 50px;
+    gap: 66px;
+}
+
+.reviewthisproductdiv {
+    width: 300px;
+    height: 100%;
+    position: sticky;
+    top: 150px
+}
+
+.h2reviewtrhisproduct {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 24px;
+    padding-bottom: 4px;
+    margin-bottom: 4px;
+
+}
+
+.pshareyourthought {
+    margin-bottom: 16px;
+    font-size: 14px;
+    color: #0F1111;
+    line-height: 20px;
+}
+
+.star-widget input {
+    display: none;
+}
+
+.star-widget label {
+    font-size: 20px;
+    color: #444;
+    transition: all 0.2s ease;
+    cursor: pointer;
+
+}
+
+.star-widget {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+input:not(:checked)~label:hover,
+input:not(:checked)~label:hover~label {
+    color: #fd4
+}
+
+
+input:checked~label {
+    color: #fd4
+}
+
+
+
+input#rate-5:checked~label {
+    color: #fe7;
+    text-shadow: 0 0 20px #952
+}
+
+.writecustomerreviewbutton {
+    color: #0F1111;
+    text-decoration: none;
+    width: 298px;
+    height: 29px;
+    cursor: pointer;
+    border: 0;
+    font-size: 13px;
+    text-align: center;
+    white-space: nowrap;
+    padding: 0 10px 0 11px;
+    border: 1px solid #D5D9D9;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 2px 5px #d6d6d6;
+}
+
+.writecustomerreviewbutton:hover {
+    background-color: whitesmoke;
+}
+
+.sennediyorsun {
+    width: 100%;
+    border-radius: 8px;
+    height: auto;
+    border: 1px solid #D5D9D9;
+    box-shadow: 0 2px 5px #d6d6d6;
+
+    margin-top: 30px;
+    padding: 20px;
+}
+
+textarea{
+    resize: none;
+}
+.imgreviewind {
+    width: 65px;
+    margin-top: 20px;
+}
+
+.formreviewthingy {
+    width: 100%;
+    height: 69.6%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.cancelsubmit {
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+.buttoncancel {
+    color: #0F1111;
+    text-decoration: none;
+    width: 61.23px;
+    height: 29px;
+    cursor: pointer;
+    border: 0;
+    font-size: 13px;
+    text-align: center;
+    white-space: nowrap;
+    border: 1px solid #D5D9D9;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 2px 5px #d6d6d6;
+}
+
+.buttoncancel:hover {
+    background-color: whitesmoke;
+}
+
+.buttoncancelthing {
+    background-color: white;
+    box-shadow: 0 2px 5px #d6d6d6;
+    cursor: pointer;
+    width: 80.23px;
+    height: 20px;
+    font-size: 10px;
+    margin-right: 6px;
+    text-align: center;
+    border-radius: 8px;
+    border: 1px solid #D5D9D9;
+    white-space: nowrap;
+    margin-top: 20px;
+
+}
+
+.buttoncancelthing:hover {
+    background-color: whitesmoke;
+}
+
+.submitbutton {
+
+    color: #0F1111;
+    text-decoration: none;
+    width: 61.23px;
+    height: 29px;
+    cursor: pointer;
+    border: 0;
+    font-size: 13px;
+    text-align: center;
+    white-space: nowrap;
+    border-radius: 8px;
+    border: 1px solid #FCD200;
+    box-shadow: 0 2px 5px #d6d6d6;
+    background-color: #FFD814;
+
+}
+
+
+.submitbutton:hover {
+    background-color: #F7CA00;
+}
+
+.reviewgrid {
+    width: 700px;
+    height: auto;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.imgandusername {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 7px;
+}
+
+
+.oneswehurt{
+    width: 73.18px;
+}
+.oneswehurt i {
+    font-size: 13px;
+    color: #444;
+}
+
+.verifiedpurchase {
+    color: #c45500;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 700;
 }

@@ -1,0 +1,41 @@
+.checkoutmaindiv{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:99px;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.yesilli{
+    width: 812px;
+    height: 83px;
+    min-width: 780px;
+    height: fit-content;
+    border: 1px solid #007600;
+    border-radius: 5px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+
+    gap:7px;
+}
+
+.bakma{
+    display: flex;
+    gap:7px;
+    align-items: center;
+}
+
+.fas{
+    font-weight: 900;
+    color: #007600;
+    font-size: 24px
+}
+
+.thankyou{
+    font-weight: 700;
+    font-size: 18px;
+    color: #007600;
+}

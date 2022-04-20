@@ -1,13 +1,11 @@
 import { useEffect, useRef, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
 import { updateProduct } from "../../store/product";
 import ErrorsModal from './ErrorModal';
 
 const UpdateForm = ({ update, setUpdate, id }) => {
 
     const dispatch = useDispatch();
-    const history = useHistory();
 
     const products = useSelector(state => Object.values(state.products));
     const product_id = id;

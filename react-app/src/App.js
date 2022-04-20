@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import LoginForm from './components/auth/Login/LoginForm';
 import SignUpForm from './components/auth/Signup/SignUpForm';
 import NavBar from './components/Navbar/NavBar';
@@ -15,12 +15,16 @@ import UpdateForm from './components/ProductForm/UpdateForm';
 import UserProducts from './components/UserProducts';
 import AllProductsPage from './components/AllProducts/AllProducts';
 import SingleProduct from './components/SingleProduct';
+import { shoppingcartLoad } from './store/shoppingcart';
+import ShoppingCart from './components/ShoppingCart';
+import Checkout from './components/ShoppingCart/checkout';
+import { getAllReviews } from './store/review';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
 
-  const user = useSelector(state => state.session.user);
+  // const user = useSelector(state => state.session.user);
 
   useEffect(() => {
     (async () => {
@@ -30,7 +34,8 @@ function App() {
     })();
 
     dispatch(productLoad());
-
+    dispatch(shoppingcartLoad());
+    dispatch(getAllReviews());
   }, [dispatch]);
 
   if (!loaded) {
@@ -64,12 +69,19 @@ function App() {
         <ProtectedRoute path='/user/products'>
           <UserProducts />
         </ProtectedRoute>
+        <ProtectedRoute path='/user/cart' exact={true}>
+          <ShoppingCart />
+        </ProtectedRoute>
+        <ProtectedRoute path='/checkout' exact={true}>
+          <Checkout />
+        </ProtectedRoute>
         <Route exact path={'/allproducts/:tagNumber'}>
           <AllProductsPage />
         </Route>
         <Route exact path={'/productpage/:productId'}>
           <SingleProduct />
         </Route>
+
         <Route path='/' exact={true} >
           <Home />
         </Route>

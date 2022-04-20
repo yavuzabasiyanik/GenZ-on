@@ -1,16 +1,19 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useHistory } from 'react-router-dom';
-import LogoutButton from '../auth/LogoutButton';
+// import LogoutButton from '../auth/LogoutButton';
 import './Navbar.css';
 import { logout } from '../../store/session';
 // import mypic from '../../images/GenZon-logos_black.png';
 // import ProductForm from '../ProductForm/ProductForm';
 
 const NavBar = () => {
+
   const [showProfile, setShowProfile] = useState(false);
   const user = useSelector(state => state.session.user);
 
+  const [filterData, setFilter] = useState([]);
+  const [search, setSearch] = useState('');
 
 
   const dispatch = useDispatch();
@@ -22,7 +25,13 @@ const NavBar = () => {
     setShowProfile(false)
   };
 
+  let shoppingcart = useSelector(state => Object.values(state.shoppingcart));
 
+  shoppingcart = shoppingcart.filter(ele => ele?.user_id === user?.id);
+
+  const cartLength = shoppingcart.length
+
+  const products = useSelector(state => Object.values(state.products));
 
   let menuRef = useRef();
 
@@ -43,6 +52,47 @@ const NavBar = () => {
     }
 
   })
+  let searcRef = useRef();
+
+  useEffect(() => {
+
+    const handler = (event) => {
+
+      if (!searcRef.current.contains(event.target)) {
+
+        setFilter([]);
+      }
+    }
+
+    document.addEventListener('mousedown', handler);
+
+    return () => {
+      document.removeEventListener('mousedown', handler)
+    }
+
+  })
+  const handleFilter = (e) => {
+    const search = e.target.value
+
+    const newFilter = products?.filter(val => {
+
+      return val?.name.toLowerCase().includes(search.toLowerCase());
+    });
+
+    setSearch(search);
+
+    if (search === '') {
+      setFilter([])
+    } else {
+      setFilter(newFilter)
+    }
+  }
+
+  const handleClickSearch = (e) => {
+    setSearch(e)
+    setFilter([])
+  }
+
 
   return (
     <>
@@ -58,14 +108,23 @@ const NavBar = () => {
 
           <div className='search'>
             <div className='left-all'>
+
               All
-              <i className="fa-solid fa-sort-down colorchangecarretdown"></i>
+              {/* <i className="fa-solid fa-sort-down colorchangecarretdown"></i> */}
             </div>
 
-            <input className='searchinput' type='text'></input>
+            <input className='searchinput' type='search' onChange={handleFilter} value={search} onClick={(e) => setSearch('')}></input>
+            <div ref={searcRef} className={filterData?.length === 0 ? 'search-name-container' : 'search-name-container-clickled'}>
+              {filterData?.slice(0, 10).map((value, index) => {
+                return <NavLink key={index} exact to={`/productpage/${value?.id}`}>
+                  <div className='dataItem' onClick={(e) => handleClickSearch(value?.name)} key={index}><p>{value?.name}</p></div>
+                </NavLink>
+              })
+
+              }
+            </div>
             <div className='right-search-thingy'>
               <i className="fa-solid fa-magnifying-glass search-logo-thingy"></i>
-
             </div>
           </div>
 
@@ -85,11 +144,11 @@ const NavBar = () => {
 
                     </div>
                   </NavLink>
-                  <NavLink exact to={'/profile'} onClick={() => setShowProfile(false)}>
+                  <NavLink exact to={'/user/cart'} onClick={() => setShowProfile(false)}>
 
                     <div className='accounts-listings'>
 
-                      <p className='bold notsobold'>Go to your profile</p>
+                      <p className='bold notsobold'>Shopping Cart</p>
 
                     </div>
                   </NavLink>
@@ -110,7 +169,7 @@ const NavBar = () => {
                     </div>
                   </NavLink>
 
-                  <div onClick={onLogout} className='accounts-listings noborder'>
+                  <div style={{ cursor: "pointer" }} onClick={onLogout} className='accounts-listings noborder'>
 
                     <p className='bold'>Logout</p>
 
@@ -125,12 +184,12 @@ const NavBar = () => {
               <span className='orders-be-specificlol'>& Orders</span>
             </div>
 
-            <div className='shopping-cart-thingy'>
+            <NavLink exact to={`/user/cart`}><div className='shopping-cart-thingy'>
 
 
               <i className="fa-solid fa-cart-shopping shoppingcartthing"></i>
-              <p className='numbershoppingcart'>2</p>
-            </div>
+              <p className='numbershoppingcart'>{user ? cartLength : 0}</p>
+            </div></NavLink>
           </div>
 
         </div>
@@ -175,8 +234,8 @@ const NavBar = () => {
               </div>
             </NavLink>
             <div className='rightpartlinkedingithub'>
-              <a href="https://github.com/yavuzabasiyanik" target="_blank"><i className="githublinked fa-brands fa-github"></i></a>
-              <a href="https://www.linkedin.com/in/yavuz-abasiyanik-a4a86720a/" target="_blank"><i className="githublinked fa-brands fa-linkedin"></i></a>
+              <a rel="noreferrer" href="https://github.com/yavuzabasiyanik" target="_blank"><i className="githublinked fa-brands fa-github"></i></a>
+              <a rel="noreferrer" href="https://www.linkedin.com/in/yavuz-abasiyanik-a4a86720a/" target="_blank"><i className="githublinked fa-brands fa-linkedin"></i></a>
             </div>
           </div>
         </div>

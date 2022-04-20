@@ -8,13 +8,15 @@ class Product(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     name = db.Column(db.String(500), nullable=False)
-    description = db.Column(db.String(500), nullable=False)
+    description = db.Column(db.String(2000), nullable=False)
     image_url = db.Column(db.Text, nullable=False)
     price = db.Column(db.Integer, nullable=False)
     category = db.Column(db.String, nullable=False)
     quantity = db.Column(db.Integer, nullable=False)
 
     user = relationship("User", back_populates="products")
+    shoppingcart = relationship('ShoppingCart', back_populates='product', cascade = "all, delete")
+    reviews = relationship('Reviews', back_populates='product', cascade = "all, delete")
 
     def to_dict(self):
         return {

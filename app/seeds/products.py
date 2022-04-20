@@ -12,7 +12,7 @@ def seed_products():
     ,price=5000,category='electronics',quantity=3)
 
 
-    fifth= Product(user_id=1,name='Best woman clothe',description='Wow looks amazing',image_url='https://m.media-amazon.com/images/I/315aUsDYSbL._SY500__AC_SY200_.jpg'
+    fifth= Product(user_id=1,name='Red thingy',description='Wow looks amazing',image_url='https://cdn.pixabay.com/photo/2013/07/13/14/08/apparel-162192_1280.png'
     ,price=6,category='fashion',quantity=5)
     fifth2= Product(user_id=1,name='Nice man clothe',description='It will keep you wamr during winter',image_url='https://m.media-amazon.com/images/I/818Tnima1yL._AC_UL480_FMwebp_QL65_.jpg'
     ,price=100,category='fashion',quantity=4)

@@ -9,8 +9,14 @@
     line-height: 19px;
     font-family: 'Merienda';
     text-decoration: none;
+    /* font-family:  Arial, sans-serif; */
+
+
 }
 
+select{
+    outline: none;
+}
 body{
     background-color: whitesmoke;
 }
