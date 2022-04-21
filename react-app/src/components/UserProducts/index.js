@@ -26,9 +26,9 @@ const UserProducts = () => {
 
         dispatch(deleteProduct(id));
 
-        if(shoppingcart?.product_id === id && shoppingcart?.user_id === user?.id){
-            dispatch(shoppingcartDeleteone(Number(shoppingcart?.id)));
-        }
+        // if( +shoppingcart?.product_id === +id && +shoppingcart?.user_id === +user?.id){
+        //     dispatch(shoppingcartDeleteone(Number(shoppingcart?.id)));
+        // }
 
 
     }

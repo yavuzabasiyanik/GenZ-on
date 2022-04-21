@@ -41,6 +41,11 @@ const SingleProduct = () => {
             setErrors(['You cannot buy more than provided quantity!!! (You already have this product in your shopping cart...) '])
             return
         }
+        if(user?.id === product?.user_id){
+            setErrors(['You cannot add your own product to your shopping cart'])
+
+            return
+        }
 
 
         dispatch(createshoppingcart(productId, quantity));
