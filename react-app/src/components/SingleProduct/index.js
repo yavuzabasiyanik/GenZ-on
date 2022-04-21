@@ -47,6 +47,7 @@ const SingleProduct = () => {
             return
         }
 
+        //s
 
         dispatch(createshoppingcart(productId, quantity));
         history.push('/user/cart')
