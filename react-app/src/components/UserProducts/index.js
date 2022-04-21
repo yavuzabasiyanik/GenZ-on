@@ -4,7 +4,7 @@ import './UserProducts.css';
 import { deleteProduct } from '../../store/product';
 import { useState } from 'react';
 import UpdateForm from '../ProductForm/UpdateForm';
-import { shoppingcartDeleteone } from '../../store/shoppingcart';
+// import { shoppingcartDeleteone } from '../../store/shoppingcart';
 const UserProducts = () => {
 
     const user = useSelector(state => state.session.user);
