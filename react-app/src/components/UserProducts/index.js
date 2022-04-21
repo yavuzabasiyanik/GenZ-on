@@ -4,7 +4,7 @@ import './UserProducts.css';
 import { deleteProduct } from '../../store/product';
 import { useState } from 'react';
 import UpdateForm from '../ProductForm/UpdateForm';
-
+import { shoppingcartDeleteone } from '../../store/shoppingcart';
 const UserProducts = () => {
 
     const user = useSelector(state => state.session.user);
@@ -16,10 +16,20 @@ const UserProducts = () => {
         return ele.user_id === user.id;
     }).reverse()
 
+    let shoppingcart = useSelector(state => Object.values(state.shoppingcart));
+
     const deleteProductFunc = (e, id) => {
         e.preventDefault();
 
+
+        shoppingcart = shoppingcart?.filter(thing => thing.product_id === id)[0]
+
         dispatch(deleteProduct(id));
+
+        if(shoppingcart?.product_id === id && shoppingcart?.user_id === user?.id){
+            dispatch(shoppingcartDeleteone(shoppingcart?.id));
+        }
+
 
     }
 
