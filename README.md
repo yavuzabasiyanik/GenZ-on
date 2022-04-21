@@ -1,1 +1,1 @@
-# GenZ-on
+# GenZon
