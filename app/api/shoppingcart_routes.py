@@ -57,7 +57,7 @@ def createShoppingCart():
     return {'errors': error_thingy(form.errors)}, 401
 
 
-@shoppingcart_routes.route('/delete/<shoppingcart_id>', methods=['DELETE'])
+@shoppingcart_routes.route('/delete/<int:shoppingcart_id>/', methods=['DELETE'])
 def deleteShoppingCart(shoppingcart_id):
 
     shoppingcart = ShoppingCart.query.get(shoppingcart_id)
@@ -65,6 +65,7 @@ def deleteShoppingCart(shoppingcart_id):
     db.session.delete(shoppingcart)
     db.session.commit()
     return {"id": shoppingcart_id}
+
 
 @shoppingcart_routes.route('/deleteall/', methods=['DELETE'])
 def deleteShoppingCartAll():

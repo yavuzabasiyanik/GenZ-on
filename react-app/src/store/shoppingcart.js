@@ -42,7 +42,7 @@ export const shoppingcartLoad = () => async (dispatch) => {
 }
 
 export const shoppingcartDeleteone = (id) => async (dispatch) => {
-    const response = await fetch(`/api/shoppingcart/delete/${id}`, {
+    const response = await fetch(`/api/shoppingcart/delete/${id}/`, {
         method:"DELETE"
     });
 
