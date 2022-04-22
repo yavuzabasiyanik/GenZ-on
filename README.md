@@ -12,11 +12,11 @@ GenZon's does the majority of its applcation logic and validations on the backen
 
 ### Frontend Technologies Used
 
-#### React ![alt text](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png)
+#### React 
 
 GenZon is a React application. All display logic is handled by the React libraries.
 
-#### Redux ![alt text](https://redux.js.org/img/redux-logo-landscape.png)
+#### Redux 
 
 All state management in GenZon is handled with Redux, with thunks making API calls to the backend server to handle the data.
 
