@@ -12,10 +12,35 @@ GenZon's does the majority of its applcation logic and validations on the backen
 
 ### Frontend Technologies Used
 
-#### React https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png
+#### React ![alt text](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png)
 
 GenZon is a React application. All display logic is handled by the React libraries.
 
-#### Redux https://redux.js.org/img/redux-logo-landscape.png
+#### Redux ![alt text](https://redux.js.org/img/redux-logo-landscape.png)
+
+All state management in GenZon is handled with Redux, with thunks making API calls to the backend server to handle the data.
+
+## Backend Overview
+
+GenZon uses a Flask server with a Postgresql database.
+
+### Backend Technologies Used
+
+#### Flask
+
+The ability to play with the data so easly made Flask very efficent for me to use creating GenZon. 
+
+#### PostgreSQL
+
+PostgreSQL was the database of choice because it is simple to work with, and is easily manipulable using Sequelize.
+
+#### WTForms
+
+WTForms made it very easy for me to implemetn validators into my app. 
+
+#### SQLAlchemy
+
+SQLAlchemy was the ORM of choice for GenZon. It made data seeding so easy.
+
 
 
