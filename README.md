@@ -43,6 +43,8 @@ WTForms made it very easy for me to implemetn validators into my app.
 SQLAlchemy was the ORM of choice for GenZon. It made data seeding so easy.
 
 
+## Screenshots
+
 ### Shopping Cart
   In this page you can see the items you have added into your shopping cart. You can see the amount of the items you are buying you can increase and decrease the amount from within the shopping cart. You may choose to remove one item or you may choose to remove all the items at once from your shopping cart. If you want to proceed with the purchase you may click the yellow button on the right to checkout. 
   
