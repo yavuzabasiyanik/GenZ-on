@@ -1,6 +1,6 @@
 # GenZon
 
-GenZon is a full stack eCommerce app that allows users to sell and buy products they like. In GenZon you can find any kind of items, either by searching the item's name in the search bar or by scrolling through the specific category page that you think your item belongs to. Currently, GenZon has only 5 catergories, Electronics, Fashion, Furniture, Food and Hobby. 
+GenZon is a full stack eCommerce app that allows users to sell and buy products they like. In GenZon you can find any kind of items, either by searching the item's name in the search bar or by scrolling through the specific category page that you think your item belongs to. Currently, GenZon has 5 catergories, Electronics, Fashion, Furniture, Food and Hobby. 
 
 ## Application Architecture
 
