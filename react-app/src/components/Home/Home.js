@@ -1,6 +1,6 @@
 import './Home.css';
 import { NavLink } from 'react-router-dom';
-
+import Footer from '../Footer';
 const Home = () => {
 
     // const products = useSelector(state => Object.values(state.products));
@@ -59,8 +59,8 @@ const Home = () => {
                         <NavLink exact to={'/allproducts/1'}><p style={{ fontSize: "21px", fontWeight: "bold" }}>Electronics go brrrr!</p></NavLink>
                         <NavLink exact to={'/productpage/1'}><img alt='something' className='livinginthe' src='https://m.media-amazon.com/images/I/91shKLxoedL._AC_UY327_FMwebp_QL65_.jpg'></img></NavLink>
                         <NavLink exact to={'/productpage/2'}><img alt='something' className='livinginthe' src='https://m.media-amazon.com/images/I/718sn7oOcfL._AC_UY327_FMwebp_QL65_.jpg'></img></NavLink>
-                        <NavLink exact to={'/productpage/3'}><img alt='something'  className='livinginthe' src='https://m.media-amazon.com/images/I/6109bE1DC0S._AC_UY327_FMwebp_QL65_.jpg'></img></NavLink>
-                        <NavLink exact to={'/productpage/4'}><img alt='something'  className='livinginthe' src='https://m.media-amazon.com/images/I/71A2llPqz7L._AC_UL480_FMwebp_QL65_.jpg'></img></NavLink>
+                        <NavLink exact to={'/productpage/3'}><img alt='something' className='livinginthe' src='https://m.media-amazon.com/images/I/6109bE1DC0S._AC_UY327_FMwebp_QL65_.jpg'></img></NavLink>
+                        <NavLink exact to={'/productpage/4'}><img alt='something' className='livinginthe' src='https://m.media-amazon.com/images/I/71A2llPqz7L._AC_UL480_FMwebp_QL65_.jpg'></img></NavLink>
 
                     </div>
                     <div className='categories-home-page'>
@@ -91,15 +91,16 @@ const Home = () => {
 
                     </div>
                     <div className='somethingdiff2'>
-                        <NavLink exact to={'/allproducts/5'}><p  style={{cursor:"pointer", fontSize: "21px", fontWeight: "bold" }}>Toys & Hobbies</p></NavLink>
+                        <NavLink exact to={'/allproducts/5'}><p style={{ cursor: "pointer", fontSize: "21px", fontWeight: "bold" }}>Toys & Hobbies</p></NavLink>
                         <NavLink exact to={'/productpage/18'}><img alt='something' className='womanclothing alsohehe' src='https://m.media-amazon.com/images/I/91yg3JBdlgL._AC_UL480_FMwebp_QL65_.jpg'></img></NavLink>
                         <NavLink exact to={'/productpage/19'}><img alt='something' className='womanclothing alsohehe' src='https://m.media-amazon.com/images/I/71JWVVP3nWL._AC_UL480_FMwebp_QL65_.jpg'></img></NavLink>
                         <NavLink exact to={'/productpage/20'}><img alt='something' className='womanclothing alsohehe' src='https://m.media-amazon.com/images/I/71wy2BJWFTL._AC_UL480_FMwebp_QL65_.jpg'></img></NavLink>
-                        <NavLink exact to={'/productpage/6'}><img alt='something' className='womanclothing alsohehe' style={{marginRight:"0"}} src='https://m.media-amazon.com/images/I/81-jHs0yp8L._AC_UL480_FMwebp_QL65_.jpg'></img></NavLink>
+                        <NavLink exact to={'/productpage/6'}><img alt='something' className='womanclothing alsohehe' style={{ marginRight: "0" }} src='https://m.media-amazon.com/images/I/81-jHs0yp8L._AC_UL480_FMwebp_QL65_.jpg'></img></NavLink>
 
                     </div>
 
                 </div>
+                <Footer />
             </div>
             {/* <div className='something'>
                 <div className='alt-bolum-home-page-thingies'>

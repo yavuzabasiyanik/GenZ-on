@@ -8,8 +8,8 @@
 
 
 .backgroundimgthingy {
-    width: 1500px;
-    height: 600px;
+    width: 100%;
+    height: 700px;
     background-image: url("https://m.media-amazon.com/images/I/71iZHxT2gNL._SX3000_.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -27,7 +27,7 @@
     width: 1460px;
     grid-template-columns: repeat(4, 350px);
     grid-template-rows: 420px 210px;
-    margin: -260px auto;
+    margin: -360px auto;
     gap: 20px;
 }
 
@@ -43,6 +43,7 @@
     grid-column: 3/5;
     background-color: white;
     padding: 20px;
+    height: 250px;
 
 }
 
