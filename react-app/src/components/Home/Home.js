@@ -87,9 +87,9 @@ const Home = () => {
                         <NavLink exact to={'/productpage/17'}><img alt='something' className='womanclothing' src='https://m.media-amazon.com/images/I/51PEKtJMQfL._AC_UL480_FMwebp_QL65_.jpg'></img></NavLink>
 
                     </div>
-                    <div className='somethingdiff'>
+                    {/* <div className='somethingdiff'>
 
-                    </div>
+                    </div> */}
                     <div className='somethingdiff2'>
                         <NavLink exact to={'/allproducts/5'}><p style={{ cursor: "pointer", fontSize: "21px", fontWeight: "bold" }}>Toys & Hobbies</p></NavLink>
                         <NavLink exact to={'/productpage/18'}><img alt='something' className='womanclothing alsohehe' src='https://m.media-amazon.com/images/I/91yg3JBdlgL._AC_UL480_FMwebp_QL65_.jpg'></img></NavLink>
