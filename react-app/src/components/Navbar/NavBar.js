@@ -132,7 +132,7 @@ const NavBar = () => {
             <div ref={menuRef}>
 
               <div onClick={() => setShowProfile(e => !e)} className='right-most-left-part-navbar'>
-                <p className='hello-someone'>Hello, {user?.username}</p>
+                <p className='hello-someone'>Hello, {user?.username || 'Sign in'}</p>
                 <span className='listings-onthenavbar'>Account & Lists<i className="fa-solid fa-sort-down accountlistdropdownicon"></i></span>
               </div>
               {showProfile && user &&

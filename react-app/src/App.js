@@ -19,6 +19,7 @@ import { shoppingcartLoad } from './store/shoppingcart';
 import ShoppingCart from './components/ShoppingCart';
 import Checkout from './components/ShoppingCart/checkout';
 import { getAllReviews } from './store/review';
+import Footer from './components/Footer';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -86,6 +87,8 @@ function App() {
           <Home />
         </Route>
       </Switch>
+      {/* <Footer /> */}
+
     </BrowserRouter>
   );
 }

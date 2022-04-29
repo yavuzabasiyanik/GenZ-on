@@ -4,6 +4,7 @@
     position: absolute;
     top: 99px;
     background-color: white;
+    min-height: 100%;
 }
 
 .middle-div-hehe{
@@ -14,8 +15,6 @@
     grid-template-columns: 0fr 6fr;
 }
 
-.left-navbarthingy{
-}
 
 .main-product-smallgrid{
     padding-top: 80px;
