@@ -4,6 +4,7 @@ import './UserProducts.css';
 import { deleteProduct } from '../../store/product';
 import { useState } from 'react';
 import UpdateForm from '../ProductForm/UpdateForm';
+import Footer from '../Footer';
 // import { shoppingcartDeleteone } from '../../store/shoppingcart';
 const UserProducts = () => {
 
@@ -72,10 +73,11 @@ const UserProducts = () => {
                          <NavLink  exact to={`/product/sell`}><span style={{margin: "0px 10px", fontSize: "28px", color: "#F08804", textDecoration:"underline" }}>here</span></NavLink>
                         to learn more.</h1>
                     </div>
-
+                    
                 </div>
-                <img alt='something' className='legendimg' src='https://external-preview.redd.it/GLem0FFrjGGfKF8ruVScaYqNmB0CbKde8gFD82Ov-cw.jpg?auto=webp&s=c925bc146f8b8b0bad10909fe40470b96eaa4c7b'></img>
+                <img alt='something' className='legendimg' src='https://images.contentstack.io/v3/assets/blt187521ff0727be24/blt3d038a51072c6d5a/614cc18164c8007a9bdec0e2/zaun_splash.jpeg'></img>
             </div>
+            <Footer something={true}></Footer>
         </div>
     )
 
@@ -88,6 +90,7 @@ const UserProducts = () => {
                     <div className='productsGrid'>
                         {allProductsUserDiv}
                     </div>
+                    <Footer something={true}/>
                 </div>)
                 : (
                     legendaryLeagueEmptyImage

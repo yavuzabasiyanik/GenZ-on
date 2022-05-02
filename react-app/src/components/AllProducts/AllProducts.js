@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { NavLink, useParams } from "react-router-dom";
+import Footer from "../Footer";
 import './AllProducts.css';
 const AllProductsPage = () => {
 
@@ -26,7 +27,7 @@ const AllProductsPage = () => {
 
     const mappedProducts = allProducts.map(ele => (
         <div key={ele?.id} className="selam23">
-            <div style={{width:"271px", height:"271px", backgroundColor:"white"}}>
+            <div style={{ width: "271px", height: "271px", backgroundColor: "white" }}>
 
                 <NavLink exact to={`/productpage/${ele?.id}`}><img alt="" style={{ cursor: "pointer" }} className="imgcokzor" src={ele?.image_url}></img></NavLink>
             </div>
@@ -48,13 +49,15 @@ const AllProductsPage = () => {
 
                 </div>
                 <div className="main-product-smallgrid">
-                    <h1 style={{ marginBottom:"30px",fontSize: "20px", color: "#0F1111", fontFamily: "Merienda" }} >Results</h1>
+                    <h1 style={{ marginBottom: "30px", fontSize: "20px", color: "#0F1111", fontFamily: "Merienda" }} >Results</h1>
                     <div className="asildiv">
                         {mappedProducts}
                     </div>
                 </div>
             </div>
+            <Footer something={true}/>
         </div>
+
     )
 
 }
