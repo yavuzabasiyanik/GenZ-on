@@ -3,6 +3,7 @@ import './ShoppingCart.css';
 import { shoppingcartDeleteone, updateShoppingcart } from '../../store/shoppingcart';
 import { shoppingcartdeleteall } from '../../store/shoppingcart';
 import { NavLink, useHistory } from 'react-router-dom';
+import Footer from '../Footer';
 
 const ShoppingCart = () => {
 
@@ -39,11 +40,17 @@ const ShoppingCart = () => {
     }
 
 
-    const updateQuantity = (id,product_id,quantity) => {
+    const updateQuantity = (id, product_id, quantity) => {
 
-        dispatch(updateShoppingcart(id,product_id,quantity));
+        dispatch(updateShoppingcart(id, product_id, quantity));
         return
     }
+
+    let items = 0;
+
+    shoppingcart.forEach((item) => {
+        items+= item.quantity;
+    })
 
     const allCart = shoppingcart.map(ele => {
         return (
@@ -56,7 +63,7 @@ const ShoppingCart = () => {
                         <p style={{ color: "#007185" }}>In Stock</p>
                         <p style={{ color: "#565959", fontSize: "12px", lineHeight: "16px" }}>Eligible for FREE Shipping & <span style={{ fontWeight: "700", fontSize: "12px", color: "#007185" }}>FREE Returns</span></p>
                         <div className='qtydelete'>
-                            <select onChange={(e) => updateQuantity(ele?.id,ele?.product?.id ,e.target.value)} value={ele?.quantity} style={{ width: "60px", paddingRight: "8px", fontWeight: "700", }}>
+                            <select onChange={(e) => updateQuantity(ele?.id, ele?.product?.id, e.target.value)} value={ele?.quantity} style={{ width: "60px", paddingRight: "8px", fontWeight: "700", }}>
 
                                 {
                                     pleasework(ele?.product?.quantity)
@@ -83,8 +90,10 @@ const ShoppingCart = () => {
                     </div>
 
                 </div>
-                <img alt='something' className='legendimg' src='https://images.contentstack.io/v3/assets/blt187521ff0727be24/blt3d038a51072c6d5a/614cc18164c8007a9bdec0e2/zaun_splash.jpeg'></img>
+                <img alt='something' className='legendimg' src='https://external-preview.redd.it/GLem0FFrjGGfKF8ruVScaYqNmB0CbKde8gFD82Ov-cw.jpg?auto=webp&s=c925bc146f8b8b0bad10909fe40470b96eaa4c7b'></img>
             </div>
+            <Footer something={true} />
+
         </div>
     )
 
@@ -121,7 +130,7 @@ const ShoppingCart = () => {
                             <div className='somethingheree4'>
                                 <p style={{ fontSize: "18px", marginTop: "10px" }} >
 
-                                    Subtotal ({shoppingcart.length} {shoppingcart.length === 1 ? "item" : "items"}): <span style={{ fontSize: "18px", fontWeight: "700" }}>${subtotal}.00</span>
+                                    Subtotal ({items} {items === 1 ? "item" : "items"}): <span style={{ fontSize: "18px", fontWeight: "700" }}>${subtotal}.00</span>
                                 </p>
                             </div>
 
@@ -129,11 +138,14 @@ const ShoppingCart = () => {
                         <div className='ikincicheckout'>
                             <p style={{ fontSize: "18px", marginTop: "10px" }} >
 
-                                Subtotal ({shoppingcart.length} {shoppingcart.length === 1 ? "item" : "items"}): <span style={{ fontSize: "18px", fontWeight: "700" }}>${subtotal}.00</span>
+                                Subtotal ({items} {items.length === 1 ? "item" : "items"}): <span style={{ fontSize: "18px", fontWeight: "700" }}>${subtotal}.00</span>
                             </p>
                             <button onClick={handleCheckout} className='proceedtocheckout'>Proceed to checkout </button>
                         </div>
+                        <div style={{marginTop:"300px"}}>
 
+                            <Footer something={true} />
+                        </div>
                     </div>
                     : legendaryLeagueEmptyImage
             }
