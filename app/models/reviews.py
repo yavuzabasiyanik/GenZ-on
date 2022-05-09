@@ -30,5 +30,5 @@ class Reviews(db.Model,UserMixin):
             'body': self.body,
             'rating':self.rating,
             'user':self.user.to_dict(),
-            'product': self.product.to_dict()
+            # 'product': self.product.to_dict()
         }
