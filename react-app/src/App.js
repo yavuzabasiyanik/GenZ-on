@@ -19,13 +19,12 @@ import { shoppingcartLoad } from './store/shoppingcart';
 import ShoppingCart from './components/ShoppingCart';
 import Checkout from './components/ShoppingCart/checkout';
 import { getAllReviews } from './store/review';
-// import Footer from './components/Footer';
+import Orders from './components/Orders';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
 
-  // const user = useSelector(state => state.session.user);
 
   useEffect(() => {
     (async () => {
@@ -82,7 +81,9 @@ function App() {
         <Route exact path={'/productpage/:productId'}>
           <SingleProduct />
         </Route>
-
+        <Route exact path={'/orders'}>
+          <Orders />
+        </Route>
         <Route path='/' exact={true} >
           <Home />
         </Route>

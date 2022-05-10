@@ -178,7 +178,7 @@ const NavBar = () => {
                 </div>
               }
               {showProfile && !user &&
-                <div className='dropdownprofile' style={{height:"150px"}}>
+                <div className='dropdownprofile' style={{ height: "150px" }}>
                   <NavLink exact to={'/'} onClick={() => setShowProfile(false)}>
                     <div className='accounts-listings'>
 
@@ -196,7 +196,7 @@ const NavBar = () => {
                   </NavLink>
 
                   <NavLink exact to={'/signup'} onClick={() => setShowProfile(false)}>
-                    <div className='accounts-listings' style={{border:"none"}}>
+                    <div className='accounts-listings' style={{ border: "none" }}>
 
                       <p className='bold notsobold'>Signup</p>
 
@@ -207,10 +207,12 @@ const NavBar = () => {
               }
             </div>
 
-            <div className='right-mid-part-navbar'>
-              <span className='returns-be-specificlol'>GenZon</span>
-              <span className='orders-be-specificlol'>& prime</span>
-            </div>
+            <NavLink exact to={'/orders'}>
+              <div className='right-mid-part-navbar'>
+                <span className='returns-be-specificlol'>Returns</span>
+                <span className='orders-be-specificlol'>& Orders</span>
+              </div>
+            </NavLink>
 
             <NavLink exact to={`/user/cart`}><div className='shopping-cart-thingy'>
 
