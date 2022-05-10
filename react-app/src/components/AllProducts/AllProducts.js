@@ -20,7 +20,7 @@ const AllProductsPage = () => {
         dispatch(productLoad())
         dispatch(getAllReviews())
 
-    },[tagNumber])
+    },[tagNumber,dispatch])
 
 
     let allProducts = useSelector(state => Object.values(state.products));
