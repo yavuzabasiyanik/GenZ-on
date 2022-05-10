@@ -1,11 +1,27 @@
-import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useParams } from "react-router-dom";
+import { productLoad } from "../../store/product";
+import { getAllReviews } from "../../store/review";
 import Footer from "../Footer";
 import './AllProducts.css';
 const AllProductsPage = () => {
 
+
+
+    const [sortby, setSortby] = useState('');
     let { tagNumber } = useParams();
     tagNumber = +tagNumber
+
+    const dispatch = useDispatch();
+
+
+    useEffect(()=>{
+        dispatch(productLoad())
+        dispatch(getAllReviews())
+
+    },[tagNumber])
+
 
     let allProducts = useSelector(state => Object.values(state.products));
 
@@ -27,45 +43,189 @@ const AllProductsPage = () => {
 
     const reviews = useSelector(state => Object.values(state.reviews))
 
+    let mappedProducts;
 
-    const mappedProducts = allProducts.map(ele => (
+    if(sortby==='' || sortby==='newest'){
 
-        <div key={ele?.id} className="selam23">
-            <div style={{ width: "100%", height: "271px", backgroundColor: "white", display: "flex", justifyContent: "center", borderTopLeftRadius: "4px", borderTopRightRadius: "4px" }}>
 
-                <NavLink exact to={`/productpage/${ele?.id}`}><img alt="" style={{ cursor: "pointer" }} className="imgcokzor" src={ele?.image_url}></img></NavLink>
-            </div>
-            <div className="name-price-description">
-                <NavLink exact to={`/productpage/${ele?.id}`}><p className="turuncu" style={{ cursor: "pointer", fontSize: "16px", fontWeight: "bold", maxWidth: "fit-content", color: "#007185" }}>{ele?.name}</p></NavLink>
-                <div className='imgandusername' style={{ marginTop: "10px" }}>
+        mappedProducts = allProducts.map(ele => (
 
-                    <div className='oneswehurt' >
-                        <i style={Math.round(reviews.filter(el=> el?.product_id === ele?.id).reduce((a, b) => a + b.rating, 0) / reviews.filter(el=> el?.product_id === ele?.id).length) >= 1 ? { color: "#fd4" } : { color: "#444" }} className='fas fa-star'></i>
-                        <i style={Math.round(reviews.filter(el=> el?.product_id === ele?.id).reduce((a, b) => a + b.rating, 0) / reviews.filter(el=> el?.product_id === ele?.id).length) >= 2 ? { color: "#fd4" } : { color: "#444" }} className='fas fa-star'></i>
-                        <i style={Math.round(reviews.filter(el=> el?.product_id === ele?.id).reduce((a, b) => a + b.rating, 0) / reviews.filter(el=> el?.product_id === ele?.id).length) >= 3 ? { color: "#fd4" } : { color: "#444" }} className='fas fa-star'></i>
-                        <i style={Math.round(reviews.filter(el=> el?.product_id === ele?.id).reduce((a, b) => a + b.rating, 0) / reviews.filter(el=> el?.product_id === ele?.id).length) >= 4 ? { color: "#fd4" } : { color: "#444" }} className='fas fa-star'></i>
-                        <i style={Math.round(reviews.filter(el=> el?.product_id === ele?.id).reduce((a, b) => a + b.rating, 0) / reviews.filter(el=> el?.product_id === ele?.id).length) === 5 ? { color: "#fd4" } : { color: "#444" }} className='fas fa-star'></i>
+           <div key={ele?.id} className="selam23">
+               <div style={{ width: "100%", height: "271px", backgroundColor: "white", display: "flex", justifyContent: "center", borderTopLeftRadius: "4px", borderTopRightRadius: "4px" }}>
+
+                   <NavLink exact to={`/productpage/${ele?.id}`}><img alt="" style={{ cursor: "pointer" }} className="imgcokzor" src={ele?.image_url}></img></NavLink>
+               </div>
+               <div className="name-price-description">
+                   <NavLink exact to={`/productpage/${ele?.id}`}><p className="turuncu" style={{ cursor: "pointer", fontSize: "16px", fontWeight: "bold", maxWidth: "fit-content" }}>{ele?.name}</p></NavLink>
+                   <div className='imgandusername' style={{ marginTop: "10px" }}>
+
+                       <div className='oneswehurt' >
+                           <i style={Math.round(reviews.filter(el => el?.product_id === ele?.id).reduce((a, b) => a + b.rating, 0) / reviews.filter(el => el?.product_id === ele?.id).length) >= 1 ? { color: "#fd4" } : { color: "#444" }} className='fas fa-star'></i>
+                           <i style={Math.round(reviews.filter(el => el?.product_id === ele?.id).reduce((a, b) => a + b.rating, 0) / reviews.filter(el => el?.product_id === ele?.id).length) >= 2 ? { color: "#fd4" } : { color: "#444" }} className='fas fa-star'></i>
+                           <i style={Math.round(reviews.filter(el => el?.product_id === ele?.id).reduce((a, b) => a + b.rating, 0) / reviews.filter(el => el?.product_id === ele?.id).length) >= 3 ? { color: "#fd4" } : { color: "#444" }} className='fas fa-star'></i>
+                           <i style={Math.round(reviews.filter(el => el?.product_id === ele?.id).reduce((a, b) => a + b.rating, 0) / reviews.filter(el => el?.product_id === ele?.id).length) >= 4 ? { color: "#fd4" } : { color: "#444" }} className='fas fa-star'></i>
+                           <i style={Math.round(reviews.filter(el => el?.product_id === ele?.id).reduce((a, b) => a + b.rating, 0) / reviews.filter(el => el?.product_id === ele?.id).length) === 5 ? { color: "#fd4" } : { color: "#444" }} className='fas fa-star'></i>
+                       </div>
+                       <h2 style={{ wordBreak: "break-all", fontFamily: "Merienda" }} >{reviews.filter(el => el?.product_id === ele?.id).length}</h2>
+
+                   </div>
+                   <p className="dolarthingy" style={{ fontFamily: "Merienda" }}>$<span style={{ fontWeight: "bold", fontSize: "14px", fontFamily: "Merienda" }}>{ele?.price}.00</span></p>
+                   <p className="getitassonsas">Get it as soon as <span style={{ fontWeight: "bold" }}>Tomorrow</span><br></br>FREE Shipping by GenZon</p>
+                   <p className="description-product-page">{ele?.description}</p>
+
+               </div>
+
+           </div>
+       )).reverse()
+    }else if(sortby==='oldest'){
+
+        mappedProducts = allProducts.map(ele => (
+
+            <div key={ele?.id} className="selam23">
+                <div style={{ width: "100%", height: "271px", backgroundColor: "white", display: "flex", justifyContent: "center", borderTopLeftRadius: "4px", borderTopRightRadius: "4px" }}>
+
+                    <NavLink exact to={`/productpage/${ele?.id}`}><img alt="" style={{ cursor: "pointer" }} className="imgcokzor" src={ele?.image_url}></img></NavLink>
+                </div>
+                <div className="name-price-description">
+                    <NavLink exact to={`/productpage/${ele?.id}`}><p className="turuncu" style={{ cursor: "pointer", fontSize: "16px", fontWeight: "bold", maxWidth: "fit-content" }}>{ele?.name}</p></NavLink>
+                    <div className='imgandusername' style={{ marginTop: "10px" }}>
+
+                        <div className='oneswehurt' >
+                            <i style={Math.round(reviews.filter(el => el?.product_id === ele?.id).reduce((a, b) => a + b.rating, 0) / reviews.filter(el => el?.product_id === ele?.id).length) >= 1 ? { color: "#fd4" } : { color: "#444" }} className='fas fa-star'></i>
+                            <i style={Math.round(reviews.filter(el => el?.product_id === ele?.id).reduce((a, b) => a + b.rating, 0) / reviews.filter(el => el?.product_id === ele?.id).length) >= 2 ? { color: "#fd4" } : { color: "#444" }} className='fas fa-star'></i>
+                            <i style={Math.round(reviews.filter(el => el?.product_id === ele?.id).reduce((a, b) => a + b.rating, 0) / reviews.filter(el => el?.product_id === ele?.id).length) >= 3 ? { color: "#fd4" } : { color: "#444" }} className='fas fa-star'></i>
+                            <i style={Math.round(reviews.filter(el => el?.product_id === ele?.id).reduce((a, b) => a + b.rating, 0) / reviews.filter(el => el?.product_id === ele?.id).length) >= 4 ? { color: "#fd4" } : { color: "#444" }} className='fas fa-star'></i>
+                            <i style={Math.round(reviews.filter(el => el?.product_id === ele?.id).reduce((a, b) => a + b.rating, 0) / reviews.filter(el => el?.product_id === ele?.id).length) === 5 ? { color: "#fd4" } : { color: "#444" }} className='fas fa-star'></i>
+                        </div>
+                        <h2 style={{ wordBreak: "break-all", fontFamily: "Merienda" }} >{reviews.filter(el => el?.product_id === ele?.id).length}</h2>
+
                     </div>
-                    <h2 style={{ wordBreak: "break-all" }} >{reviews.filter(el=> el?.product_id === ele?.id).length}</h2>
+                    <p className="dolarthingy" style={{ fontFamily: "Merienda" }}>$<span style={{ fontWeight: "bold", fontSize: "14px", fontFamily: "Merienda" }}>{ele?.price}.00</span></p>
+                    <p className="getitassonsas">Get it as soon as <span style={{ fontWeight: "bold" }}>Tomorrow</span><br></br>FREE Shipping by GenZon</p>
+                    <p className="description-product-page">{ele?.description}</p>
 
                 </div>
-                <p className="dolarthingy">$<span style={{ fontWeight: "bold", fontSize: "14px" }}>{ele?.price}.00</span></p>
-                <p className="getitassonsas">Get it as soon as <span style={{ fontWeight: "bold" }}>Tomorrow</span><br></br>FREE Shipping by GenZon</p>
-                <p className="description-product-page">{ele?.description}</p>
 
             </div>
+        ))
+    }else if(sortby==='lowtohigh'){
+        mappedProducts = allProducts.sort((a,b)=> a.price - b.price).map(ele => (
 
-        </div>
-    )).reverse()
+            <div key={ele?.id} className="selam23">
+                <div style={{ width: "100%", height: "271px", backgroundColor: "white", display: "flex", justifyContent: "center", borderTopLeftRadius: "4px", borderTopRightRadius: "4px" }}>
+
+                    <NavLink exact to={`/productpage/${ele?.id}`}><img alt="" style={{ cursor: "pointer" }} className="imgcokzor" src={ele?.image_url}></img></NavLink>
+                </div>
+                <div className="name-price-description">
+                    <NavLink exact to={`/productpage/${ele?.id}`}><p className="turuncu" style={{ cursor: "pointer", fontSize: "16px", fontWeight: "bold", maxWidth: "fit-content" }}>{ele?.name}</p></NavLink>
+                    <div className='imgandusername' style={{ marginTop: "10px" }}>
+
+                        <div className='oneswehurt' >
+                            <i style={Math.round(reviews.filter(el => el?.product_id === ele?.id).reduce((a, b) => a + b.rating, 0) / reviews.filter(el => el?.product_id === ele?.id).length) >= 1 ? { color: "#fd4" } : { color: "#444" }} className='fas fa-star'></i>
+                            <i style={Math.round(reviews.filter(el => el?.product_id === ele?.id).reduce((a, b) => a + b.rating, 0) / reviews.filter(el => el?.product_id === ele?.id).length) >= 2 ? { color: "#fd4" } : { color: "#444" }} className='fas fa-star'></i>
+                            <i style={Math.round(reviews.filter(el => el?.product_id === ele?.id).reduce((a, b) => a + b.rating, 0) / reviews.filter(el => el?.product_id === ele?.id).length) >= 3 ? { color: "#fd4" } : { color: "#444" }} className='fas fa-star'></i>
+                            <i style={Math.round(reviews.filter(el => el?.product_id === ele?.id).reduce((a, b) => a + b.rating, 0) / reviews.filter(el => el?.product_id === ele?.id).length) >= 4 ? { color: "#fd4" } : { color: "#444" }} className='fas fa-star'></i>
+                            <i style={Math.round(reviews.filter(el => el?.product_id === ele?.id).reduce((a, b) => a + b.rating, 0) / reviews.filter(el => el?.product_id === ele?.id).length) === 5 ? { color: "#fd4" } : { color: "#444" }} className='fas fa-star'></i>
+                        </div>
+                        <h2 style={{ wordBreak: "break-all", fontFamily: "Merienda" }} >{reviews.filter(el => el?.product_id === ele?.id).length}</h2>
+
+                    </div>
+                    <p className="dolarthingy" style={{ fontFamily: "Merienda" }}>$<span style={{ fontWeight: "bold", fontSize: "14px", fontFamily: "Merienda" }}>{ele?.price}.00</span></p>
+                    <p className="getitassonsas">Get it as soon as <span style={{ fontWeight: "bold" }}>Tomorrow</span><br></br>FREE Shipping by GenZon</p>
+                    <p className="description-product-page">{ele?.description}</p>
+
+                </div>
+
+            </div>
+        ))
+    }else if(sortby==='hightolow'){
+        mappedProducts = allProducts.sort((a,b)=>  b.price-a.price ).map(ele => (
+
+            <div key={ele?.id} className="selam23">
+                <div style={{ width: "100%", height: "271px", backgroundColor: "white", display: "flex", justifyContent: "center", borderTopLeftRadius: "4px", borderTopRightRadius: "4px" }}>
+
+                    <NavLink exact to={`/productpage/${ele?.id}`}><img alt="" style={{ cursor: "pointer" }} className="imgcokzor" src={ele?.image_url}></img></NavLink>
+                </div>
+                <div className="name-price-description">
+                    <NavLink exact to={`/productpage/${ele?.id}`}><p className="turuncu" style={{ cursor: "pointer", fontSize: "16px", fontWeight: "bold", maxWidth: "fit-content" }}>{ele?.name}</p></NavLink>
+                    <div className='imgandusername' style={{ marginTop: "10px" }}>
+
+                        <div className='oneswehurt' >
+                            <i style={Math.round(reviews.filter(el => el?.product_id === ele?.id).reduce((a, b) => a + b.rating, 0) / reviews.filter(el => el?.product_id === ele?.id).length) >= 1 ? { color: "#fd4" } : { color: "#444" }} className='fas fa-star'></i>
+                            <i style={Math.round(reviews.filter(el => el?.product_id === ele?.id).reduce((a, b) => a + b.rating, 0) / reviews.filter(el => el?.product_id === ele?.id).length) >= 2 ? { color: "#fd4" } : { color: "#444" }} className='fas fa-star'></i>
+                            <i style={Math.round(reviews.filter(el => el?.product_id === ele?.id).reduce((a, b) => a + b.rating, 0) / reviews.filter(el => el?.product_id === ele?.id).length) >= 3 ? { color: "#fd4" } : { color: "#444" }} className='fas fa-star'></i>
+                            <i style={Math.round(reviews.filter(el => el?.product_id === ele?.id).reduce((a, b) => a + b.rating, 0) / reviews.filter(el => el?.product_id === ele?.id).length) >= 4 ? { color: "#fd4" } : { color: "#444" }} className='fas fa-star'></i>
+                            <i style={Math.round(reviews.filter(el => el?.product_id === ele?.id).reduce((a, b) => a + b.rating, 0) / reviews.filter(el => el?.product_id === ele?.id).length) === 5 ? { color: "#fd4" } : { color: "#444" }} className='fas fa-star'></i>
+                        </div>
+                        <h2 style={{ wordBreak: "break-all", fontFamily: "Merienda" }} >{reviews.filter(el => el?.product_id === ele?.id).length}</h2>
+
+                    </div>
+                    <p className="dolarthingy" style={{ fontFamily: "Merienda" }}>$<span style={{ fontWeight: "bold", fontSize: "14px", fontFamily: "Merienda" }}>{ele?.price}.00</span></p>
+                    <p className="getitassonsas">Get it as soon as <span style={{ fontWeight: "bold" }}>Tomorrow</span><br></br>FREE Shipping by GenZon</p>
+                    <p className="description-product-page">{ele?.description}</p>
+
+                </div>
+
+            </div>
+        ))
+    }else if(sortby==='ratingavg'){
+
+        mappedProducts = allProducts.sort((a,b)=> b.rating-a.rating).sort((a,b) => b.reviews.length-a.reviews.length).map(ele => (
+
+            <div key={ele?.id} className="selam23">
+                <div style={{ width: "100%", height: "271px", backgroundColor: "white", display: "flex", justifyContent: "center", borderTopLeftRadius: "4px", borderTopRightRadius: "4px" }}>
+
+                    <NavLink exact to={`/productpage/${ele?.id}`}><img alt="" style={{ cursor: "pointer" }} className="imgcokzor" src={ele?.image_url}></img></NavLink>
+                </div>
+                <div className="name-price-description">
+                    <NavLink exact to={`/productpage/${ele?.id}`}><p className="turuncu" style={{ cursor: "pointer", fontSize: "16px", fontWeight: "bold", maxWidth: "fit-content" }}>{ele?.name}</p></NavLink>
+                    <div className='imgandusername' style={{ marginTop: "10px" }}>
+
+                        <div className='oneswehurt' >
+                            <i style={Math.round(reviews.filter(el => el?.product_id === ele?.id).reduce((a, b) => a + b.rating, 0) / reviews.filter(el => el?.product_id === ele?.id).length) >= 1 ? { color: "#fd4" } : { color: "#444" }} className='fas fa-star'></i>
+                            <i style={Math.round(reviews.filter(el => el?.product_id === ele?.id).reduce((a, b) => a + b.rating, 0) / reviews.filter(el => el?.product_id === ele?.id).length) >= 2 ? { color: "#fd4" } : { color: "#444" }} className='fas fa-star'></i>
+                            <i style={Math.round(reviews.filter(el => el?.product_id === ele?.id).reduce((a, b) => a + b.rating, 0) / reviews.filter(el => el?.product_id === ele?.id).length) >= 3 ? { color: "#fd4" } : { color: "#444" }} className='fas fa-star'></i>
+                            <i style={Math.round(reviews.filter(el => el?.product_id === ele?.id).reduce((a, b) => a + b.rating, 0) / reviews.filter(el => el?.product_id === ele?.id).length) >= 4 ? { color: "#fd4" } : { color: "#444" }} className='fas fa-star'></i>
+                            <i style={Math.round(reviews.filter(el => el?.product_id === ele?.id).reduce((a, b) => a + b.rating, 0) / reviews.filter(el => el?.product_id === ele?.id).length) === 5 ? { color: "#fd4" } : { color: "#444" }} className='fas fa-star'></i>
+                        </div>
+                        <h2 style={{ wordBreak: "break-all", fontFamily: "Merienda" }} >{reviews.filter(el => el?.product_id === ele?.id).length}</h2>
+
+                    </div>
+                    <p className="dolarthingy" style={{ fontFamily: "Merienda" }}>$<span style={{ fontWeight: "bold", fontSize: "14px", fontFamily: "Merienda" }}>{ele?.price}.00</span></p>
+                    <p className="getitassonsas">Get it as soon as <span style={{ fontWeight: "bold" }}>Tomorrow</span><br></br>FREE Shipping by GenZon</p>
+                    <p className="description-product-page">{ele?.description}</p>
+
+                </div>
+
+            </div>
+        ))
+
+
+    }
+
+
+
 
     return (
         <div className="main-div-all-products">
+            <div className="resultstable">
+                <p style={{ margin: "10px 20px", fontSize: "15px" }}>{mappedProducts.length} results</p>
+                <select className="selecthehe" onChange={(e) => setSortby(e.target.value)} value={sortby}>
+                    <option value={''}>Sort by: Featured</option>
+                    <option value={'lowtohigh'}>Price: Low to High</option>
+                    <option value={'hightolow'}>Price: High to Low</option>
+                    <option value={'ratingavg'}>Customer Rating</option>
+                    <option value={'newest'}>Newest</option>
+                    <option value={'oldest'}>Oldest</option>
+
+                </select>
+            </div>
             <div className="middle-div-hehe">
                 <div className="left-navbarthingy">
 
                 </div>
                 <div className="main-product-smallgrid">
-                    <h1 style={{ marginBottom: "30px", fontSize: "20px", color: "#0F1111", fontFamily: "Merienda" }} >Results</h1>
+                    {/* <h1 style={{ marginBottom: "30px", fontSize: "20px", color: "#0F1111", fontFamily: "Merienda" }} >Results</h1> */}
                     <div className="asildiv">
                         {mappedProducts}
                     </div>

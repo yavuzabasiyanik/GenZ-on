@@ -27,6 +27,16 @@
     padding: 20px 20px 0px 20px;
 }
 
+.shoppingcartnameproduct{
+    width: fit-content;
+}
+
+
+.shoppingcartnameproduct:hover {
+    color: #c45500 !important;
+    text-decoration: underline;
+}
+
 .somethingheree3 {
     width: 100%;
     height: 70px;
@@ -142,7 +152,7 @@
 }
 
 
-.legendmain-div{
+.legendmain-div {
     position: absolute;
     top: 99px;
     width: 100%;
@@ -150,7 +160,7 @@
 
 }
 
-.asilllegendary-div-empty{
+.asilllegendary-div-empty {
     width: 1163px;
     height: 90%;
     margin: 30px 30px;
@@ -159,7 +169,7 @@
 
 }
 
-.legendimg{
+.legendimg {
     width: 1163px;
     height: 627.68px;
     image-rendering: auto;

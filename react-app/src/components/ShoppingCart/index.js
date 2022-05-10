@@ -59,7 +59,7 @@ const ShoppingCart = () => {
 
                     <NavLink exact to={`/productpage/${ele?.product?.id}`}><img alt='something' className='imginthecart' src={ele?.product?.image_url}></img></NavLink>
                     <div className='somedivdd'>
-                        <NavLink exact to={`/productpage/${ele?.product?.id}`}><p style={{ color: "#0F1111", fontSize: "17px", cursor: "pointer", wordWrap: "break-word", marginTop: "8px", fontWeight: "700" }}>{ele?.product?.name}</p></NavLink>
+                        <NavLink exact to={`/productpage/${ele?.product?.id}`} className='shoppingcartnameproduct'><p className='shoppingcartnameproduct' style={{ color: "#0F1111", fontSize: "17px", cursor: "pointer", wordWrap: "break-word", marginTop: "8px", fontWeight: "700" }}>{ele?.product?.name}</p></NavLink>
                         <p style={{ color: "#007185" }}>In Stock</p>
                         <p style={{ color: "#565959", fontSize: "12px", lineHeight: "16px" }}>Eligible for FREE Shipping & <span style={{ fontWeight: "700", fontSize: "12px", color: "#007185" }}>FREE Returns</span></p>
                         <div className='qtydelete'>

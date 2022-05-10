@@ -7,6 +7,7 @@ import { createReview } from '../../store/review';
 import { deleteReview } from '../../store/review';
 import { updateReview } from '../../store/review';
 import ErrorsModal from "../ProductForm/ErrorModal";
+import Footer from '../Footer';
 
 const SingleProduct = () => {
 
@@ -37,11 +38,11 @@ const SingleProduct = () => {
 
 
 
-        if ((shoppingcart?.user_id=== user?.id )&&(shoppingcart?.quantity + (+quantity)) > product?.quantity) {
+        if ((shoppingcart?.user_id === user?.id) && (shoppingcart?.quantity + (+quantity)) > product?.quantity) {
             setErrors(['You cannot buy more than provided quantity!!! (You already have this product in your shopping cart...) '])
             return
         }
-        if(user?.id === product?.user_id){
+        if (user?.id === product?.user_id) {
             setErrors(['You cannot add your own product to your shopping cart'])
 
             return
@@ -84,16 +85,16 @@ const SingleProduct = () => {
         }
 
 
-            dispatch(createReview(product?.id, selected, title, comment));
+        dispatch(createReview(product?.id, selected, title, comment));
 
-            const anchor = document.querySelector('.writecustomerreviewbutton')
-            anchor.scrollIntoView({ behavior: 'smooth', block: 'center' })
-            setReviewDropdown(false);
+        const anchor = document.querySelector('.writecustomerreviewbutton')
+        anchor.scrollIntoView({ behavior: 'smooth', block: 'center' })
+        setReviewDropdown(false);
 
-            setSelected(1);
-            setComment('')
-            setTitlte('');
-        }
+        setSelected(1);
+        setComment('')
+        setTitlte('');
+    }
 
 
 
@@ -227,7 +228,7 @@ const SingleProduct = () => {
                                 <i style={averageRating >= 4 ? { color: "#fd4" } : { color: "#444" }} className='fas fa-star'></i>
                                 <i style={averageRating === 5 ? { color: "#fd4" } : { color: "#444" }} className='fas fa-star'></i>
                             </div>
-                            <h2 style={{ wordBreak: "break-all" }} >{reviews.length} {reviews.length > 1 ? "reviews" : "review"}</h2>
+                            <h2 style={{ wordBreak: "break-all" }} >{reviews.length} {reviews.length > 1 ? "ratings" : "rating"}</h2>
                         </div>
                         <div className='pricethingyhehe'>
                             <p style={{ fontFamily: "Merienda", fontSize: "17px" }} ><span style={{ fontSize: "14px", fontFamily: "Merienda" }}>Price:</span> ${product?.price}.00</p>
@@ -382,6 +383,8 @@ const SingleProduct = () => {
                         </div>
                     </div>
                 </div>
+                <Footer something={true} />
+
             </div>
             {errors?.length > 0 ?
                 <ErrorsModal errors={errors} setErrors={setErrors} /> : null
