@@ -8,7 +8,7 @@ Genzon is built on a React frontend with a Flask backend, using PostgreSQL as a 
 
 ## Frontend Overview
 
-GenZon's does the majority of its applcation logic and validations on the backend, but display/interaction logic on the frontend is managed using several technologies.
+GenZon does the majority of its applcation logic and validations on the backend, but display/interaction logic on the frontend is managed using several technologies.
 
 ### Frontend Technologies Used
 
