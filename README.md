@@ -43,7 +43,7 @@ WTForms made it very easy for me to implemetn validators into my app.
 SQLAlchemy was the ORM of choice for GenZon. It made data seeding so easy.
 
 
-## Screenshots
+## Important Screenshots
 
 ### Shopping Cart
   In this page you can see the items you have added into your shopping cart. You can see the amount of the items you are buying you can increase and decrease the amount from within the shopping cart. You may choose to remove one item or you may choose to remove all the items at once from your shopping cart. If you want to proceed with the purchase you may click the yellow button on the right to checkout. 
@@ -64,4 +64,49 @@ SQLAlchemy was the ORM of choice for GenZon. It made data seeding so easy.
 ## Conclusion and Next Steps
 
 I'm satisfied with the funcinality of my website. However, I'm still not satisfied with my overall design. My forms are not very good looking right now, so I would like to take my time to work on the css of the site. Also, I would like to finish the orders feature soon. 
+
+
+
+## Getting started finding the memes
+
+1. Clone this repo
+  * git clone https://github.com/yavuzabasiyanik/GenZon.git
+
+2. Install dependencies
+   ```bash
+      pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
+      ```
+
+3. Create a POSTGRESQL user with CREATEDB and PASSWORD in PSQL.
+  * CREATE USER <'genzon_dev'> WITH CREATEDB PASSWORD <'password'>
+
+4. Create a .env file in the backend directory based on the .env.example
+
+5. Enter your username and password information into your .env file along with your desired database name, a
+   secured combination of characters for your JWT_Secret, and your PORT(generally 5000)
+
+6. Add the following proxy to your package.json file within your frontend directory, replacing or
+   keeping the 5000 port to match your PORT configuration found in your .env file.
+  * "proxy": "http://localhost:5000"
+
+7. Create database, migrate, and seed models:
+  ```bash
+   pipenv shell
+   ```
+
+   ```bash
+   flask db upgrade
+   ```
+
+   ```bash
+   flask seed all
+   ```
+
+8. Start backend server
+  * flask run
+
+9. Start frontend services, which should open the app in your default browser, if not navigate to http://localhost:3000/
+  * npm start
+
+10. A demo user button is available to use or you may create a new user account by clicking on "Sign up".
 
