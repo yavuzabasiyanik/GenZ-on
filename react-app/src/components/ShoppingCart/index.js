@@ -4,7 +4,7 @@ import { shoppingcartDeleteone, updateShoppingcart } from '../../store/shoppingc
 import { shoppingcartdeleteall } from '../../store/shoppingcart';
 import { NavLink, useHistory } from 'react-router-dom';
 import Footer from '../Footer';
-
+import { orderCreate } from '../../store/order';
 const ShoppingCart = () => {
 
 
@@ -18,6 +18,7 @@ const ShoppingCart = () => {
 
     const dispatch = useDispatch();
     const history = useHistory();
+
     let subtotal = 0;
 
     shoppingcart.forEach(ele => {
@@ -105,6 +106,15 @@ const ShoppingCart = () => {
         e.preventDefault();
 
         dispatch(shoppingcartdeleteall());
+
+        let paylaod = {
+            totalCost: subtotal,
+            instructions: "Leave it at the front door!",
+            products : [...shoppingcart]
+        }
+
+        dispatch(orderCreate(paylaod));
+        
         history.push('/checkout')
 
     }

@@ -17,7 +17,8 @@ class Product(db.Model, UserMixin):
     user = relationship("User", back_populates="products")
     shoppingcart = relationship('ShoppingCart', back_populates='product', cascade = "all, delete")
     reviews = relationship("Reviews", back_populates= "product", cascade = "all, delete")
-
+    ordered_by = db.relationship('OrderItem', back_populates='item', cascade="all, delete-orphan")
+    
     def to_dict(self):
         return {
             'id': self.id,
