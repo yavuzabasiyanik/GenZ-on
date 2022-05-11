@@ -20,7 +20,7 @@ import ShoppingCart from './components/ShoppingCart';
 import Checkout from './components/ShoppingCart/checkout';
 import { getAllReviews } from './store/review';
 import Orders from './components/Orders';
-
+import { orderLoad } from './store/order';
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -36,6 +36,8 @@ function App() {
     dispatch(productLoad());
     dispatch(shoppingcartLoad());
     dispatch(getAllReviews());
+    dispatch(orderLoad());
+    
   }, [dispatch]);
 
   if (!loaded) {
