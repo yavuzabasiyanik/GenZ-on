@@ -1,13 +1,92 @@
 import './Home.css';
 import { NavLink } from 'react-router-dom';
 import Footer from '../Footer';
+import { useEffect, useState } from 'react';
 const Home = () => {
 
 
+    const [imgInde, setImgIndex] = useState(1);
+    const [some,setSome] = useState(0);
+
+    const leftok = (e) => {
+
+        e.preventDefault();
+
+        setImgIndex((el) => {
+
+            if(el-1 <1){
+                return 5;
+            }else{
+                return el-1;
+            }
+
+        })
+        setSome((e)=> e+1);
+
+    }
+
+    const sagok = (e) => {
+
+        e.preventDefault();
+
+        setImgIndex((el) => {
+
+            if(el+1 >5){
+                return 1;
+            }else{
+                return el+1;
+            }
+
+        })
+
+        setSome((e)=> e+1);
+
+    }
+
+
+    useEffect(() => {
+
+        const interval = setInterval(() => {
+
+            setImgIndex((e) => {
+                if(e+1 >5){
+                    return 1;
+                }else{
+                    return e+1;
+                }
+            })
+
+
+        },4000)
+
+        return () => clearInterval(interval);
+
+    },[some])
 
     const backgroundImgDivBigHome = (
         <div className='backgroundimgthingy'>
 
+
+            <button onClick={leftok} className='carousel-button prev'><i className="fa-solid fa-chevron-left"></i></button>
+            <button onClick={sagok} className='carousel-button next'><i className="fa-solid fa-chevron-right"></i></button>
+
+                <ul>
+                    <li className={imgInde===1 ? 'slide data-active' : "slide"} >
+                        <img src='https://m.media-amazon.com/images/I/71iZHxT2gNL._SX3000_.jpg' alt='img1'></img>
+                    </li>
+                    <li className={imgInde===2 ? 'slide data-active' : "slide"}>
+                        <img src='https://m.media-amazon.com/images/I/71CoaA99FzL._SX3000_.jpg' alt='img2'></img>
+                    </li>
+                    <li className={imgInde===3 ? 'slide data-active' : "slide"}>
+                        <img src='https://m.media-amazon.com/images/I/61gLca6v8gL._SX3000_.jpg' alt='img3'></img>
+                    </li>
+                    <li className={imgInde===4 ? 'slide data-active' : "slide"}>
+                        <img src='https://rainforest-dev.s3.us-west-1.amazonaws.com/home_page_banner_4.jpg' alt='img4'></img>
+                    </li>
+                    <li className={imgInde===5 ? 'slide data-active' : "slide"}>
+                        <img src='https://rainforest-dev.s3.us-west-1.amazonaws.com/home_page_banner_1.jpg ' alt='img5'></img>
+                    </li>
+                </ul>
 
         </div>
     )
@@ -69,7 +148,7 @@ const Home = () => {
                 </div>
                 <Footer />
             </div>
-      
+
         </>
 
     )
