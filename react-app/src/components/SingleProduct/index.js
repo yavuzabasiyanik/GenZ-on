@@ -8,6 +8,7 @@ import { deleteReview } from '../../store/review';
 import { updateReview } from '../../store/review';
 import ErrorsModal from "../ProductForm/ErrorModal";
 import Footer from '../Footer';
+import { orderCreate } from '../../store/order';
 
 const SingleProduct = () => {
 
@@ -48,12 +49,33 @@ const SingleProduct = () => {
             return
         }
 
-        //s
+
 
         dispatch(createshoppingcart(productId, quantity));
         history.push('/user/cart')
 
     }
+
+    const handleBuySubmit = (e) => {
+        e.preventDefault();
+
+        if (user?.id === product?.user_id) {
+            setErrors(['You cannot buy your own product!!!'])
+
+            return
+        }
+
+        let payload = {
+            totalCost: product.price,
+            instructions: 'Leave it at the front door!',
+            products: [product]
+        }
+
+        dispatch(orderCreate(payload))
+        history.push('/checkout')
+
+    }
+
 
     const handleSubmitComment = (e) => {
         e.preventDefault();
@@ -257,8 +279,8 @@ const SingleProduct = () => {
 
                             </select>
 
-                            <button onClick={handleSubmit} className='somebuttonadd'>Add to Cart</button>
-                            <NavLink exact to={'/checkout'}><button className='somebuttonbuy'>Buy Now</button></NavLink>
+                            <button onClick={handleSubmit} style={{ fontFamily: 'Merienda' }} className='somebuttonadd'>Add to Cart</button>
+                            <button onClick={handleBuySubmit} style={{ fontFamily: 'Merienda' }} className='somebuttonbuy'>Buy Now</button>
 
                         </div>
 

@@ -42,13 +42,20 @@ def createOrder():
     db.session.commit()
 
 
-    for product in req['products']:
-        print("asdddddddddddddddddd========",product,"asdddddddddddddddddd=======================")
+    if('product_id' in req['products'][0]):
+        for product in req['products']:
+            orderedproduct = OrderItem(
+                product_id = product['product_id'],
+                order_id = order.id,
+                itemNum = product['quantity']
+            )
+            db.session.add(orderedproduct)
+    else:
         orderedproduct = OrderItem(
-            product_id = product['product_id'],
-            order_id = order.id,
-            itemNum = product['quantity']
-        )
+                product_id = req['products'][0]['id'],
+                order_id = order.id,
+                itemNum = req['products'][0]['quantity']
+            )
         db.session.add(orderedproduct)
     db.session.commit()
 

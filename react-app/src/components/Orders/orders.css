@@ -4,4 +4,168 @@
     top: 99px;
     position: absolute;
     background-color: white;
+    min-height: 100%;
+}
+
+.middivorderpage{
+    width: 66%;
+    height: auto;
+    min-width: 987px;
+    margin: 0 auto;
+    min-height: auto;
+    padding: 60px 30px 0;
+
+}
+
+.yourorders{
+    font-size: 28px;
+    font-weight: 500;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+}
+
+.imgoingtothegym{
+    margin:40px 3px 7px;
+}
+
+.orders{
+    width: 62%;
+    margin: 0 auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.kucukdivler{
+    width: auto;
+    height:auto;
+    min-height: 251px;
+    border-radius: 8px;
+    border: 1px #D5D9D9 solid;
+}
+
+.askneyledi{
+    color: #007185;
+    font-size: 14px;
+    cursor: pointer;
+    word-break: keep-all;
+    width: fit-content;
+}
+
+.askneyledi:hover{
+    color: #c45500!important;
+    text-decoration: underline;
+}
+
+.ustpart{
+    width: 100%;
+    height: 65px;
+    border-radius: 8px 8px 0 0;
+    padding: 14px 18px;
+    border-bottom: 1px #D5D9D9 solid;
+    background-color: #F0F2F2!important;
+
+    display: flex;
+    gap: 40px;
+    justify-content: space-between;
+}
+
+.middlepart{
+    width: 100%;
+    height: auto;
+
+}
+.altpart{
+    width: 100%;
+    height: 50px;
+    border-top: 1px #D5D9D9 solid;
+    padding: 14px 18px;
+
+}
+
+.eachdivsomething{
+    width: 100%;
+    height:auto;
+    min-height: 134px;
+    padding: 14px 18px;
+    display: flex;
+    position: relative;
+    gap: 20px;
+
+}
+
+.twobttonsonename{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.yellowbutton{
+    box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
+    border-color: #FCD200;
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+    display: inline-block;
+    padding: 0;
+    text-align: center;
+    text-decoration: none!important;
+    vertical-align: middle;
+    background-color: #FFD814;
+}
+
+.yellowbutton:hover{
+    background-color: #f7ca18;
+
+}
+
+.whitebutton{
+    border-radius: 8px;
+    box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
+    border-color: #D5D9D9;
+    background-color: white;
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;margin-bottom: 4px!important;
+    display: inline-block;
+    padding: 0;
+    font-family: "Merienda";
+    text-align: center;
+    text-decoration: none!important;
+    vertical-align: middle;
+    font-size: 13px;
+    width: 116.46px;
+    height: 31px;
+}
+
+.whitebutton:hover{
+    background-color:whitesmoke;
+}
+
+.writeareview{
+    border-radius: 8px;
+    box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
+    border-color: #D5D9D9;
+    background-color: white;
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;margin-bottom: 4px!important;
+    display: inline-block;
+    padding: 0;
+    font-family: "Merienda";
+    text-align: center;
+    text-decoration: none!important;
+    vertical-align: middle;
+    font-size: 13px;
+    width: 221.46px;
+    height: 31px;
+    position: absolute;
+    right: 18px;
+    top: 14px;
+}
+
+.writeareview:hover{
+    background-color:whitesmoke;
+
 }

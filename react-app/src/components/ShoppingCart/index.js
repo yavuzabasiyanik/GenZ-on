@@ -5,8 +5,11 @@ import { shoppingcartdeleteall } from '../../store/shoppingcart';
 import { NavLink, useHistory } from 'react-router-dom';
 import Footer from '../Footer';
 import { orderCreate } from '../../store/order';
+import { useState } from 'react';
 const ShoppingCart = () => {
 
+    const [instructionsDropdown, setinstructionsDropdown] = useState(false)
+    const [instructions, setInstructions] = useState("Leave it at the front door!")
 
     let shoppingcart = useSelector(state => Object.values(state.shoppingcart));
 
@@ -50,7 +53,7 @@ const ShoppingCart = () => {
     let items = 0;
 
     shoppingcart.forEach((item) => {
-        items+= item.quantity;
+        items += item.quantity;
     })
 
     const allCart = shoppingcart.map(ele => {
@@ -105,16 +108,18 @@ const ShoppingCart = () => {
     const handleCheckout = (e) => {
         e.preventDefault();
 
+
+
         dispatch(shoppingcartdeleteall());
 
         let paylaod = {
             totalCost: subtotal,
-            instructions: "Leave it at the front door!",
-            products : [...shoppingcart]
+            instructions,
+            products: [...shoppingcart]
         }
 
         dispatch(orderCreate(paylaod));
-        
+
         history.push('/checkout')
 
     }
@@ -152,7 +157,16 @@ const ShoppingCart = () => {
                             </p>
                             <button onClick={handleCheckout} className='proceedtocheckout'>Proceed to checkout </button>
                         </div>
-                        <div style={{marginTop:"300px"}}>
+                        <h2 onClick={(e) => setinstructionsDropdown((s) => !s)} className='settingdeliveryinstructions'>Set Delivery Instruction <i className="fa-solid fa-chevron-down okisareti"></i></h2>
+
+                        {
+                            instructionsDropdown &&
+                            <textarea maxLength={300} className='dropdownInstructions' onChange={(e) => setInstructions(e.target.value)} value={instructions}>
+
+                            </textarea>
+                        }
+
+                        <div style={{ marginTop: "300px" }}>
 
                             <Footer something={true} />
                         </div>

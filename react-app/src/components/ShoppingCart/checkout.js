@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import './checkout.css';
 
 const Checkout = () => {
@@ -12,8 +13,8 @@ const Checkout = () => {
                 </div>
 
                 <p>Thank you for using GenZon.</p>
+                <NavLink exact to={'/orders'}><h2 className='viewyourorder'>View your order</h2></NavLink>
             </div>
-
         </div>
     )
 }

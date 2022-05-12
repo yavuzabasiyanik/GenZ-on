@@ -51,7 +51,7 @@ export const orderCreate = (payload) => async (dispatch) => {
     })
 
     if(response.ok){
-        const data = response.json();
+        const data = await response.json();
 
         if(data.errors){
             return data.errors;

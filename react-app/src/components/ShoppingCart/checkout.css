@@ -1,14 +1,14 @@
-.checkoutmaindiv{
+.checkoutmaindiv {
     position: absolute;
     width: 100%;
     height: 100%;
-    top:99px;
+    top: 149px;
     display: flex;
     justify-content: center;
     padding-top: 20px;
 }
 
-.yesilli{
+.yesilli {
     width: 812px;
     height: 83px;
     min-width: 780px;
@@ -18,24 +18,37 @@
     padding: 18px;
     display: flex;
     flex-direction: column;
-
-    gap:7px;
+    position: relative;
+    gap: 7px;
 }
 
-.bakma{
+.bakma {
     display: flex;
-    gap:7px;
+    gap: 7px;
     align-items: center;
 }
 
-.fas{
+.fas {
     font-weight: 900;
     color: #007600;
     font-size: 24px
 }
 
-.thankyou{
+.thankyou {
     font-weight: 700;
     font-size: 18px;
     color: #007600;
+}
+
+.viewyourorder {
+    position: absolute;
+    right: 20px;
+    top: 18px;
+    text-decoration: underline;
+    cursor: pointer;
+
+}
+
+.viewyourorder:hover{
+    color: #f08804;
 }
