@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, useHistory, useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import './SingleProduct.css';
 import { createshoppingcart } from '../../store/shoppingcart';
 import { useEffect, useState } from 'react';
@@ -66,9 +66,10 @@ const SingleProduct = () => {
         }
 
         let payload = {
-            totalCost: product.price,
+            totalCost: product.price*quantity,
             instructions: 'Leave it at the front door!',
-            products: [product]
+            products: [product],
+            quantity
         }
 
         dispatch(orderCreate(payload))
@@ -144,22 +145,6 @@ const SingleProduct = () => {
 
             return
         }
-
-        // if (updateState[3].length > 80) {
-        //     alert('Title length cannot be more than 80!!!')
-
-        //     setUpdateState([false, 0, 0, '', '']);
-
-        //     return
-        // }
-
-        // if (updateState[4].length > 1000) {
-        //     alert('Written review cannot be more than 1000!!!')
-
-        //     setUpdateState([false, 0, 0, '', '']);
-
-        //     return
-        // }
 
 
         await dispatch(updateReview(product?.id, updateState[2], updateState[3], updateState[4], updateState[1]));

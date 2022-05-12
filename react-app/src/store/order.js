@@ -81,17 +81,17 @@ export const updateOrderThunk = (instructions,id) => async (dispatch) => {
         method: 'PUT',
 
         headers:{"Content-Type":"application/json"},
-        body: JSON.stringify(instructions)
+        body: JSON.stringify({instructions})
     });
 
 
     if(response.ok){
-        const data = response.json();
+        const data = await response.json();
 
         if(data.errors){
             return data.errors;
         }
-
+        
         dispatch(updateOrder(data))
 
     }

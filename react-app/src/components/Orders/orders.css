@@ -1,4 +1,4 @@
-.orderspagemaindiv{
+.orderspagemaindiv {
     width: 100%;
     height: auto;
     top: 99px;
@@ -7,7 +7,7 @@
     min-height: 100%;
 }
 
-.middivorderpage{
+.middivorderpage {
     width: 66%;
     height: auto;
     min-width: 987px;
@@ -17,18 +17,43 @@
 
 }
 
-.yourorders{
+.yourorders {
     font-size: 28px;
     font-weight: 500;
     border-bottom: 1px solid #ddd;
     padding-bottom: 20px;
 }
 
-.imgoingtothegym{
-    margin:40px 3px 7px;
+.everypenie {
+    object-fit: contain;
+
 }
 
-.orders{
+.hereeee{
+    font-size: 28px;
+    text-decoration: underline;
+
+}
+
+.hereeee:hover{
+    color: #F08804;
+}
+
+.somesssssss {
+    font-size: 28px;
+    margin: 0 0 20px;
+
+}
+
+.legendimg3 {
+    image-rendering: -webkit-optimize-contrast;
+}
+
+.imgoingtothegym {
+    margin: 40px 3px 7px;
+}
+
+.orders {
     width: 62%;
     margin: 0 auto;
     height: auto;
@@ -37,15 +62,15 @@
     gap: 30px;
 }
 
-.kucukdivler{
+.kucukdivler {
     width: auto;
-    height:auto;
+    height: auto;
     min-height: 251px;
     border-radius: 8px;
     border: 1px #D5D9D9 solid;
 }
 
-.askneyledi{
+.askneyledi {
     color: #007185;
     font-size: 14px;
     cursor: pointer;
@@ -53,55 +78,60 @@
     width: fit-content;
 }
 
-.askneyledi:hover{
-    color: #c45500!important;
+.askneyledi:hover {
+    color: #c45500 !important;
     text-decoration: underline;
 }
 
-.ustpart{
+.ustpart {
     width: 100%;
     height: 65px;
     border-radius: 8px 8px 0 0;
     padding: 14px 18px;
-    border-bottom: 1px #D5D9D9 solid;
-    background-color: #F0F2F2!important;
+    background-color: #F0F2F2 !important;
 
     display: flex;
     gap: 40px;
     justify-content: space-between;
 }
 
-.middlepart{
+.middlepart {
     width: 100%;
+
     height: auto;
 
 }
-.altpart{
+
+.altpart {
     width: 100%;
     height: 50px;
     border-top: 1px #D5D9D9 solid;
     padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
 }
 
-.eachdivsomething{
+.eachdivsomething {
     width: 100%;
-    height:auto;
+    height: auto;
     min-height: 134px;
     padding: 14px 18px;
     display: flex;
     position: relative;
     gap: 20px;
+    border-top: 1px #D5D9D9 solid;
 
 }
 
-.twobttonsonename{
+.twobttonsonename {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.yellowbutton{
+.yellowbutton {
     box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
     border-color: #FCD200;
     border-style: solid;
@@ -110,52 +140,54 @@
     display: inline-block;
     padding: 0;
     text-align: center;
-    text-decoration: none!important;
+    text-decoration: none !important;
     vertical-align: middle;
     background-color: #FFD814;
 }
 
-.yellowbutton:hover{
+.yellowbutton:hover {
     background-color: #f7ca18;
 
 }
 
-.whitebutton{
+.whitebutton {
     border-radius: 8px;
     box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
     border-color: #D5D9D9;
     background-color: white;
     border-style: solid;
     border-width: 1px;
-    cursor: pointer;margin-bottom: 4px!important;
+    cursor: pointer;
+    margin-bottom: 4px !important;
     display: inline-block;
     padding: 0;
     font-family: "Merienda";
     text-align: center;
-    text-decoration: none!important;
+    text-decoration: none !important;
     vertical-align: middle;
     font-size: 13px;
     width: 116.46px;
     height: 31px;
 }
 
-.whitebutton:hover{
-    background-color:whitesmoke;
+.whitebutton:hover {
+    background-color: whitesmoke;
 }
 
-.writeareview{
+.writeareview {
     border-radius: 8px;
     box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
     border-color: #D5D9D9;
     background-color: white;
     border-style: solid;
     border-width: 1px;
-    cursor: pointer;margin-bottom: 4px!important;
+    cursor: pointer;
+    margin-bottom: 4px !important;
     display: inline-block;
     padding: 0;
     font-family: "Merienda";
     text-align: center;
-    text-decoration: none!important;
+    text-decoration: none !important;
     vertical-align: middle;
     font-size: 13px;
     width: 221.46px;
@@ -165,7 +197,137 @@
     top: 14px;
 }
 
-.writeareview:hover{
-    background-color:whitesmoke;
+.writeareview:hover {
+    background-color: whitesmoke;
+
+}
+
+.agreable{
+    margin: 280px 0 0;
+}
+
+.viewinstructions {
+    border-radius: 8px;
+    box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
+    border-color: #D5D9D9;
+    background: #2975CA;
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+    margin-bottom: 4px !important;
+    display: inline-block;
+    font-family: "Merienda";
+    font-size: 13px;
+    color: #fff;
+    text-align: center;
+    text-decoration: none !important;
+    padding: 0;
+    display: inline-block;
+    vertical-align: middle;
+    height: 31px;
+    width: 221.45px;
+    position: absolute;
+    right: 18px;
+    bottom:14px;
+}
+
+.viewinstructions:hover {
+    background: #10529C;
+
+}
+
+.destiny {
+    top: 0;
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    z-index: 200;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.instructionstable {
+    width: 450px;
+    height: 270px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.monsterrr {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.monsterrr:hover {
+    color: rgba(0, 0, 0, .7)
+}
+
+
+.kucukpdevlieryinstructions {
+    margin: 0 223px 0px 0;
+    font-size: 14px;
+    font-weight: bold;
+
+}
+
+.textareasooo {
+    border-radius: 0.2rem;
+    padding: 1rem;
+    height: 10rem;
+    outline: none;
+    writing-mode: horizontal-tb !important;
+    font-family: monospace;
+    text-rendering: auto;
+    color: -internal-light-dark(black, white);
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    appearance: auto;
+    resize: auto;
+    cursor: text;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+    column-count: initial !important;
+}
+
+.instructionsbutton {
+
+    box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
+    border-color: #FCD200;
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+    display: inline-block;
+    padding: 0;
+    text-align: center;
+    text-decoration: none !important;
+    vertical-align: middle;
+    background-color: #FFD814;
+    width: 200px;
+    height: 34px;
+    border-radius: 3px;
+    font-family: "Merienda";
+}
+
+.instructionsbutton:hover {
+    background-color: #f7ca18;
 
 }

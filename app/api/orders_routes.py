@@ -54,7 +54,7 @@ def createOrder():
         orderedproduct = OrderItem(
                 product_id = req['products'][0]['id'],
                 order_id = order.id,
-                itemNum = req['products'][0]['quantity']
+                itemNum = req['quantity']
             )
         db.session.add(orderedproduct)
     db.session.commit()
@@ -75,7 +75,7 @@ def deleteOrder(order_id):
 @order_routes.route('/update/<order_id>', methods=['PUT'])
 def updateOrder(order_id):
 
-    req = request.json()
+    req = request.json
 
     order = Order.query.get(order_id)
 
