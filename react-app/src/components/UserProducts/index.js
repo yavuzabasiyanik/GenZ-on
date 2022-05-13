@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import './UserProducts.css';
 import { deleteProduct } from '../../store/product';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import UpdateForm from '../ProductForm/UpdateForm';
 import Footer from '../Footer';
 // import { shoppingcartDeleteone } from '../../store/shoppingcart';
@@ -34,6 +34,10 @@ const UserProducts = () => {
 
     }
 
+    useEffect(() => {
+
+        window.scrollTo(0, 0)
+    }, [])
 
     const allProductsUserDiv = userProducts.map(ele => {
         return (<div className='productsinuserpage' key={ele?.id}>
@@ -73,7 +77,7 @@ const UserProducts = () => {
                          <NavLink  exact to={`/product/sell`}><span style={{margin: "0px 10px", fontSize: "28px", color: "#F08804", textDecoration:"underline" }}>here</span></NavLink>
                         to learn more.</h1>
                     </div>
-                    
+
                 </div>
                 <img alt='something' className='legendimg' src='https://images.contentstack.io/v3/assets/blt187521ff0727be24/blt3d038a51072c6d5a/614cc18164c8007a9bdec0e2/zaun_splash.jpeg'></img>
             </div>

@@ -119,7 +119,10 @@ const SingleProduct = () => {
         setTitlte('');
     }
 
+    useEffect(() => {
 
+        window.scrollTo(0, 0)
+    }, [])
 
     const hadnleUpdate = async (e) => {
         e.preventDefault();

@@ -22,6 +22,13 @@ const AllProductsPage = () => {
 
     },[tagNumber,dispatch])
 
+    
+    useEffect(() => {
+
+        window.scrollTo(0, 0)
+    }, [tagNumber])
+
+
 
     let allProducts = useSelector(state => Object.values(state.products));
 

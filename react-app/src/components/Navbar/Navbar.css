@@ -254,6 +254,7 @@ nav {
     padding-left: 21px;
     display: flex;
     align-items: center;
+    gap: 8px;
 }
 
 .lowernav-allpart {
@@ -263,6 +264,8 @@ nav {
     height: 76%;
     cursor: pointer;
     padding: 0 8px;
+    border: 1px solid rgba(0,0,0,0);
+
 
 }
 

@@ -5,7 +5,7 @@ import { shoppingcartdeleteall } from '../../store/shoppingcart';
 import { NavLink, useHistory } from 'react-router-dom';
 import Footer from '../Footer';
 import { orderCreate } from '../../store/order';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 const ShoppingCart = () => {
 
     const [instructionsDropdown, setinstructionsDropdown] = useState(false)
@@ -123,6 +123,13 @@ const ShoppingCart = () => {
         history.push('/checkout')
 
     }
+
+    useEffect(() => {
+
+        window.scrollTo(0, 0)
+    }, [])
+
+
     return (
         <>
             {
