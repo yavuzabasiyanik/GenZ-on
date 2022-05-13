@@ -231,6 +231,31 @@
     bottom:14px;
 }
 
+.delivered{
+    border-radius: 8px;
+    box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
+    border-color: #D5D9D9;
+    background: #2975CA;
+    border-style: solid;
+    border-width: 1px;
+    margin-bottom: 4px !important;
+    display: inline-block;
+    font-family: "Merienda";
+    font-size: 13px;
+    color: #fff;
+    text-align: center;
+    text-decoration: none !important;
+    padding: 0;
+    display: inline-block;
+    vertical-align: middle;
+    height: 31px;
+    width: 221.45px;
+    position: absolute;
+    right: 18px;
+    bottom:14px;
+    background-color: #4CAF50; /* Green */
+}
+
 .viewinstructions:hover {
     background: #10529C;
 

@@ -114,7 +114,8 @@ const Orders = () => {
                         <NavLink exact to={`/productpage/${ele?.product?.id}`}><button className='writeareview'>Write a product review</button></NavLink>
 
                         {((Number(new Date(el?.created_at)) + (60 * 60 * 24 * 1000)) - Number(new Date())) > 0 ?
-                            <button onClick={(e) => handleSomething(e, el)} className='viewinstructions'>Delivery Instructions</button> : <></>
+                            <button onClick={(e) => handleSomething(e, el)} className='viewinstructions'>Delivery Instructions</button> :
+                            <button className='delivered'>Delivery complete</button>
                         }
                     </div>
                 ))}
