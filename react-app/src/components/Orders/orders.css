@@ -253,8 +253,9 @@
     position: absolute;
     right: 18px;
     bottom:14px;
-    background-color: #4CAF50; 
+    background-color: #4CAF50;
 }
+
 
 .viewinstructions:hover {
     background: #10529C;
