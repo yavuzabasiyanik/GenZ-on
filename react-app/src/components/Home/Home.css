@@ -15,6 +15,14 @@
     position: relative;
 }
 
+.homepageptags {
+    width: fit-content;
+}
+
+.homepageptags:hover {
+    color: #c45500;
+    text-decoration: underline;
+}
 
 
 .slide {
@@ -100,6 +108,11 @@ ul {
     margin: 30px 30px 0;
     height: 210px;
     object-fit: contain;
+    transition: all 200ms ease-in-out;
+}
+
+#alexa:hover {
+    height: 225px;
 }
 
 .genzonrecommended {
@@ -162,7 +175,9 @@ ul {
     image-rendering: pixelated;
     image-rendering: -webkit-optimize-contrast;
     cursor: pointer;
+    transition: all 200ms ease-in-out;
 }
+
 
 .alsohehe {
     margin-right: 24px;

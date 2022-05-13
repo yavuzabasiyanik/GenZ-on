@@ -108,15 +108,16 @@ const Home = () => {
                 <div className='daddy-of-categories'>
 
                     <div className='categories-home-page'>
-                        <NavLink exact to={'/allproducts/1'}><p style={{ fontSize: "21px", fontWeight: "bold" }}>Electronics</p></NavLink>
+
+                        <NavLink style={{cursor:"auto"}} exact to={'/allproducts/1'}><p className="homepageptags" style={{ fontSize: "21px", fontWeight: "bold" }}>Electronics</p></NavLink>
                         <NavLink exact to={'/productpage/21'}><img id='alexa' alt='something' className='' src='https://m.media-amazon.com/images/I/51MzOVciT3L._AC_UY218_.jpg'></img></NavLink>
                         <div className='genzonrecommended'>
                             GenZon Recommended
                         </div>
-                        <p style={{ fontFamily: "Merienda", fontSize: "18px", margin: "7px 0 0", display: "flex" }} ><span style={{ fontSize: "12px", fontFamily: "Merienda" }}>$</span>59.99</p>
+                        <p style={{ fontFamily: "Merienda", fontSize: "18px", margin: "7px 0 0", display: "flex", cursor:"auto" }} ><span style={{ fontSize: "12px", fontFamily: "Merienda" }}>$</span>59.99</p>
                         <NavLink exact to={'/productpage/21'}><p style={{ marginTop: "7px" }}>Echo Dot Smart speaker with clock and Alexa</p></NavLink>
 
-                        <NavLink exact to={'/allproducts/1'}><p style={{ marginTop: "20px" }} className='mavicik'>Shop from this category</p></NavLink>
+                        <NavLink  style={{cursor:"auto"}} exact to={'/allproducts/1'}><p style={{ marginTop: "20px" }} className='mavicik'>Shop from this category</p></NavLink>
 
 
                         {/* <NavLink exact to={'/productpage/1'}><img alt='something' className='livinginthe' src='https://m.media-amazon.com/images/I/91shKLxoedL._AC_UY327_FMwebp_QL65_.jpg'></img></NavLink>
@@ -126,22 +127,22 @@ const Home = () => {
                     </div>
 
                     <div className='categories-home-page'>
-                        <NavLink exact to={'/productpage/22'}><p style={{ fontSize: "21px", fontWeight: "bold" }}>Best Deal...</p></NavLink>
+                        <NavLink style={{cursor:"auto"}} exact to={'/productpage/22'}><p className="homepageptags" style={{ fontSize: "21px", fontWeight: "bold" }}>Best Deal...</p></NavLink>
 
                         <NavLink exact to={'/productpage/22'}><img id='alexa' alt='something' className='' src='https://m.media-amazon.com/images/I/71iUrQk82KL._SY500_.jpg'></img></NavLink>
                         <div style={{ width: "100px" }} className='genzonrecommended'>
                             Deal of the Day
                         </div>
-                        <p style={{ fontFamily: "Merienda", fontSize: "18px", margin: "7px 0 0", display: "flex" }} ><span style={{ fontSize: "12px", fontFamily: "Merienda" }}>$</span>23.00</p>
+                        <p style={{ fontFamily: "Merienda", fontSize: "18px", margin: "7px 0 0", display: "flex" , cursor:"auto"}} ><span style={{ fontSize: "12px", fontFamily: "Merienda" }}>$</span>23.00</p>
                         <NavLink exact to={'/productpage/22'}><p style={{ marginTop: "7px" }}>League of Legends Gift Card</p></NavLink>
 
-                        <NavLink exact to={'/allproducts/5'}><p style={{ marginTop: "20px" }} className='mavicik'>Buy more League products</p></NavLink>
+                        <NavLink  style={{cursor:"auto"}} exact to={'/allproducts/5'}><p style={{ marginTop: "20px" }} className='mavicik'>Buy more League products</p></NavLink>
 
 
 
                     </div>
                     <div className='categories-home-page4'>
-                        <NavLink exact to={'/allproducts/2'}><p style={{ fontSize: "21px", fontWeight: "bold" }}>Recommended clothing!</p></NavLink>
+                        <NavLink exact to={'/allproducts/2'}><p className="homepageptags" style={{ fontSize: "21px", fontWeight: "bold" }}>Recommended clothing!</p></NavLink>
                         <NavLink style={{ display: "flex", alignItems: "center" }} exact to={'/productpage/5'}><img alt='something' className='womanclothing' src='https://cdn.pixabay.com/photo/2013/07/13/14/08/apparel-162192_1280.png'></img></NavLink>
                         <NavLink style={{ display: "flex", alignItems: "center" }} exact to={'/productpage/7'}><img alt='something' className='womanclothing' src='https://m.media-amazon.com/images/I/818Tnima1yL._AC_UL480_FMwebp_QL65_.jpg'></img></NavLink>
                         <NavLink style={{ display: "flex", alignItems: "center" }} exact to={'/productpage/8'}><img alt='something' className='womanclothing' src='https://m.media-amazon.com/images/I/71G4kkPdU-L._AC_UL480_FMwebp_QL65_.jpg'></img></NavLink>
@@ -154,7 +155,7 @@ const Home = () => {
 
                     </div>
                     <div style={{ width: "307px", height: "150px", paddingTop: "25px", padding: "20px" }} className='categories-home-page'>
-                        <NavLink exact to={'/allproducts/4'}><p style={{ fontSize: "21px", fontWeight: "bold", marginBottom: "14px" }}>Let us do the shopping</p></NavLink>
+                        <NavLink style={{cursor:"auto"}} exact to={'/allproducts/4'}><p className="homepageptags" style={{ fontSize: "21px", fontWeight: "bold", marginBottom: "14px" }}>Let us do the shopping</p></NavLink>
                         <p style={{ marginBottom: "14px" }}>Free 1-hour grocery pickup from Whole Foods Market included with Prime</p>
                         <NavLink style={{ cursor: "auto" }} exact to={'/allproducts/4'}><p className='mavicik'>Show all Groceries</p></NavLink>
                         {/* <NavLink exact to={'/productpage/14'}><img alt='something' className='womanclothing' src='https://m.media-amazon.com/images/I/81X1OIJiEFL._AC_UL480_FMwebp_QL65_.jpg'></img></NavLink>
@@ -164,7 +165,7 @@ const Home = () => {
 
                     </div>
                     <div className='categories-home-page4'>
-                        <NavLink exact to={'/allproducts/5'}><p style={{ cursor: "pointer", fontSize: "21px", fontWeight: "bold" }}>Toys & Hobbies</p></NavLink>
+                        <NavLink exact to={'/allproducts/5'}><p className="homepageptags" style={{ cursor: "pointer", fontSize: "21px", fontWeight: "bold" }}>Toys & Hobbies</p></NavLink>
                         <NavLink style={{ display: "flex", alignItems: "center" }} exact to={'/productpage/18'}><img alt='something' className='womanclothing' src='https://m.media-amazon.com/images/I/91yg3JBdlgL._AC_UL480_FMwebp_QL65_.jpg'></img></NavLink>
                         <NavLink style={{ display: "flex", alignItems: "center" }} exact to={'/productpage/19'}><img alt='something' className='womanclothing' src='https://m.media-amazon.com/images/I/71JWVVP3nWL._AC_UL480_FMwebp_QL65_.jpg'></img></NavLink>
                         <NavLink style={{ display: "flex", alignItems: "center" }} exact to={'/productpage/20'}><img alt='something' className='womanclothing' src='https://m.media-amazon.com/images/I/71wy2BJWFTL._AC_UL480_FMwebp_QL65_.jpg'></img></NavLink>
@@ -181,46 +182,46 @@ const Home = () => {
 
                     </div>
                     <div className='categories-home-page'>
-                        <NavLink exact to={'/productpage/4'}><p style={{ fontSize: "21px", fontWeight: "bold" }}>Gaming computer</p></NavLink>
+                        <NavLink style={{cursor:"auto"}} exact to={'/productpage/4'}><p className="homepageptags" style={{ fontSize: "21px", fontWeight: "bold" }}>Gaming computer</p></NavLink>
 
                         <NavLink exact to={'/productpage/4'}><img id='alexa' alt='something' className='' src='https://m.media-amazon.com/images/I/71A2llPqz7L._AC_UL480_FMwebp_QL65_.jpg'></img></NavLink>
                         <div style={{ width: "120px" }} className='genzonrecommended'>
                             Deal of the Month
                         </div>
-                        <p style={{ fontFamily: "Merienda", fontSize: "18px", margin: "7px 0 0", display: "flex" }} ><span style={{ fontSize: "12px", fontFamily: "Merienda" }}>$</span>5000.00</p>
+                        <p style={{ fontFamily: "Merienda", fontSize: "18px", margin: "7px 0 0", display: "flex", cursor:"auto" }} ><span style={{ fontSize: "12px", fontFamily: "Merienda" }}>$</span>5000.00</p>
                         <NavLink exact to={'/productpage/4'}><p style={{ marginTop: "7px" }}>Periphio  Prebuilt RGB Gaming Computer</p></NavLink>
 
-                        <NavLink exact to={'/productpage/4'}><p style={{ marginTop: "20px" }} className='mavicik'>See the deal</p></NavLink>
+                        <NavLink style={{cursor:"auto"}} exact to={'/productpage/4'}><p style={{ marginTop: "20px" }} className='mavicik'>See the deal</p></NavLink>
 
 
 
                     </div>
                     <div className='categories-home-page'>
-                        <NavLink exact to={'/productpage/19'}><p style={{ fontSize: "21px", fontWeight: "bold" }}>Deal of the Day</p></NavLink>
+                        <NavLink style={{cursor:"auto"}} exact to={'/productpage/19'}><p className="homepageptags" style={{ fontSize: "21px", fontWeight: "bold" }}>Deal of the Day</p></NavLink>
 
                         <NavLink exact to={'/productpage/19'}><img id='alexa' alt='something' className='' src='https://m.media-amazon.com/images/I/71JWVVP3nWL._AC_UL480_FMwebp_QL65_.jpg'></img></NavLink>
                         <div style={{ width: "100px" }} className='genzonrecommended'>
                             Deal of the Day
                         </div>
-                        <p style={{ fontFamily: "Merienda", fontSize: "18px", margin: "7px 0 0", display: "flex" }} ><span style={{ fontSize: "12px", fontFamily: "Merienda" }}>$</span>23.00</p>
+                        <p style={{ fontFamily: "Merienda", fontSize: "18px", margin: "7px 0 0", display: "flex", cursor:"auto" }} ><span style={{ fontSize: "12px", fontFamily: "Merienda" }}>$</span>23.00</p>
                         <NavLink exact to={'/productpage/19'}><p style={{ marginTop: "7px" }}>League of Legends</p></NavLink>
 
-                        <NavLink exact to={'/allproducts/5'}><p style={{ marginTop: "20px" }} className='mavicik'>Buy more League products</p></NavLink>
+                        <NavLink  style={{cursor:"auto"}} exact to={'/allproducts/5'}><p style={{ marginTop: "20px" }} className='mavicik'>Buy more League products</p></NavLink>
 
 
 
                     </div>
                     <div className='categories-home-page'>
-                        <NavLink exact to={'/productpage/15'}><p style={{ fontSize: "21px", fontWeight: "bold" }}>Junk Food</p></NavLink>
+                        <NavLink style={{cursor:"auto"}} exact to={'/productpage/15'}><p className="homepageptags" style={{ fontSize: "21px", fontWeight: "bold" }}>Junk Food</p></NavLink>
 
                         <NavLink exact to={'/productpage/15'}><img id='alexa' alt='something' className='' src='https://m.media-amazon.com/images/I/A1dBzjL58SL._AC_UL480_FMwebp_QL65_.jpg'></img></NavLink>
                         <div style={{ width: "100px" }} className='genzonrecommended'>
                             Best junk food
                         </div>
-                        <p style={{ fontFamily: "Merienda", fontSize: "18px", margin: "7px 0 0", display: "flex" }} ><span style={{ fontSize: "12px", fontFamily: "Merienda" }}>$</span>45.00</p>
+                        <p style={{ fontFamily: "Merienda", fontSize: "18px", margin: "7px 0 0", display: "flex" , cursor:"auto"}} ><span style={{ fontSize: "12px", fontFamily: "Merienda" }}>$</span>45.00</p>
                         <NavLink exact to={'/productpage/15'}><p style={{ marginTop: "7px" }}>Chipss</p></NavLink>
 
-                        <NavLink exact to={'/allproducts/4'}><p style={{ marginTop: "20px" }} className='mavicik'>Shop more groceries</p></NavLink>
+                        <NavLink style={{cursor:"auto"}} exact to={'/allproducts/4'}><p style={{ marginTop: "20px" }} className='mavicik'>Shop more groceries</p></NavLink>
 
                     </div>
 
