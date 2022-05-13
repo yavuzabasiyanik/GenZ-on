@@ -1,5 +1,4 @@
-
-.form-main-div-product-sell{
+.form-main-div-product-sell {
     display: flex;
     justify-content: center;
     position: absolute;
@@ -9,13 +8,13 @@
     z-index: -2;
 }
 
-.selam{
+.selam {
     width: 100%;
     height: 30px;
     margin-bottom: 10px;
     position: absolute;
     left: 0;
-    top:0;
+    top: 0;
     background-color: #232f3e;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
@@ -24,7 +23,7 @@
     justify-content: center;
 }
 
-.selam p{
+.selam p {
     color: #ffffff;
     font-family: 'Merienda';
     font-size: 14px;
@@ -32,42 +31,77 @@
     font-weight: 700;
 }
 
-.ana-form{
-    width: 230px;
-    height:500px;
-    background-color: white;
-    border: 1px #ddd solid;
-    /* box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px; */
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+.jeezdodgeit {
+
     display: flex;
     flex-direction: column;
+    gap: 10px;
+}
+
+.teamcompdependent {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.ana-form {
+    width: 530px;
+    height: 350px;
+    background-color: white;
+    border: 1px #ddd solid;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    display: flex;
     padding: 15px;
-    justify-content: flex-end;
+
+    justify-content: center;
+    align-items: center;
     position: relative;
-    margin: 50px auto;
+    margin: 140px auto;
+    gap: 30px;
     border-radius: 3px;
 }
 
-.product-form-create{
+.product-form-create {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
     margin-bottom: 14px;
-
 }
 
+.formsubmitbutton {
+    position: absolute;
+    bottom: -5px;
+    right: 0;
+    padding: 0;
+    cursor: pointer;
+    left: -0.9px;
+    height: 33px;
+    border: none;
+    border: 1px #ddd solid;
+    color: #ffffff;
+    font-family: 'Merienda';
+    font-size: 14px;
+    line-height: 15px;
+    font-weight: 700;
+    background-color: #232f3e;
+    border-radius: 0 0 3px 3px;
+}
 
-.inputss{
+.formsubmitbutton:hover {
+    background-color: #febd69;
+}
+
+.inputss {
     width: 200px;
 }
 
-.inputss:focus{
-    outline: 1px solid rgba(0,0,0,.7);
+.inputss:focus {
+    outline: 1px solid rgba(0, 0, 0, .7);
 }
 
 
-.animationFortheform{
+.animationFortheform {
     right: -1000px;
     animation: editForm .5s ease forwards;
 

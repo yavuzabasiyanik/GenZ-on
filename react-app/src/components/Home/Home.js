@@ -80,7 +80,7 @@ const Home = () => {
 
             <ul>
                 <li className={imgInde === 1 ? 'slide data-active' : "slide"} >
-                    <img src='https://m.media-amazon.com/images/I/71iZHxT2gNL._SX3000_.jpg' alt='img1'></img>
+                    <img  src='https://m.media-amazon.com/images/I/71iZHxT2gNL._SX3000_.jpg' alt='img1'></img>
                 </li>
 
                 <li className={imgInde === 2 ? 'slide data-active' : "slide"}>
@@ -225,8 +225,8 @@ const Home = () => {
                     </div>
 
 
-                    <div style={{width:'307px'}}></div>
-                    <div style={{width:'307px'}}></div>
+                    <div style={{ width: '307px' }}></div>
+                    <div style={{ width: '307px' }}></div>
 
                 </div>
                 <div style={{ marginTop: "300px" }}>
