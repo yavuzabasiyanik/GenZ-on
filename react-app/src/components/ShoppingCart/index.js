@@ -168,9 +168,18 @@ const ShoppingCart = () => {
 
                         {
                             instructionsDropdown &&
-                            <textarea maxLength={300} className='dropdownInstructions' onChange={(e) => setInstructions(e.target.value)} value={instructions}>
+                            <div className='instructionsdrowdowndiv'>
+                                <textarea maxLength={300} className='dropdownInstructions' onChange={(e) => setInstructions(e.target.value)} value={instructions}>
 
-                            </textarea>
+                                </textarea>
+                                <div className='buttondivssscancelupdate'>
+                                    <button onClick={(e)=> setinstructionsDropdown(false)}  className='buttoncancel'>Cancel</button>
+                                    <button onClick={(e)=> setinstructionsDropdown(false)} style={{margin:"0 0px 0 10px"}} className='submitbutton'>Update</button>
+
+                                </div>
+                            </div>
+
+
                         }
 
                         <div style={{ marginTop: "300px" }}>

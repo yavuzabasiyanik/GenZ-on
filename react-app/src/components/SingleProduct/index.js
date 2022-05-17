@@ -282,14 +282,14 @@ const SingleProduct = () => {
                             <button onClick={selectedthingyhandle} className='writecustomerreviewbutton'>Write a customer review</button>
                             {reviewDropdown &&
                                 <div className='sennediyorsun'>
-                                    <h2 style={{ textDecoration: "underline" }} className='h2reviewtrhisproduct'>Add a review for:</h2>
+                                    <h2 style={{}} className='h2reviewtrhisproduct'>Add a review for:</h2>
                                     <div style={{ display: "flex", gap: "10px", paddingBottom: "20px" }}>
                                         <img alt='something' className='imgreviewind' src={product?.image_url}></img>
                                         <h2 style={{ marginTop: "22px" }}>{product?.name}</h2>
                                     </div>
                                     <div className='formreviewthingy'>
 
-                                        <h4 style={{ textDecoration: "underline", fontSize: "15.6px" }} className='h2reviewtrhisproduct'>Add a rating</h4>
+                                        <h4 style={{  fontSize: "15.6px" }} className='h2reviewtrhisproduct'>Add a rating</h4>
                                         <div className='star-widget'>
                                             <input type='radio' value={selected} className="same" checked={selected === 5} onChange={(e) => setSelected(5)} id='rate-5'></input>
                                             <label htmlFor='rate-5' className='fas fa-star'></label>
@@ -305,12 +305,12 @@ const SingleProduct = () => {
                                         </div>
                                         <div style={{ marginTop: "10px" }}>
 
-                                            <h2 style={{ textDecoration: "underline", fontSize: "15.6px" }} className='h2reviewtrhisproduct'>Add a title</h2>
-                                            <input value={title} onChange={(e) => setTitlte(e.target.value)} type='text' style={{ outline: "none" }}></input>
+                                            <h2 style={{ fontSize: "15.6px" }} className='h2reviewtrhisproduct'>Add a title</h2>
+                                            <input value={title} onChange={(e) => setTitlte(e.target.value)} type='text' style={{ outline: "none", width:"100%" }}></input>
                                         </div>
                                         <div style={{ marginTop: "10px" }}>
-                                            <h2 style={{ textDecoration: "underline", fontSize: "15.6px" }} className='h2reviewtrhisproduct'>Add a written review</h2>
-                                            <textarea value={comment} onChange={(e) => setComment(e.target.value)} style={{ outline: "none" }}></textarea>
+                                            <h2 style={{ fontSize: "15.6px" }} className='h2reviewtrhisproduct'>Add a written review</h2>
+                                            <textarea value={comment} onChange={(e) => setComment(e.target.value)} style={{ outline: "none", width:"100%", height:"90px" }}></textarea>
                                         </div>
                                         <div className='cancelsubmit'>
                                             <button onClick={selectedthingyhandle} className='buttoncancel'>Cancel</button>
@@ -346,12 +346,12 @@ const SingleProduct = () => {
                                         <div style={{ marginTop: "10px" }}>
 
                                             <h2 style={{ textDecoration: "underline", fontSize: "15.6px" }} className='h2reviewtrhisproduct'>Edit your title</h2>
-                                            <input value={updateState[3]} onChange={(e) => setUpdateState(ele => [ele[0], ele[1], ele[2], e.target.value, ele[4]])} type='text' style={{ outline: "none" }}></input>
+                                            <input value={updateState[3]} onChange={(e) => setUpdateState(ele => [ele[0], ele[1], ele[2], e.target.value, ele[4]])} type='text' style={{ outline: "none", width:"100%" }}></input>
                                         </div>
                                         <div style={{ marginTop: "10px" }}>
 
                                             <h2 style={{ textDecoration: "underline", fontSize: "15.6px" }} className='h2reviewtrhisproduct'>Edit your written review</h2>
-                                            <textarea value={updateState[4]} onChange={(e) => setUpdateState(ele => [ele[0], ele[1], ele[2], ele[3], e.target.value])} style={{ outline: "none" }}></textarea>
+                                            <textarea value={updateState[4]} onChange={(e) => setUpdateState(ele => [ele[0], ele[1], ele[2], ele[3], e.target.value])} style={{ outline: "none", width:"100%", height:"90px" }}></textarea>
                                         </div>
                                         <div className='cancelsubmit'>
                                             <button onClick={selectedthingyhandle} className='buttoncancel'>Cancel</button>

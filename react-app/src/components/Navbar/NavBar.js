@@ -103,7 +103,10 @@ const NavBar = () => {
             <NavLink to={'/'}><p className='genzonnavbar'>GenZon</p></NavLink>
           </div>
           <div className='delivertodiv'>
-            <p className='deliverto'>Deliver to {user?.username}</p>
+            {
+              user &&
+              <p className='deliverto'>Deliver to {user?.username}</p>
+            }
           </div>
 
           <div className='search'>
@@ -149,6 +152,14 @@ const NavBar = () => {
                     <div className='accounts-listings'>
 
                       <p className='bold notsobold'>Shopping Cart</p>
+
+                    </div>
+                  </NavLink>
+                  <NavLink exact to={'/orders'} onClick={() => setShowProfile(false)}>
+
+                    <div className='accounts-listings'>
+
+                      <p className='bold notsobold'>Returns % Orders</p>
 
                     </div>
                   </NavLink>

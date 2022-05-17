@@ -126,9 +126,9 @@
     width: 305px;
     height: 115px;
     background-color: white;
-    position: fixed;
+    position: absolute;
     right: 8px;
-    top: 129px;
+    top: 29px;
     padding: 20px;
     border: 1px #D5D9D9 solid;
 
@@ -143,18 +143,23 @@
     border: 1px #D5D9D9 solid;
     height: 105px;
     background-color: white;
-    position: fixed;
+    position: absolute;
     right: 8px;
-    top: 279px;
+    top: 180px;
     outline: none;
     padding: 5px;
 }
 
+.buttondivssscancelupdate {
+    position: absolute;
+    right: 8px;
+    top: 295px;
+}
 
 .settingdeliveryinstructions {
-    position: fixed;
+    position: absolute;
     right: 152px;
-    top: 250px;
+    top: 153px;
     color: black;
     text-decoration: underline;
     cursor: pointer;
@@ -221,7 +226,7 @@
 
     }
 
-    .dropdownInstructions{
+    .dropdownInstructions {
         position: static;
         margin: 10px 34px;
     }
@@ -231,6 +236,10 @@
         margin: 10px 34px;
     }
 
+    .buttondivssscancelupdate {
+        position: static;
+        margin: 0px 34px;
+    }
 }
 
 @media only screen and (min-width: 1890px) {
@@ -239,12 +248,15 @@
         right: 100px
     }
 
-    .dropdownInstructions{
+    .dropdownInstructions {
         right: 100px
-
     }
+
     .settingdeliveryinstructions {
         right: 245px
     }
 
+    .buttondivssscancelupdate {
+        right: 100px
+    }
 }

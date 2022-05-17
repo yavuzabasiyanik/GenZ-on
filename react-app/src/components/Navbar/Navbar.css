@@ -311,13 +311,14 @@ nav {
 
 .dropdownprofile {
     width: 200px;
-    height: 250px;
+    height: 300px;
     position: absolute;
-    background-color: #232f3e;
+    background-color: white;
+    border: 1px solid #cdcdcd;
 
     z-index: 10;
     top: -350px;
-    right: 55.5%;
+    right: 30.5%;
     border-radius: 3px;
     animation: drop2 .7s ease forwards;
     display: grid;
@@ -343,8 +344,11 @@ nav {
 .accounts-listings {
     width: 100%;
     height: 50px;
-    border-bottom: 1px solid whitesmoke;
-    padding: 5px;
+    border-bottom: 1px solid #cdcdcd;
+
+    padding-left: 25px;
+    display: flex;
+    align-items: center;
     transition: all .3s ease-out;
 }
 
@@ -360,8 +364,8 @@ nav {
 
 .bold {
     font-family: 'Merienda';
-    color: white;
-    font-weight: 500;
+    color: black;
+    font-weight: bold;
 
 }
 
