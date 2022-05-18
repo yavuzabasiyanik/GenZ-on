@@ -489,7 +489,7 @@ const SingleProduct = () => {
                                                 <h2 style={{ wordBreak: "break-all" }} >{ele?.title}</h2>
                                             </div>
                                             <h6 style={{ marginBottom: "10px" }} className='verifiedpurchase'>Verified Purchase</h6>
-                                            <p style={{ wordBreak: "break-all" }}>{ele?.body}</p>
+                                            <p style={{ wordBreak:"break-word" }}>{ele?.body}</p>
                                             {user?.id === ele?.user?.id && <button onClick={(e) => editHandle(e, ele?.id, ele?.rating, ele?.title, ele?.body)} className='buttoncancelthing'>Edit</button>}
                                             {user?.id === ele?.user?.id && <button onClick={(e) => deleteHandle(e, ele?.id)} className='buttoncancelthing'>Delete</button>}
                                         </div>
