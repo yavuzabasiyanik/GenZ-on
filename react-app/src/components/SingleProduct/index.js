@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, useHistory, useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import './SingleProduct.css';
 import { createshoppingcart } from '../../store/shoppingcart';
 import { useEffect, useRef, useState } from 'react';
