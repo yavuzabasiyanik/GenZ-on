@@ -66,7 +66,7 @@ const AllProductsPage = () => {
         mappedProducts = allProducts.map(ele => (
 
             <div key={ele?.id} className="selam23">
-                <div style={{ width: "100%", height: "271px", backgroundColor: "white", display: "flex", justifyContent: "center", borderTopLeftRadius: "4px", borderTopRightRadius: "4px" }}>
+                <div className="experiencehehe" >
 
                     <NavLink exact to={`/productpage/${ele?.id}`}><img alt="" style={{ cursor: "pointer" }} className="imgcokzor" src={ele?.image_url}></img></NavLink>
                 </div>

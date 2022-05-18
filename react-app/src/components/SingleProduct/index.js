@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, useParams } from 'react-router-dom';
+import { NavLink, useHistory, useParams } from 'react-router-dom';
 import './SingleProduct.css';
 import { createshoppingcart } from '../../store/shoppingcart';
 import { useEffect, useRef, useState } from 'react';
@@ -263,15 +263,21 @@ const SingleProduct = () => {
         "December"
     ]
 
+    const geri = () => {
+
+        history.goBack()
+    }
+
     return (
         <>
             <div className='indivproduct-main-div'>
                 <div className='middivallthestuff'>
+                    <p onClick={geri} className='heryersessizce' style={{height:"fit-content",fontSize:"11px", color:"#565959",marginTop:"20px"}}><i  style={{fontSize:"10px", color:"#565959"}} className="fa-solid fa-caret-left"></i> Back to results</p>
                     <div className='imgdivibu'>
                         <img alt='something' className='theimageintheindiv' src={product?.image_url}></img>
                     </div>
                     <div className='infordivibu'>
-                        <h1 className='productnameh1' style={{ fontFamily: "Arial, sans-serif" }}>{product?.name}</h1>
+                        <h1 className='productnameh1' style={{ fontFamily: "Arial, sans-serif", wordBreak:"break-word" }}>{product?.name}</h1>
                         <div className='imgandusername' style={{ marginTop: "10px" }}>
                             <div className='oneswehurt' >
                                 <i style={averageRating >= 1 ? { color: "#fd4" } : { color: "#444" }} className='fas fa-star'></i>
@@ -300,28 +306,7 @@ const SingleProduct = () => {
 
                         </div>
                     </div>
-                    {/* <div className='addtocartbuynowdivibu'>
-                        <div className='pricethingyhehe2'>
-                            <p style={{ fontFamily: "Merienda", fontSize: "18px",color:"#B12704"}} >${product?.price}.00</p>
-                        </div>
-                        <p style={{ margin: "10px 0",fontSize:"14px"}}>& <span style={{ fontSize: "13px",
-                            fontFamily: "Merienda",color:"#007185" }}>FREE Returns</span></p>
-                        <p style={{ marginTop: "50px", color: "#007185" }}>Deliver to {product?.user?.username}</p>
-                        <p style={{ marginTop: "0px", color: "#007185" }}>In Stock.</p>
-                        <div className='muhtesem-uclu'>
 
-                            <select onChange={(e) => setQuantity(e.target.value)} style={{ width: "60px", margin: "15px 0 20px",width:"fit-content" }}>
-
-                                {optionArr}
-
-                            </select>
-
-                            <button onClick={handleSubmit} style={{ fontFamily: 'Merienda' }} className='somebuttonadd'>Add to Cart</button>
-                            <button onClick={() => setBuyNowModal(true)} style={{ fontFamily: 'Merienda' }} className='somebuttonbuy'>Buy Now</button>
-
-                        </div>
-
-                    </div> */}
                     <div className='productcheckoutsection'>
                         <div className='productcheckoutprice'>
                             <div className='price-amoutn'>${product?.price}</div>
