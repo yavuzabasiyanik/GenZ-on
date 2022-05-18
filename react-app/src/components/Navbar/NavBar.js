@@ -227,9 +227,9 @@ const NavBar = () => {
 
             <NavLink exact to={`/user/cart`}><div className='shopping-cart-thingy'>
 
-
-              <i className="fa-solid fa-cart-shopping shoppingcartthing"></i>
+              <img src='https://mamazon-fullstack.herokuapp.com/assets/carticon-ee0703ee25282cbd05ba97a0f91e022474e35953f119892b5351b2c3d72daf94.png'></img>
               <p className='numbershoppingcart'>{user ? cartLength : 0}</p>
+              <p className='cartnaming'>Cart</p>
             </div></NavLink>
           </div>
 

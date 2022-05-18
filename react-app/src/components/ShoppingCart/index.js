@@ -162,7 +162,7 @@ const ShoppingCart = () => {
 
                                 Subtotal ({items} {items.length === 1 ? "item" : "items"}): <span style={{ fontSize: "18px", fontWeight: "700" }}>${subtotal}.00</span>
                             </p>
-                            <button onClick={handleCheckout} className='proceedtocheckout'>Proceed to checkout </button>
+                            <button onClick={handleCheckout} className='proceedtocheckout'>Place your order</button>
                         </div>
                         <h2 onClick={(e) => setinstructionsDropdown((s) => !s)} className='settingdeliveryinstructions'>Set Delivery Instruction <i className="fa-solid fa-chevron-down okisareti"></i></h2>
 
@@ -173,7 +173,6 @@ const ShoppingCart = () => {
 
                                 </textarea>
                                 <div className='buttondivssscancelupdate'>
-                                    <button onClick={(e)=> setinstructionsDropdown(false)}  className='buttoncancel'>Cancel</button>
                                     <button onClick={(e)=> setinstructionsDropdown(false)} style={{margin:"0 0px 0 10px"}} className='submitbutton'>Update</button>
 
                                 </div>

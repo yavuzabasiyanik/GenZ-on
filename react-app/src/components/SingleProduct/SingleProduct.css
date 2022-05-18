@@ -40,6 +40,81 @@
 
 }
 
+.productcheckoutsection {
+    padding: 14px 18px;
+    width: 242px;
+    height: fit-content;
+    min-width: 206px;
+    border: 1px solid #D5D9D9;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+.price-amoutn {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 7px;
+    color: #B12704;
+    font-family: 'Merienda';
+
+}
+
+.selectnumberstack {
+    display: block;
+    margin: 15px 0 16px;
+    width: fit-content;
+    height: 20px;
+    font-size: 11px;
+    line-height: 20px;
+    border: 1px solid #D5D9D9;
+    border-radius: 8px;
+    background-color: #F0F2F2;
+    box-shadow: 0px 1px 5px #d6d6d6;
+}
+
+.securetransactionsection{
+    margin: 8.8px 0 14px;
+    font-size: 14px;
+}
+
+.bringussugarandtum{
+    font-size: 12px;
+    display: flex;
+    width: 73%;
+    justify-content: space-between;
+    margin-bottom: 6px;
+
+}
+
+.instocksection {
+    color: #007600;
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.freereturnslabel {
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 12px;
+}
+
+.freereturnslink {
+    color: #007185;
+}
+
+.freeeta {
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 12px;
+}
+
+.fastesteta {
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 12px;
+}
+
+
 .theimageintheindiv {
     width: 390px;
     height: 303px;
@@ -238,9 +313,10 @@ input#rate-5:checked~label {
     padding: 20px;
 }
 
-textarea{
+textarea {
     resize: none;
 }
+
 .imgreviewind {
     width: 65px;
     margin-top: 20px;
@@ -342,9 +418,10 @@ textarea{
 }
 
 
-.oneswehurt{
+.oneswehurt {
     width: 73.18px;
 }
+
 .oneswehurt i {
     font-size: 13px;
     color: #444;
@@ -355,4 +432,57 @@ textarea{
     font-size: 12px;
     line-height: 16px;
     font-weight: 700;
+}
+
+.buynowmodalmaindiv {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, .7);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.buynowmodalcontaiiner {
+    width: 290px;
+    height: 267.08px;
+    background-color: white;
+    border-radius: 4px;
+    display: flex;
+    top: -1000px;
+    flex-direction: column;
+    align-items: center;
+    padding: 14px;
+    position: relative;
+    animation: drop .3s ease forwards;
+}
+
+.placeyourorderbutton {
+    border-color: #cba957 #bf942a #aa8326;
+    background: #f0c14b;
+    font-size: 13px;
+    line-height: 19px;
+    padding: 0;
+    vertical-align: middle;
+    border: none;
+    color: #333;
+    text-align: center;
+    width: 250px;
+    background: -webkit-linear-gradient(top, #f7dfa5, #f0c14b);
+    box-shadow: 0 1px 0 rgb(255 255 255 / 40%) inset;
+    height: 34px;
+    overflow: hidden;
+    max-width: 100%;
+    text-decoration: none !important;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.placeyourorderbutton:hover {
+    background: #f3d078;
+
 }

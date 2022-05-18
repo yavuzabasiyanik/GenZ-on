@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import './SingleProduct.css';
 import { createshoppingcart } from '../../store/shoppingcart';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { createReview } from '../../store/review';
 import { deleteReview } from '../../store/review';
 import { updateReview } from '../../store/review';
@@ -20,7 +20,7 @@ const SingleProduct = () => {
     const [averageRating, setAveraegeRating] = useState(0);
     const [optionArr, setOptionArr] = useState([]);
     const [errors, setErrors] = useState([]);
-
+    const [buynowModal, setBuyNowModal] = useState(false);
     let { productId } = useParams();
     const [updateState, setUpdateState] = useState([false, 0, 0, '', ''])
     productId = +productId;
@@ -59,6 +59,7 @@ const SingleProduct = () => {
     const handleBuySubmit = (e) => {
         e.preventDefault();
 
+        setBuyNowModal(false);
         if (user?.id === product?.user_id) {
             setErrors(['You cannot buy your own product!!!'])
 
@@ -66,7 +67,7 @@ const SingleProduct = () => {
         }
 
         let payload = {
-            totalCost: product.price*quantity,
+            totalCost: product.price * quantity,
             instructions: 'Leave it at the front door!',
             products: [product],
             quantity
@@ -221,6 +222,47 @@ const SingleProduct = () => {
 
     }, [product?.quantity])
 
+
+    let menuRef2 = useRef();
+
+
+    useEffect(() => {
+
+        const handler = (event) => {
+
+            if (!menuRef2?.current?.contains(event.target)) {
+
+                setBuyNowModal(false);
+            }
+        }
+
+        document.addEventListener('mousedown', handler);
+
+        return () => {
+            document.removeEventListener('mousedown', handler)
+        }
+
+
+    });
+
+    const days = [
+        'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'
+    ]
+    const months = [
+        "January",
+        "Febraury",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+    ]
+
     return (
         <>
             <div className='indivproduct-main-div'>
@@ -241,7 +283,13 @@ const SingleProduct = () => {
                             <h2 style={{ wordBreak: "break-all" }} >{reviews.length} {reviews.length > 1 ? "ratings" : "rating"}</h2>
                         </div>
                         <div className='pricethingyhehe'>
-                            <p style={{ fontFamily: "Merienda", fontSize: "17px" }} ><span style={{ fontSize: "14px", fontFamily: "Merienda" }}>Price:</span> ${product?.price}.00</p>
+                            <p style={{ fontSize: "14px" }} ><span style={{ fontSize: "14px", fontFamily: "Merienda" }}>Price:</span> <span style={{
+                                fontFamily: "Merienda",
+                                fontSize: "18px", color: "#B12704", padding: "0 6px"
+                            }}>${product?.price}.00</span>& <span style={{
+                                fontSize: "13px",
+                                fontFamily: "Merienda", color: "#007185"
+                            }}>FREE Returns</span></p>
                         </div>
                         <div className='descriptionindivpageinside'>
                             <p className='onlarbizler'>About this item:</p>
@@ -252,25 +300,83 @@ const SingleProduct = () => {
 
                         </div>
                     </div>
-                    <div className='addtocartbuynowdivibu'>
+                    {/* <div className='addtocartbuynowdivibu'>
                         <div className='pricethingyhehe2'>
-                            <p style={{ fontFamily: "Merienda", fontSize: "17px" }} >${product?.price}.00</p>
+                            <p style={{ fontFamily: "Merienda", fontSize: "18px",color:"#B12704"}} >${product?.price}.00</p>
                         </div>
-                        <p style={{ margin: "10px 0", color: "#007185" }}>& FREE Returns</p>
+                        <p style={{ margin: "10px 0",fontSize:"14px"}}>& <span style={{ fontSize: "13px",
+                            fontFamily: "Merienda",color:"#007185" }}>FREE Returns</span></p>
                         <p style={{ marginTop: "50px", color: "#007185" }}>Deliver to {product?.user?.username}</p>
                         <p style={{ marginTop: "0px", color: "#007185" }}>In Stock.</p>
                         <div className='muhtesem-uclu'>
 
-                            <select onChange={(e) => setQuantity(e.target.value)} style={{ width: "60px", margin: "15px 0 20px" }}>
+                            <select onChange={(e) => setQuantity(e.target.value)} style={{ width: "60px", margin: "15px 0 20px",width:"fit-content" }}>
 
                                 {optionArr}
 
                             </select>
 
                             <button onClick={handleSubmit} style={{ fontFamily: 'Merienda' }} className='somebuttonadd'>Add to Cart</button>
-                            <button onClick={handleBuySubmit} style={{ fontFamily: 'Merienda' }} className='somebuttonbuy'>Buy Now</button>
+                            <button onClick={() => setBuyNowModal(true)} style={{ fontFamily: 'Merienda' }} className='somebuttonbuy'>Buy Now</button>
 
                         </div>
+
+                    </div> */}
+                    <div className='productcheckoutsection'>
+                        <div className='productcheckoutprice'>
+                            <div className='price-amoutn'>${product?.price}</div>
+                            <div className='freereturnslabel'>
+                                &
+                                <span className='freereturnslink'> FREE Returns</span>
+                            </div>
+                        </div>
+                        <div className='productcheckoutdelivery'>
+                            <div className='freeeta'>
+                                <span style={{ color: "#007185" }}>FREE delivery:</span>
+                                <b>{days[new Date(Number(new Date()) + (60 * 160 * 24 * 1000)).getDay()]}, {months[new Date(Number(new Date()) + (160 * 160 * 24 * 1000)).getMonth()]} {new Date(Number(new Date()) + (60 * 160 * 24 * 1000)).getDate()}</b>
+                            </div>
+                            <div className='fastesteta'>
+                                <div>
+                                    <span style={{ color: "#007185" }}>Fastest delivery:</span>
+                                    <b> {days[new Date(Number(new Date()) + (60 * 60 * 24 * 1000)).getDay()]}, {months[new Date(Number(new Date()) + (60 * 60 * 24 * 1000)).getMonth()]} {new Date(Number(new Date()) + (60 * 60 * 24 * 1000)).getDate()} </b>
+
+                                </div>
+                                <div style={{color:"#565959"}}>Order within 24 hours</div>
+                            </div>
+                        </div>
+                        <div className='instocksection'>In Stock.</div>
+                        <select onChange={(e) => setQuantity(e.target.value)} className='selectnumberstack' style={{}}>
+
+                            {optionArr}
+
+                        </select>
+                        <button onClick={handleSubmit} style={{ display: "block", marginBottom: "10px", fontFamily: 'Merienda' }} className='somebuttonadd'>Add to Cart</button>
+                        <button onClick={() => setBuyNowModal(true)} style={{ display: "block", fontFamily: 'Merienda' }} className='somebuttonbuy'>Buy Now</button>
+
+                        <div className='securetransactionsection'>
+                            <i style={{ color: "#999", fontSize: "13px", paddingRight: "10px" }} className='fas fa-lock'></i>
+                            <span style={{ color: "#007185" }}>Secure transaction</span>
+                        </div>
+
+                        <div className='bringussugarandtum'>
+                            <div >
+                                <div style={{ fontFamily: "Merienda", fontSize: "11px" }}>Ships from</div>
+                                <div style={{ fontFamily: "Merienda", fontSize: "11px" }}>Sold by</div>
+                            </div>
+                            <div>
+                                <div style={{ fontFamily: "Merienda", fontSize: "11px" }}>GenZon.com</div>
+                                <div style={{ fontFamily: "Merienda", fontSize: "11px" }}>GenZon.com</div>
+
+                            </div>
+                        </div>
+
+                        <div style={{ fontSize: "14px", lineHeight: "20px", marginTop: "10px" }}>
+                            Return policy:
+                            <span style={{ color: " #007185", wordBreak: "break-word" }}> Returnable until Jun 3, 2022</span>
+                        </div>
+
+
+
 
                     </div>
                 </div>
@@ -289,7 +395,7 @@ const SingleProduct = () => {
                                     </div>
                                     <div className='formreviewthingy'>
 
-                                        <h4 style={{  fontSize: "15.6px" }} className='h2reviewtrhisproduct'>Add a rating</h4>
+                                        <h4 style={{ fontSize: "15.6px" }} className='h2reviewtrhisproduct'>Add a rating</h4>
                                         <div className='star-widget'>
                                             <input type='radio' value={selected} className="same" checked={selected === 5} onChange={(e) => setSelected(5)} id='rate-5'></input>
                                             <label htmlFor='rate-5' className='fas fa-star'></label>
@@ -306,11 +412,11 @@ const SingleProduct = () => {
                                         <div style={{ marginTop: "10px" }}>
 
                                             <h2 style={{ fontSize: "15.6px" }} className='h2reviewtrhisproduct'>Add a title</h2>
-                                            <input value={title} onChange={(e) => setTitlte(e.target.value)} type='text' style={{ outline: "none", width:"100%" }}></input>
+                                            <input value={title} onChange={(e) => setTitlte(e.target.value)} type='text' style={{ outline: "none", width: "100%" }}></input>
                                         </div>
                                         <div style={{ marginTop: "10px" }}>
                                             <h2 style={{ fontSize: "15.6px" }} className='h2reviewtrhisproduct'>Add a written review</h2>
-                                            <textarea value={comment} onChange={(e) => setComment(e.target.value)} style={{ outline: "none", width:"100%", height:"90px" }}></textarea>
+                                            <textarea value={comment} onChange={(e) => setComment(e.target.value)} style={{ outline: "none", width: "100%", height: "90px" }}></textarea>
                                         </div>
                                         <div className='cancelsubmit'>
                                             <button onClick={selectedthingyhandle} className='buttoncancel'>Cancel</button>
@@ -346,12 +452,12 @@ const SingleProduct = () => {
                                         <div style={{ marginTop: "10px" }}>
 
                                             <h2 style={{ textDecoration: "underline", fontSize: "15.6px" }} className='h2reviewtrhisproduct'>Edit your title</h2>
-                                            <input value={updateState[3]} onChange={(e) => setUpdateState(ele => [ele[0], ele[1], ele[2], e.target.value, ele[4]])} type='text' style={{ outline: "none", width:"100%" }}></input>
+                                            <input value={updateState[3]} onChange={(e) => setUpdateState(ele => [ele[0], ele[1], ele[2], e.target.value, ele[4]])} type='text' style={{ outline: "none", width: "100%" }}></input>
                                         </div>
                                         <div style={{ marginTop: "10px" }}>
 
                                             <h2 style={{ textDecoration: "underline", fontSize: "15.6px" }} className='h2reviewtrhisproduct'>Edit your written review</h2>
-                                            <textarea value={updateState[4]} onChange={(e) => setUpdateState(ele => [ele[0], ele[1], ele[2], ele[3], e.target.value])} style={{ outline: "none", width:"100%", height:"90px" }}></textarea>
+                                            <textarea value={updateState[4]} onChange={(e) => setUpdateState(ele => [ele[0], ele[1], ele[2], ele[3], e.target.value])} style={{ outline: "none", width: "100%", height: "90px" }}></textarea>
                                         </div>
                                         <div className='cancelsubmit'>
                                             <button onClick={selectedthingyhandle} className='buttoncancel'>Cancel</button>
@@ -398,6 +504,45 @@ const SingleProduct = () => {
             </div>
             {errors?.length > 0 ?
                 <ErrorsModal errors={errors} setErrors={setErrors} /> : null
+            }
+            {
+                buynowModal &&
+                <div className='buynowmodalmaindiv'>
+                    <div ref={menuRef2} className='buynowmodalcontaiiner'>
+                        <button onClick={handleBuySubmit} className='placeyourorderbutton'>Place your order</button>
+                        <p style={{ fontSize: "12px", margin: "4px auto", textAlign: "center" }}>By placing your order, you agree to GenZon's privacy notice and conditions of use.</p>
+
+                        <div style={{ display: "flex", flexDirection: "column", width: "100%", marginTop: "22px", justifyContent: "space-evenly", height: "60%" }}>
+                            <p style={{ color: "#333333", fontSize: "13px", margin: "0px 0px 4px", fontWeight: "bold", width: "100%", padding: "0 8px" }}>Order Summary</p>
+
+
+                            <div style={{ display: "flex", justifyContent: "space-between", width: "100%", padding: "0 8px" }}>
+                                <p>Item (1):</p>
+                                <p>${product?.price}.00</p>
+                            </div>
+
+                            <div style={{ display: "flex", justifyContent: "space-between", width: "100%", padding: "0 8px" }}>
+                                <p>Total before tax:</p>
+                                <p>${product?.price}.00</p>
+                            </div>
+
+                            <div style={{ display: "flex", justifyContent: "space-between", width: "100%", padding: "0 8px" }}>
+                                <p>Estimated tax to be collected:*</p>
+                                <p>$0.00</p>
+                            </div>
+
+                            <div style={{ display: "flex", borderTop: "1px solid #D5D9D9", justifyContent: "space-between", width: "100%", padding: "0 8px", paddingTop: "12px" }}>
+                                <h1 style={{ color: "#B12704", fontSize: "17px" }}>Order total:</h1>
+                                <h1 style={{ color: "#B12704", fontSize: "17px" }}>${product?.price}.00</h1>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div className='anotherdiviste'>
+
+                    </div>
+
+                </div>
             }
         </>
     )
