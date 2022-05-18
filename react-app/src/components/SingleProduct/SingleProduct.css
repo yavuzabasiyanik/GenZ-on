@@ -8,7 +8,7 @@
 
 .middivallthestuff {
     width: 1483px;
-    height: 698.6px;
+    min-height: 608.6px;
     margin: 0 auto;
     padding-top: 20px;
     display: flex;

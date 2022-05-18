@@ -107,7 +107,7 @@ const Home = () => {
 
                     <div className='categories-home-page'>
 
-                        <NavLink style={{ cursor: "auto" }} exact to={'/allproducts/1'}><p className="homepageptags" style={{ fontSize: "21px", fontWeight: "bold" }}>Electronics</p></NavLink>
+                        <NavLink style={{ cursor: "auto" }} exact to={'/allproducts/1'}><p className="homepageptags" style={{ fontSize: "21px", fontWeight: "bold" }}>Echo Dot</p></NavLink>
                         <NavLink exact to={'/productpage/21'}><img id='alexa' alt='something' className='' src='https://m.media-amazon.com/images/I/51MzOVciT3L._AC_UY218_.jpg'></img></NavLink>
                         <div className='genzonrecommended'>
                             GenZon Recommended
@@ -138,11 +138,11 @@ const Home = () => {
                     </div>
                     <div className='categories-home-page4'>
                         <NavLink exact to={'/allproducts/2'}><p className="homepageptags" style={{ fontSize: "21px", fontWeight: "bold" }}>Recommended clothing!</p></NavLink>
-                        <NavLink style={{ display: "flex", alignItems: "center" }} exact to={'/productpage/5'}><img alt='something' className='womanclothing' src='https://cdn.pixabay.com/photo/2013/07/13/14/08/apparel-162192_1280.png'></img></NavLink>
-                        <NavLink style={{ display: "flex", alignItems: "center" }} exact to={'/productpage/7'}><img alt='something' className='womanclothing' src='https://m.media-amazon.com/images/I/818Tnima1yL._AC_UL480_FMwebp_QL65_.jpg'></img></NavLink>
-                        <NavLink style={{ display: "flex", alignItems: "center" }} exact to={'/productpage/8'}><img alt='something' className='womanclothing' src='https://m.media-amazon.com/images/I/71G4kkPdU-L._AC_UL480_FMwebp_QL65_.jpg'></img></NavLink>
-                        <NavLink style={{ display: "flex", alignItems: "center" }} exact to={'/productpage/9'}><img alt='something' className='womanclothing' src='https://m.media-amazon.com/images/I/515d7N7uQWS._AC_UL480_FMwebp_QL65_.jpg'></img></NavLink>
-                        <NavLink style={{ cursor: "auto", display: "flex", alignItems: "flex-end", cursor: "pointer" }} exact to={'/allproducts/2'}><p className='mavicik'>See more deals</p></NavLink>
+                        <NavLink style={{ display: "flex", alignItems: "center" }} exact to={'/productpage/5'}><img alt='something' className='womanclothing' src='https://m.media-amazon.com/images/I/51c5K0DI-WL._AC_UX679_.jpg'></img></NavLink>
+                        <NavLink style={{ display: "flex", alignItems: "center" }} exact to={'/productpage/7'}><img alt='something' className='womanclothing' src='https://m.media-amazon.com/images/I/81yRtzd2b5L._AC_UX569_.jpg'></img></NavLink>
+                        <NavLink style={{ display: "flex", alignItems: "center" }} exact to={'/productpage/8'}><img alt='something' className='womanclothing' src='https://m.media-amazon.com/images/I/81S2WhcTf7L._AC_UX569_.jpg'></img></NavLink>
+                        <NavLink style={{ display: "flex", alignItems: "center" }} exact to={'/productpage/9'}><img alt='something' className='womanclothing' src='https://m.media-amazon.com/images/I/71kD7y88tdL._AC_UX569_.jpg'></img></NavLink>
+                        <NavLink style={{ display: "flex", alignItems: "flex-end", cursor: "pointer" }} exact to={'/allproducts/2'}><p className='mavicik'>See more deals</p></NavLink>
 
                     </div>
                     <div style={{ width: "307px", height: "150px", paddingTop: "25px", padding: "20px" }} className='categories-home-page'>
@@ -153,22 +153,22 @@ const Home = () => {
                     </div>
                     <div className='categories-home-page4'>
                         <NavLink exact to={'/allproducts/5'}><p className="homepageptags" style={{ cursor: "pointer", fontSize: "21px", fontWeight: "bold" }}>Toys & Hobbies</p></NavLink>
-                        <NavLink style={{ display: "flex", alignItems: "center" }} exact to={'/productpage/18'}><img alt='something' className='womanclothing' src='https://m.media-amazon.com/images/I/91yg3JBdlgL._AC_UL480_FMwebp_QL65_.jpg'></img></NavLink>
-                        <NavLink style={{ display: "flex", alignItems: "center" }} exact to={'/productpage/19'}><img alt='something' className='womanclothing' src='https://m.media-amazon.com/images/I/71JWVVP3nWL._AC_UL480_FMwebp_QL65_.jpg'></img></NavLink>
-                        <NavLink style={{ display: "flex", alignItems: "center" }} exact to={'/productpage/20'}><img alt='something' className='womanclothing' src='https://m.media-amazon.com/images/I/71wy2BJWFTL._AC_UL480_FMwebp_QL65_.jpg'></img></NavLink>
-                        <NavLink style={{ display: "flex", alignItems: "center" }} exact to={'/productpage/6'}><img alt='something' className='womanclothing' src='https://m.media-amazon.com/images/I/81-jHs0yp8L._AC_UL480_FMwebp_QL65_.jpg'></img></NavLink>
-                        <NavLink style={{ cursor: "auto", display: "flex", alignItems: "flex-end", cursor: "pointer" }} exact to={'/allproducts/5'}><p className='mavicik'>See more toys & hobbies</p></NavLink>
+                        <NavLink style={{ display: "flex", alignItems: "center" }} exact to={'/productpage/18'}><img alt='something' className='womanclothing' src='https://m.media-amazon.com/images/I/71-1LCdiXEL._AC_UL480_FMwebp_QL65_.jpg'></img></NavLink>
+                        <NavLink style={{ display: "flex", alignItems: "center" }} exact to={'/productpage/19'}><img alt='something' className='womanclothing' src='https://m.media-amazon.com/images/I/71xzZpt0DyL._AC_UL480_FMwebp_QL65_.jpg'></img></NavLink>
+                        <NavLink style={{ display: "flex", alignItems: "center" }} exact to={'/productpage/20'}><img alt='something' className='womanclothing' src='https://m.media-amazon.com/images/I/71Zvn0rRMwL._AC_UL480_FMwebp_QL65_.jpg'></img></NavLink>
+                        <NavLink style={{ display: "flex", alignItems: "center" }} exact to={'/productpage/6'}><img alt='something' className='womanclothing' src='https://images-na.ssl-images-amazon.com/images/I/51wUNgIcO+L._SX258_BO1,204,203,200_.jpg'></img></NavLink>
+                        <NavLink style={{ display: "flex", alignItems: "flex-end", cursor: "pointer" }} exact to={'/allproducts/5'}><p className='mavicik'>See more toys & hobbies</p></NavLink>
 
                     </div>
                     <div className='categories-home-page'>
-                        <NavLink style={{ cursor: "auto" }} exact to={'/productpage/4'}><p className="homepageptags" style={{ fontSize: "21px", fontWeight: "bold" }}>Gaming computer</p></NavLink>
+                        <NavLink style={{ cursor: "auto" }} exact to={'/productpage/4'}><p className="homepageptags" style={{ fontSize: "21px", fontWeight: "bold" }}>Earbuds</p></NavLink>
 
-                        <NavLink exact to={'/productpage/4'}><img id='alexa' alt='something' className='' src='https://m.media-amazon.com/images/I/71A2llPqz7L._AC_UL480_FMwebp_QL65_.jpg'></img></NavLink>
+                        <NavLink exact to={'/productpage/4'}><img id='alexa' alt='something' className='' src='https://m.media-amazon.com/images/I/71qsNVFefKL._AC_SX466_.jpg'></img></NavLink>
                         <div style={{ width: "120px" }} className='genzonrecommended'>
                             Deal of the Month
                         </div>
-                        <p style={{ fontFamily: "Merienda", fontSize: "18px", margin: "7px 0 0", display: "flex", cursor: "auto" }} ><span style={{ fontSize: "12px", fontFamily: "Merienda" }}>$</span>5000.00</p>
-                        <NavLink exact to={'/productpage/4'}><p style={{ marginTop: "7px" }}>Periphio  Prebuilt RGB Gaming Computer</p></NavLink>
+                        <p style={{ fontFamily: "Merienda", fontSize: "18px", margin: "7px 0 0", display: "flex", cursor: "auto" }} ><span style={{ fontSize: "12px", fontFamily: "Merienda" }}>$</span>97.00</p>
+                        <NavLink exact to={'/productpage/4'}><p style={{ marginTop: "7px" }}>Samsung Galaxy BudsTrue Wireless Earbuds</p></NavLink>
 
                         <NavLink style={{ cursor: "auto" }} exact to={'/productpage/4'}><p style={{ marginTop: "20px" }} className='mavicik'>See the deal</p></NavLink>
 
@@ -176,14 +176,14 @@ const Home = () => {
 
                     </div>
                     <div className='categories-home-page'>
-                        <NavLink style={{ cursor: "auto" }} exact to={'/productpage/19'}><p className="homepageptags" style={{ fontSize: "21px", fontWeight: "bold" }}>Deal of the Day</p></NavLink>
+                        <NavLink style={{ cursor: "auto" }} exact to={'/productpage/6'}><p className="homepageptags" style={{ fontSize: "21px", fontWeight: "bold" }}>Deal of the Day</p></NavLink>
 
-                        <NavLink exact to={'/productpage/19'}><img id='alexa' alt='something' className='' src='https://m.media-amazon.com/images/I/71JWVVP3nWL._AC_UL480_FMwebp_QL65_.jpg'></img></NavLink>
+                        <NavLink exact to={'/productpage/6'}><img id='alexa' alt='something' className='' src='https://m.media-amazon.com/images/I/71JWVVP3nWL._AC_UL480_FMwebp_QL65_.jpg'></img></NavLink>
                         <div style={{ width: "100px" }} className='genzonrecommended'>
                             Deal of the Day
                         </div>
-                        <p style={{ fontFamily: "Merienda", fontSize: "18px", margin: "7px 0 0", display: "flex", cursor: "auto" }} ><span style={{ fontSize: "12px", fontFamily: "Merienda" }}>$</span>23.00</p>
-                        <NavLink exact to={'/productpage/19'}><p style={{ marginTop: "7px" }}>League of Legends</p></NavLink>
+                        <p style={{ fontFamily: "Merienda", fontSize: "18px", margin: "7px 0 0", display: "flex", cursor: "auto" }} ><span style={{ fontSize: "12px", fontFamily: "Merienda" }}>$</span>20.00</p>
+                        <NavLink exact to={'/productpage/6'}><p style={{ marginTop: "7px" }}>League of Legends</p></NavLink>
 
                         <NavLink style={{ cursor: "auto" }} exact to={'/allproducts/5'}><p style={{ marginTop: "20px" }} className='mavicik'>Buy more League products</p></NavLink>
 
@@ -193,12 +193,12 @@ const Home = () => {
                     <div className='categories-home-page'>
                         <NavLink style={{ cursor: "auto" }} exact to={'/productpage/15'}><p className="homepageptags" style={{ fontSize: "21px", fontWeight: "bold" }}>Junk Food</p></NavLink>
 
-                        <NavLink exact to={'/productpage/15'}><img id='alexa' alt='something' className='' src='https://m.media-amazon.com/images/I/A1dBzjL58SL._AC_UL480_FMwebp_QL65_.jpg'></img></NavLink>
+                        <NavLink exact to={'/productpage/15'}><img id='alexa' alt='something' className='' src='https://m.media-amazon.com/images/I/81CIge4tiwL._AC_UL480_FMwebp_QL65_.jpg'></img></NavLink>
                         <div style={{ width: "100px" }} className='genzonrecommended'>
                             Best junk food
                         </div>
-                        <p style={{ fontFamily: "Merienda", fontSize: "18px", margin: "7px 0 0", display: "flex", cursor: "auto" }} ><span style={{ fontSize: "12px", fontFamily: "Merienda" }}>$</span>45.00</p>
-                        <NavLink exact to={'/productpage/15'}><p style={{ marginTop: "7px" }}>Chipss</p></NavLink>
+                        <p style={{ fontFamily: "Merienda", fontSize: "18px", margin: "7px 0 0", display: "flex", cursor: "auto" }} ><span style={{ fontSize: "12px", fontFamily: "Merienda" }}>$</span>12.00</p>
+                        <NavLink exact to={'/productpage/15'}><p style={{ marginTop: "7px" }}>Pringles Potato Crisps Chips, Lunch Snacks</p></NavLink>
 
                         <NavLink style={{ cursor: "auto" }} exact to={'/allproducts/4'}><p style={{ marginTop: "20px" }} className='mavicik'>Shop more groceries</p></NavLink>
 
