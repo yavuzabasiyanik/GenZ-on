@@ -37,7 +37,7 @@ function App() {
     dispatch(shoppingcartLoad());
     dispatch(getAllReviews());
     dispatch(orderLoad());
-    
+
   }, [dispatch]);
 
   if (!loaded) {
@@ -83,9 +83,9 @@ function App() {
         <Route exact path={'/productpage/:productId'}>
           <SingleProduct />
         </Route>
-        <Route exact path={'/orders'}>
+        <ProtectedRoute exact path={'/orders'}>
           <Orders />
-        </Route>
+        </ProtectedRoute>
         <Route path='/' exact={true} >
           <Home />
         </Route>
