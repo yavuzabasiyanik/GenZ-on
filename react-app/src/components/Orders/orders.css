@@ -13,7 +13,43 @@
     margin: 0 auto;
     min-height: auto;
     padding: 60px 0 0;
+    position: relative;
 
+}
+
+.thankyourforcheckingout {
+    position: absolute;
+    width: 300px;
+    height: 30px;
+    top: 33%;
+    right: 34%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    border: 1px #D5D9D9 solid;
+    border-radius: 8px;
+    line-height: 16px;
+    font-family: Merienda;
+    color: #007600;
+    opacity: 0;
+    animation: visibl 5s ease-in;
+
+}
+
+
+@keyframes visibl {
+    0% {
+        opacity: 1;
+    }
+
+    50%{
+        opacity: .5;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
 
 .yourorders {
@@ -28,13 +64,13 @@
 
 }
 
-.hereeee{
+.hereeee {
     font-size: 28px;
     text-decoration: underline;
 
 }
 
-.hereeee:hover{
+.hereeee:hover {
     color: #F08804;
 }
 
@@ -121,7 +157,6 @@
     position: relative;
     gap: 20px;
     border-top: 1px #D5D9D9 solid;
-
 }
 
 .twobttonsonename {
@@ -201,7 +236,7 @@
 
 }
 
-.agreable{
+.agreable {
     margin: 280px 0 0;
 }
 
@@ -227,10 +262,10 @@
     width: 221.45px;
     position: absolute;
     right: 18px;
-    bottom:14px;
+    bottom: 14px;
 }
 
-.delivered{
+.delivered {
     border-radius: 8px;
     box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
     border-color: #D5D9D9;
@@ -251,7 +286,7 @@
     width: 221.45px;
     position: absolute;
     right: 18px;
-    bottom:14px;
+    bottom: 14px;
     background-color: #4CAF50;
 }
 
@@ -354,5 +389,26 @@
 
 .instructionsbutton:hover {
     background-color: #f7ca18;
+
+}
+
+.veyiste {
+    width: fit-content;
+
+}
+
+
+.divdoldursadece {
+    height: 100px;
+    width: 256px;
+}
+
+@media only screen and (max-width:1320px) {
+
+    .divdoldursadece {
+        height: 100px;
+        width: 290px;
+    }
+
 
 }

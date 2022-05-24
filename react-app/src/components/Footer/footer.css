@@ -68,3 +68,11 @@ footer {
     align-items: center;
     gap: 5px;
 }
+
+.technologiesused{
+    display: grid;
+
+    grid-template-columns: repeat(3, 75px);
+    justify-items: center;
+    row-gap: 7px;
+}

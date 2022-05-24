@@ -33,6 +33,9 @@ const SingleProduct = () => {
     const reviews = useSelector(state => Object.values(state.reviews)).filter(el => el?.product_id === productId).reverse();
     const shoppingcart = useSelector(state => Object.values(state.shoppingcart)).filter(el => el?.product_id === productId)[0];
 
+    const orders = useSelector(state => Object.values(state.orders)).filter(el => el.userId === user?.id && el?.orderedItems?.filter(ele=> ele?.product_id === product?.id).length);
+
+    console.log(orders);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -74,7 +77,8 @@ const SingleProduct = () => {
         }
 
         dispatch(orderCreate(payload))
-        history.push('/checkout')
+        history.push('/orders')
+
 
     }
 
@@ -155,6 +159,12 @@ const SingleProduct = () => {
 
         setUpdateState([false, 0, 0, '', '']);
 
+    }
+
+
+    const handleClickinformativecircle = () => {
+
+        alert('You are currently selling this product, so you can neither buy or review this item!!!')
     }
 
     const selectedthingyhandle = (e) => {
@@ -272,12 +282,12 @@ const SingleProduct = () => {
         <>
             <div className='indivproduct-main-div'>
                 <div className='middivallthestuff'>
-                    <p onClick={geri} className='heryersessizce' style={{height:"fit-content",fontSize:"11px", color:"#565959",marginTop:"20px"}}><i  style={{fontSize:"10px", color:"#565959"}} className="fa-solid fa-caret-left"></i> Back to results</p>
+                    <p onClick={geri} className='heryersessizce' style={{ height: "fit-content", fontSize: "11px", color: "#565959", marginTop: "20px" }}><i style={{ fontSize: "10px", color: "#565959" }} className="fa-solid fa-caret-left"></i> Back to results</p>
                     <div className='imgdivibu'>
                         <img alt='something' className='theimageintheindiv' src={product?.image_url}></img>
                     </div>
                     <div className='infordivibu'>
-                        <h1 className='productnameh1' style={{ fontFamily: "Arial, sans-serif", wordBreak:"break-word" }}>{product?.name}</h1>
+                        <h1 className='productnameh1' style={{ fontFamily: "Arial, sans-serif", wordBreak: "break-word" }}>{product?.name}</h1>
                         <div className='imgandusername' style={{ marginTop: "10px" }}>
                             <div className='oneswehurt' >
                                 <i style={averageRating >= 1 ? { color: "#fd4" } : { color: "#444" }} className='fas fa-star'></i>
@@ -314,6 +324,9 @@ const SingleProduct = () => {
                                 &
                                 <span className='freereturnslink'> FREE Returns</span>
                             </div>
+                            {product?.user_id === user?.id &&
+                                <i className="fa-solid fa-circle-info informativecircle2" onClick={handleClickinformativecircle}></i>
+                            }
                         </div>
                         <div className='productcheckoutdelivery'>
                             <div className='freeeta'>
@@ -326,7 +339,7 @@ const SingleProduct = () => {
                                     <b> {days[new Date(Number(new Date()) + (60 * 60 * 24 * 1000)).getDay()]}, {months[new Date(Number(new Date()) + (60 * 60 * 24 * 1000)).getMonth()]} {new Date(Number(new Date()) + (60 * 60 * 24 * 1000)).getDate()} </b>
 
                                 </div>
-                                <div style={{color:"#565959"}}>Order within 24 hours</div>
+                                <div style={{ color: "#565959" }}>Order within 24 hours</div>
                             </div>
                         </div>
                         <div className='instocksection'>In Stock.</div>
@@ -336,7 +349,7 @@ const SingleProduct = () => {
 
                         </select>
                         <button onClick={handleSubmit} style={{ display: "block", marginBottom: "10px", fontFamily: 'Merienda' }} className='somebuttonadd'>Add to Cart</button>
-                        <button onClick={() => setBuyNowModal(true)} style={{ display: "block", fontFamily: 'Merienda' }} className='somebuttonbuy'>Buy Now</button>
+                        <button onClick={() => setBuyNowModal(true)} style={{ display: "block", fontFamily: 'Merienda' }} className='somebuttonbuy'>{orders.length ? 'Buy again' : 'Buy Now'}</button>
 
                         <div className='securetransactionsection'>
                             <i style={{ color: "#999", fontSize: "13px", paddingRight: "10px" }} className='fas fa-lock'></i>
@@ -474,7 +487,7 @@ const SingleProduct = () => {
                                                 <h2 style={{ wordBreak: "break-all" }} >{ele?.title}</h2>
                                             </div>
                                             <h6 style={{ marginBottom: "10px" }} className='verifiedpurchase'>Verified Purchase</h6>
-                                            <p style={{ wordBreak:"break-word" }}>{ele?.body}</p>
+                                            <p style={{ wordBreak: "break-word" }}>{ele?.body}</p>
                                             {user?.id === ele?.user?.id && <button onClick={(e) => editHandle(e, ele?.id, ele?.rating, ele?.title, ele?.body)} className='buttoncancelthing'>Edit</button>}
                                             {user?.id === ele?.user?.id && <button onClick={(e) => deleteHandle(e, ele?.id)} className='buttoncancelthing'>Delete</button>}
                                         </div>

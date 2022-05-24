@@ -146,6 +146,23 @@
 
 }
 
+.productcheckoutprice{
+    position: relative;
+}
+
+.informativecircle2 {
+    position: absolute;
+    font-size: 20px;
+    top: 0px;
+    right: 0px;
+    cursor: pointer;
+    transition: all 50ms ease-in-out;
+
+}
+
+.informativecircle2:hover {
+    font-size: 22px;
+}
 
 .middivallthestuff {
     border-bottom: 1px solid #d5d9d9;
@@ -215,10 +232,9 @@
     height: auto;
     margin: 0 auto;
     display: flex;
-
     padding: 20px;
     padding-top: 50px;
-    gap: 66px;
+    gap: 83px;
 }
 
 .reviewthisproductdiv {

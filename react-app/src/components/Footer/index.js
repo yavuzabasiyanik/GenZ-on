@@ -1,14 +1,14 @@
 import "./footer.css";
 
-const Footer = ({something,something2}) => {
+const Footer = ({ something, something2 }) => {
 
 
 
 
     return (
 
-        <footer style={something ? {marginTop:"85px"} : {}} >
-            <button onClick={()=> window.scrollTo(0,0)} className="backtotopbutton">Back to top</button>
+        <footer style={something ? { marginTop: "85px" } : {}} >
+            <button onClick={() => window.scrollTo(0, 0)} className="backtotopbutton">Back to top</button>
 
             <div className="footer-main-div">
 
@@ -27,24 +27,28 @@ const Footer = ({something,something2}) => {
                     <div className="footerdivs4">
 
                         <p>Projects</p>
-                        <a  rel="noreferrer" target="_blank" href="https://air-b-end.herokuapp.com/"><h6 style={{textDecoration:"underline"}}>AirBend</h6></a>
-                        <a rel="noreferrer" target="_blank" href="https://memestagram-group-project.herokuapp.com/"><h6 style={{textDecoration:"underline"}}>Memestagram</h6></a>
-                        <a rel="noreferrer" target="_blank" href="https://the-best-stuck-overflow.herokuapp.com/"><h6 style={{textDecoration:"underline"}}>Stuckoverflow</h6></a>
+                        <a rel="noreferrer" target="_blank" href="https://air-b-end.herokuapp.com/"><h6 style={{ textDecoration: "underline" }}>AirBend</h6></a>
+                        <a rel="noreferrer" target="_blank" href="https://memestagram-group-project.herokuapp.com/"><h6 style={{ textDecoration: "underline" }}>Memestagram</h6></a>
+                        <a rel="noreferrer" target="_blank" href="https://the-best-stuck-overflow.herokuapp.com/"><h6 style={{ textDecoration: "underline" }}>Stuckoverflow</h6></a>
 
                     </div>
                     <div className="footerdivs4">
 
                         <p>Technologies Used</p>
-                        <h6>Python</h6>
-                        <h6>Flask</h6>
-                        <h6>PostgreSQL</h6>
-                        <h6>SQLAlchemy</h6>
-                        <h6>React</h6>
-                        <h6>Redux</h6>
-                        <h6>HTML5</h6>
-                        <h6>CSS3</h6>
-                        <h6>Heroku</h6>
-                        <h6>Docker</h6>
+
+                        <div className="technologiesused">
+
+                            <h6>Python</h6>
+                            <h6>Flask</h6>
+                            <h6>JavaScript</h6>
+                            <h6>SQLAlchemy</h6>
+                            <h6>React</h6>
+                            <h6>HTML5</h6>
+                            <h6>PostgreSQL</h6>
+                            <h6>CSS3</h6>
+                            <h6>Redux</h6>
+
+                        </div>
 
                     </div>
                     <div className="footerdivs4">

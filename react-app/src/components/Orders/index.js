@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, useHistory } from 'react-router-dom';
+import { NavLink, useHistory, useLocation } from 'react-router-dom';
 import { deleteOrderThunk, orderCreate, updateOrderThunk } from '../../store/order';
 import Footer from '../Footer';
 import './orders.css';
@@ -19,10 +19,18 @@ const Orders = () => {
     const history = useHistory();
 
 
+
+
+
+
     useEffect(() => {
 
         window.scrollTo(0, 0)
+
     }, [])
+
+
+
 
     const months = [
         "January",
@@ -51,7 +59,10 @@ const Orders = () => {
         }
 
         dispatch(orderCreate(payload))
-        history.push('/checkout')
+
+        alert('Thank you, your order has been placed.')
+
+        window.scrollTo({ top: 0, behavior: "smooth" })
 
     }
 
@@ -102,7 +113,7 @@ const Orders = () => {
                     <div key={ele?.id} className='eachdivsomething'>
                         <NavLink exact to={`/productpage/${ele?.product?.id}`}><img className='everypenie' style={{ width: "90px" }} src={ele?.product?.image_url} alt='nothing'></img></NavLink>
                         <div className='twobttonsonename'>
-                            <NavLink exact to={`/productpage/${ele?.product?.id}`}><p className='askneyledi'>{ele?.product?.name}</p></NavLink>
+                            <NavLink exact to={`/productpage/${ele?.product?.id}`}><p className='askneyledi veyiste'>{ele?.product?.name}</p></NavLink>
                             <p><span style={{ fontWeight: "bold", fontSize: "12px", marginBottom: "10px" }}>Price:</span> ${ele?.product?.price}</p>
                             <p><span style={{ fontWeight: "bold", fontSize: "12px", marginBottom: "10px" }}>Quantity:</span> {ele?.itemNum}</p>
                             <div>
@@ -111,6 +122,10 @@ const Orders = () => {
                             </div>
 
                         </div>
+
+                        <div className='divdoldursadece'>
+                        </div>
+
                         <NavLink exact to={`/productpage/${ele?.product?.id}`}><button className='writeareview'>Write a product review</button></NavLink>
 
                         {((Number(new Date(el?.created_at)) + (60 * 60 * 24 * 1000)) - Number(new Date())) > 0 ?
@@ -173,6 +188,7 @@ const Orders = () => {
                             <>
                                 <h1 className='yourorders'>Your Orders</h1>
                                 <p className='imgoingtothegym'> <span style={{ fontWeight: "bold", fontSize: "14px", color: "black" }}>{orders.length} {orders.length > 1 ? 'orders' : 'order'}</span> placed in <span style={{ fontWeight: "bold", fontSize: "14px", color: "black" }}>2022</span></p>
+
                             </> :
                             <h1 className='somesssssss'>You don't have any orders right now, Click <NavLink exact to={'/allproducts/0'}><span className='hereeee'>here</span></NavLink> to see the offers.</h1>
 

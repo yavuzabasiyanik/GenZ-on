@@ -120,7 +120,8 @@ const ShoppingCart = () => {
 
         dispatch(orderCreate(paylaod));
 
-        history.push('/checkout')
+        history.push({pathname: '/orders', state: {boughtsomething:true}})
+
 
     }
 
