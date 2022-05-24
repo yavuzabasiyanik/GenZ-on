@@ -67,7 +67,7 @@ I'm satisfied with the funcinality of my website. However, I'm still not satisfi
 
 
 
-## Getting started finding the memes
+## Getting started
 
 1. Clone this repo
   * git clone https://github.com/yavuzabasiyanik/GenZon.git
