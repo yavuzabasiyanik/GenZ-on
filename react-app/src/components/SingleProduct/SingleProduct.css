@@ -8,10 +8,10 @@
 
 .middivallthestuff {
     width: auto;
-    min-width: 1350px;
+    /* min-width: 1350px; */
     min-height: 608.6px;
     margin: 0 auto;
-    padding-top: 20px;
+    padding: 20px;
     display: flex;
     justify-content: center;
 }
@@ -73,12 +73,12 @@
     box-shadow: 0px 1px 5px #d6d6d6;
 }
 
-.securetransactionsection{
+.securetransactionsection {
     margin: 8.8px 0 14px;
     font-size: 14px;
 }
 
-.bringussugarandtum{
+.bringussugarandtum {
     font-size: 12px;
     display: flex;
     width: 73%;
@@ -146,7 +146,7 @@
 
 }
 
-.productcheckoutprice{
+.productcheckoutprice {
     position: relative;
 }
 
@@ -501,7 +501,25 @@ textarea {
     background: #f3d078;
 }
 
-.heryersessizce:hover{
+.heryersessizce:hover {
     text-decoration: underline;
     cursor: pointer;
+}
+
+.heryersessizce {
+    width: 90px;
+}
+
+@media only screen and (max-width:1351px) {
+
+    .somebuttonadd{
+        width: 180px;
+    }
+
+    .somebuttonbuy{
+        width: 180px;
+    }
+    .productcheckoutsection{
+        padding: 14px 15px;
+    }
 }

@@ -221,24 +221,42 @@
 @media only screen and (max-width: 1519px) {
 
     .ikincicheckout {
-        position: static;
-        margin: 10px 34px;
+        margin: 0px 4px;
+        width: 255px;
+        right:.5px;
 
+        margin-top:30px;
+        top:0;
     }
 
+    /* width: 305px;
+    height: 115px;
+    background-color: white;
+    position: absolute;
+    right: 8px;
+    top: 29px;
+    padding: 20px;
+    border: 1px #D5D9D9 solid;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; */
+
     .dropdownInstructions {
-        position: static;
-        margin: 10px 34px;
+        margin: 0px 4px;
+        width: 255px;
+        right:.5px;
     }
 
     .settingdeliveryinstructions {
-        position: static;
-        margin: 10px 34px;
+        margin: 0px 4px;
+        right: 94px;
+
     }
 
     .buttondivssscancelupdate {
-        position: static;
-        margin: 0px 34px;
+        margin: 0px 4px;
+        right:193px;
     }
 }
 

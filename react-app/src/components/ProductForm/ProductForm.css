@@ -12,7 +12,7 @@
 .selam {
     width: 100%;
     height: 40px;
-    margin: -3px 0 0px;
+    margin: 0px 0 0px;
     background-color: white;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
@@ -47,17 +47,18 @@
 
 .ana-form {
     width: 400px;
-    height: 633px;
+    max-height: 633px;
     background-color: white;
     border: 1px #ddd solid;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     display: flex;
     padding: 0 10px 10px 10px;
+    height: 88%;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     position: relative;
-    gap: 16px;
+    gap: 2.4%;
     border-radius: 3px;
 }
 

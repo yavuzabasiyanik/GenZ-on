@@ -76,7 +76,6 @@ const ProductForm = () => {
     return (
         <>
             <div className="form-main-div-product-sell">
-                <div>
 
                     <form className="ana-form" onSubmit={submitProductForm}>
                         <div className="selam">
@@ -159,7 +158,6 @@ const ProductForm = () => {
 
                     </form>
 
-                </div>
             </div>
             {errors?.length ?
                 <ErrorsModal errors={errors} setErrors={setErrors} /> : null
