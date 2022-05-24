@@ -1,9 +1,9 @@
-from flask import Blueprint, jsonify, session, request
+from unicodedata import category
+from flask import Blueprint, request
 from app.models import User,Product, db
 from app.forms import ProductForm
 from flask_login import current_user, login_user, logout_user, login_required
-# from app.s3_helpers import (
-#     upload_file_to_s3, allowed_file, get_unique_filename)
+
 import boto3
 import botocore
 import os
@@ -80,8 +80,14 @@ def createProduct():
 
     image = request.files["image"]
 
+    name = request.values["name"]
+    description = request.values["description"]
+    quantity = request.values["quantity"]
+    price = request.values["price"]
+    category = request.values["category"]
+
     if not allowed_file(image.filename):
-        return {"errors": "file type not permitted"}, 400
+        return {"errors": error_thingy("file type not permitted")}, 400
 
 
     image.filename = get_unique_filename(image.filename)
@@ -96,26 +102,22 @@ def createProduct():
 
     url = upload["url"]
 
-    form = ProductForm()
 
 
     # upload_file_to_s3, allowed_file, get_unique_filename
 
-    form['csrf_token'].data = request.cookies['csrf_token']
-    if form.validate_on_submit():
-        product = Product(
-            user_id = current_user.id,
-            name = form.data['name'],
-            description = form.data['description'],
-            image_url = url,
-            price = form.data['price'],
-            quantity = form.data['quantity'],
-            category = form.data['category']
-        )
-        db.session.add(product)
-        db.session.commit()
-        return product.to_dict()
-    return {'errors': error_thingy(form.errors)}, 401
+    product = Product(
+        user_id = current_user.id,
+        name = name,
+        description = description,
+        image_url = url,
+        price = price,
+        quantity = quantity,
+        category = category
+    )
+    db.session.add(product)
+    db.session.commit()
+    return product.to_dict()
 
 
 @product_routes.route('/delete/<product_id>', methods=['DELETE'])
