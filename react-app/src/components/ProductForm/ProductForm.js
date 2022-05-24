@@ -21,26 +21,53 @@ const ProductForm = () => {
     const history = useHistory();
 
 
+
+
     const submitProductForm = async (e) => {
         e.preventDefault();
 
         const formData = new FormData();
 
+        let errors = []
+        if (name.length <= 3) {
+            errors.push('Name must be between 4-80');
+        }
+        if (description.length <= 10) {
+            errors.push('Description must be between 10-1000');
+        }
+        if (price < 1 || price > 10000) {
+            errors.push('Price must be between 1-10000');
+        }
+        if (quantity < 1 || quantity > 10) {
+            errors.push('Quantity must be between 1-10');
+        }
+        if (category.length === 0) {
+            errors.push('Please choose a category!');
+        }
+
+        if (errors.length) {
+            setErrors(errors)
+            return
+        }
+
+
         formData.append("image", image);
-        formData.append("name", image);
-        formData.append("description", image);
-        formData.append("price", image);
-        formData.append("quantity", image);
-        formData.append("category", image);
+        formData.append("name", name);
+        formData.append("description", description);
+        formData.append("price", price);
+        formData.append("quantity", quantity);
+        formData.append("category", category);
+
 
         setImageLoading(true);
 
-        const data = await dispatch(createProduct(formData));
+        await dispatch(createProduct(formData));
 
-        if (data) {
-            setErrors(data);
-            return
-        }
+        // if (data) {
+        //     setErrors(data);
+        //     return
+        // }
+
         setImageLoading(false);
 
         history.push('/user/products')
@@ -65,6 +92,7 @@ const ProductForm = () => {
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                                 className='inputss whatdounow'
+                                maxLength={80}
                             />
                         </div>
 
@@ -110,6 +138,8 @@ const ProductForm = () => {
                                 value={description}
                                 onChange={(e) => setDescription(e.target.value)}
                                 className='inputss'
+                                maxLength={1001}
+
                             />
 
                         </div>
@@ -134,6 +164,13 @@ const ProductForm = () => {
             {errors?.length ?
                 <ErrorsModal errors={errors} setErrors={setErrors} /> : null
 
+            }
+            {
+                imageLoading &&
+                <div className="modalbackgroundkidna">
+
+                    <img className="somethingelseimageloading" src="https://media2.giphy.com/media/3o7bu3XilJ5BOiSGic/giphy.gif?cid=ecf05e47y74xgrh1hhu8v8c6obl2bkfw12tuvuvl58qhgh5s&rid=giphy.gif&ct=g" alt="asdas"></img>
+                </div>
             }
         </>
     )

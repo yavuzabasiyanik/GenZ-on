@@ -24,7 +24,7 @@
 }
 
 .selam p {
-    color:#232f3e;
+    color: #232f3e;
 
     font-family: 'Merienda';
     font-size: 14px;
@@ -130,6 +130,23 @@
 
 }
 
+.modalbackgroundkidna {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 2;
+}
+
+.somethingelseimageloading{
+    border-radius: 800px;
+    width: 200px;
+}
 
 
 @keyframes editForm {

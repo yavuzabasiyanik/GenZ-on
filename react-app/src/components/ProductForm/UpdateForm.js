@@ -78,70 +78,68 @@ const UpdateForm = ({ update, setUpdate, id }) => {
                             <div className="selam">
                                 <p>Edit</p>
                             </div>
-                            <div className="jeezdodgeit">
 
-                                <div className="product-form-create">
+                            <div className="product-form-create">
 
-                                    <label>Name</label>
-                                    <input
-                                        type='text'
-                                        value={name}
-                                        onChange={(e) => setName(e.target.value)} className='inputss'
-                                    />
-                                </div>
+                                <label>Name</label>
+                                <input
+                                    type='text'
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)} className='inputss'
+                                    maxLength={80}
 
-                                <div className="product-form-create">
-
-                                    <label>Price</label>
-                                    <input
-                                        type='number'
-                                        value={price}
-                                        onChange={(e) => setPrice(e.target.value)} className='inputss'
-                                    />
-                                </div>
-                                <div className="product-form-create">
-
-                                    <label>Image Url</label>
-                                    <input
-                                        type='text'
-                                        value={img}
-                                        onChange={(e) => setImg(e.target.value)} className='inputss'
-                                    />
-                                </div>
+                                />
                             </div>
-                            <div className="teamcompdependent">
 
-                                <div className="product-form-create">
+                            <div className="product-form-create">
 
-                                    <label>Quantity</label>
-                                    <input
-                                        type='text'
-                                        value={quantity}
-                                        onChange={(e) => setQuantity(e.target.value)} className='inputss'
-                                    />
-                                </div>
-                                <div className="product-form-create">
-
-                                    <label>Category</label>
-                                    <select onChange={(e) => setCategory(e.target.value)} className='inputss' value={category?.toLowerCase()}>
-                                        <option value=''>--Please choose a category--</option>
-                                        <option value='electronics'>Electronics</option>
-                                        <option value='fashion'>Fashion</option>
-                                        <option value='furniture'>Furniture</option>
-                                        <option value='food'>Food</option>
-                                        <option value='toys'>Toys, Hobby & DIY</option>
-                                    </select>
-                                </div>
-                                <div className="product-form-create">
-                                    <label>Description</label>
-                                    <textarea
-                                        value={description}
-                                        onChange={(e) => setDescription(e.target.value)} className='inputss'
-                                    />
-
-                                </div>
+                                <label>Price</label>
+                                <input
+                                    type='number'
+                                    value={price}
+                                    onChange={(e) => setPrice(e.target.value)} className='inputss'
+                                />
                             </div>
-                            <button className="formsubmitbutton">Submit</button>
+                            <div className="product-form-create">
+
+                                <label>Image Url</label>
+                                <input
+                                    type='text'
+                                    value={img}
+                                    onChange={(e) => setImg(e.target.value)} className='inputss'
+                                />
+                            </div>
+
+                            <div className="product-form-create">
+
+                                <label>Quantity</label>
+                                <input
+                                    type='text'
+                                    value={quantity}
+                                    onChange={(e) => setQuantity(e.target.value)} className='inputss'
+                                />
+                            </div>
+                            <div className="product-form-create">
+
+                                <label>Category</label>
+                                <select onChange={(e) => setCategory(e.target.value)} className='inputss' value={category?.toLowerCase()}>
+                                    <option value=''>--Please choose a category--</option>
+                                    <option value='electronics'>Electronics</option>
+                                    <option value='fashion'>Fashion</option>
+                                    <option value='furniture'>Furniture</option>
+                                    <option value='food'>Food</option>
+                                    <option value='toys'>Toys, Hobby & DIY</option>
+                                </select>
+                            </div>
+                            <div className="product-form-create">
+                                <label>Description</label>
+                                <textarea
+                                    value={description}
+                                    onChange={(e) => setDescription(e.target.value)} className='inputss'
+                                />
+
+                            </div>
+                            <button className="formsubmitbuttons">Submit</button>
 
                         </form>
 

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, useHistory, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { deleteOrderThunk, orderCreate, updateOrderThunk } from '../../store/order';
 import Footer from '../Footer';
 import './orders.css';
@@ -16,7 +16,6 @@ const Orders = () => {
     const orders = useSelector(state => Object.values(state.orders)).filter(el => el.userId === user?.id);
 
     const dispatch = useDispatch();
-    const history = useHistory();
 
 
 

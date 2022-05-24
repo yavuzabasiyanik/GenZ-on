@@ -80,7 +80,6 @@
     text-align: center;
     text-decoration: none;
     background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
-    vertical-align: middle;
     box-shadow: 0 1px 0 rgb(255 255 255 / 40%) inset;
     display: block;
     position: relative;
@@ -153,7 +152,6 @@
     padding: 0;
     text-align: center;
     text-decoration: none;
-    vertical-align: middle;
     background: linear-gradient(to bottom,#f7f8fa,#e7e9ec);
     display: block;
     position: relative;

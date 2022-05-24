@@ -56,8 +56,7 @@ export const productLoad = () => async (dispatch) => {
 export const createProduct = (payload) => async (dispatch) => {
     const response = await fetch('/api/products/', {
         method: 'POST',
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
+        body: payload
     })
 
     if (response.ok) {
@@ -66,6 +65,7 @@ export const createProduct = (payload) => async (dispatch) => {
         dispatch(createProducAction(data));
     } else {
         const data = await response.json();
+        console.log(data);
         if (data.errors) {
             return data.errors;
         }
