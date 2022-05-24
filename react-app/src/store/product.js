@@ -53,18 +53,11 @@ export const productLoad = () => async (dispatch) => {
 }
 
 
-export const createProduct = (name, description, price, image_url, quantity, category) => async (dispatch) => {
+export const createProduct = (payload) => async (dispatch) => {
     const response = await fetch('/api/products/', {
         method: 'POST',
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-            name,
-            description,
-            image_url,
-            price,
-            quantity,
-            category
-        })
+        body: JSON.stringify(payload)
     })
 
     if (response.ok) {

@@ -27,7 +27,6 @@ def quantity(form,field):
 class ProductForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired(), Length(min=1, max=80)])
     description = TextAreaField('Description', validators=[DataRequired(), Length(min=1, max=1001)])
-    image_url = StringField('Imageurl', validators=[img_check, DataRequired(), URL()])
     price = IntegerField('Price', validators=[DataRequired(),price_check ])
     quantity = IntegerField('Quantity', validators=[DataRequired(),quantity])
     category = StringField('Category',  validators=[DataRequired()])
