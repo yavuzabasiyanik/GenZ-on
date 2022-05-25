@@ -278,6 +278,16 @@ const SingleProduct = () => {
         history.goBack()
     }
 
+    const setBuyNowModalfunc = (e) => {
+        e.preventDefault();
+
+        if(!user){
+            history.push('/login');
+        }
+
+        setBuyNowModal(true)
+
+    }
     return (
         <>
             <div className='indivproduct-main-div'>
@@ -349,7 +359,7 @@ const SingleProduct = () => {
 
                         </select>
                         <button onClick={handleSubmit} style={{ display: "block", marginBottom: "10px", fontFamily: 'Merienda' }} className='somebuttonadd'>Add to Cart</button>
-                        <button onClick={() => setBuyNowModal(true)} style={{ display: "block", fontFamily: 'Merienda' }} className='somebuttonbuy'>{orders.length ? 'Buy again' : 'Buy Now'}</button>
+                        <button onClick={(e) => setBuyNowModalfunc(e)} style={{ display: "block", fontFamily: 'Merienda' }} className='somebuttonbuy'>{orders.length ? 'Buy again' : 'Buy Now'}</button>
 
                         <div className='securetransactionsection'>
                             <i style={{ color: "#999", fontSize: "13px", paddingRight: "10px" }} className='fas fa-lock'></i>

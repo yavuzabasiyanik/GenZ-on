@@ -439,10 +439,13 @@ nav {
 @media only screen and (max-width:1370px) {
 
     .searchinput {
-
         width: 81%;
     }
 
+    .search{
+        margin-left: 22% ;
+
+    }
     .right-search-thingy{
         right:60px
     }
