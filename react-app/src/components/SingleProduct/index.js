@@ -35,7 +35,6 @@ const SingleProduct = () => {
 
     const orders = useSelector(state => Object.values(state.orders)).filter(el => el.userId === user?.id && el?.orderedItems?.filter(ele=> ele?.product_id === product?.id).length);
 
-    console.log(orders);
 
     const handleSubmit = (e) => {
         e.preventDefault();
