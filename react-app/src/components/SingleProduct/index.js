@@ -379,7 +379,7 @@ const SingleProduct = () => {
 
                         <div style={{ fontSize: "14px", lineHeight: "20px", marginTop: "10px" }}>
                             Return policy:
-                            <span style={{ color: " #007185", wordBreak: "break-word" }}> Returnable until Jun 3, 2022</span>
+                            <span style={{ color: " #007185", wordBreak: "break-word" }}> Returnable until 2023</span>
                         </div>
 
 

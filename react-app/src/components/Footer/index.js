@@ -69,7 +69,7 @@ const Footer = ({ something, something2 }) => {
 
             </div>
             <div className="bilgiler">
-                GenZon is an Amazon clone built by Ahmed abasiyanik.
+                GenZon is an Amazon clone built by Ahmed Abasiyanik.
             </div>
         </footer>
 
