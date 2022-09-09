@@ -17,21 +17,21 @@ const Footer = ({ something, something2 }) => {
                     <div className="footerdivs4">
 
                         <p>Contact Me</p>
-                        <h6>Yavuz Abasiyanik</h6>
-                        <h6>abasiyanikyavuz@gmail.com</h6>
-                        <h6>(312) 607-5021</h6>
+                        <h6>Ahmed Abasiyanik</h6>
+                        <h6>ahmedabasiyanik03@gmail.com</h6>
+                        <h6>(312) 783-7052</h6>
                     </div>
 
 
 
-                    <div className="footerdivs4">
+                    {/* <div className="footerdivs4">
 
                         <p>Projects</p>
                         <a rel="noreferrer" target="_blank" href="https://air-b-end.herokuapp.com/"><h6 style={{ textDecoration: "underline" }}>AirBend</h6></a>
                         <a rel="noreferrer" target="_blank" href="https://memestagram-group-project.herokuapp.com/"><h6 style={{ textDecoration: "underline" }}>Memestagram</h6></a>
                         <a rel="noreferrer" target="_blank" href="https://the-best-stuck-overflow.herokuapp.com/"><h6 style={{ textDecoration: "underline" }}>Stuckoverflow</h6></a>
 
-                    </div>
+                    </div> */}
                     <div className="footerdivs4">
 
                         <p>Technologies Used</p>
@@ -56,8 +56,8 @@ const Footer = ({ something, something2 }) => {
                         <p>About Me</p>
 
                         <div className="someeeeeee">
-                            <a rel="noreferrer" href="https://www.linkedin.com/in/yavuz-abasiyanik-a4a86720a/" target="_blank"><i className="githublinked fa-brands fa-linkedin"></i></a>
-                            <a rel="noreferrer" href="https://github.com/yavuzabasiyanik" target="_blank"><i className="githublinked fa-brands fa-github"></i></a>
+                            <a rel="noreferrer" href="https://www.linkedin.com/in/ahmed-abasiyanik/" target="_blank"><i className="githublinked fa-brands fa-linkedin"></i></a>
+                            {/* <a rel="noreferrer" href="https://github.com/yavuzabasiyanik" target="_blank"><i className="githublinked fa-brands fa-github"></i></a> */}
                         </div>
 
                     </div>
@@ -69,7 +69,7 @@ const Footer = ({ something, something2 }) => {
 
             </div>
             <div className="bilgiler">
-                GenZon is an Amazon clone built by Yavuz abasiyanik.
+                GenZon is an Amazon clone built by Ahmed abasiyanik.
             </div>
         </footer>
 
