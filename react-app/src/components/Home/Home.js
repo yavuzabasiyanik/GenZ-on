@@ -128,7 +128,7 @@ const Home = () => {
                         <div style={{ width: "100px" }} className='genzonrecommended'>
                             Deal of the Day
                         </div>
-                        <p style={{ fontFamily: "Merienda", fontSize: "18px", margin: "7px 0 0", display: "flex", cursor: "auto" }} ><span style={{ fontSize: "12px", fontFamily: "Merienda" }}>$</span>23.00</p>
+                        <p style={{ fontFamily: "Merienda", fontSize: "18px", margin: "7px 0 0", display: "flex", cursor: "auto" }} ><span style={{ fontSize: "12px", fontFamily: "Merienda" }}>$</span>100.00</p>
                         <NavLink exact to={'/productpage/22'}><p style={{ marginTop: "7px" }}>League of Legends Gift Card</p></NavLink>
 
                         <NavLink style={{ cursor: "auto" }} exact to={'/allproducts/5'}><p style={{ marginTop: "20px" }} className='mavicik'>Buy more League products</p></NavLink>
