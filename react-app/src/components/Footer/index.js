@@ -76,4 +76,5 @@ const Footer = ({ something, something2 }) => {
     )
 }
 
+
 export default Footer
