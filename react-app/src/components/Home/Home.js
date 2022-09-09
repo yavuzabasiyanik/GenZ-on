@@ -174,6 +174,7 @@ const Home = () => {
 
 
 
+
                     </div>
                     <div className='categories-home-page'>
                         <NavLink style={{ cursor: "auto" }} exact to={'/productpage/6'}><p className="homepageptags" style={{ fontSize: "21px", fontWeight: "bold" }}>Deal of the Day</p></NavLink>
